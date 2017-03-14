@@ -1,7 +1,7 @@
 {% extends "tease.twig" %}
 
 {% block content %}
-    <article class="post">
+    <article class="post elr-col-third">
         <header class="post-header">
             <h3 class="post-box-title"><a href="{{post.link}}">{{post.title}}</a></h3>
             <ul class="post-box-meta elr-inline-list">
@@ -24,7 +24,7 @@
         </figure>
         {% endif %}
         <div class="post-content">
-            <p class="post-excerpt">{{post.get_preview(50)}}</p>
+            <p class="post-excerpt">{{post.get_preview(25)}}</p>
         </div>
     </article>
 {% endblock %}

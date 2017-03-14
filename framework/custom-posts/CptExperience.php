@@ -26,6 +26,32 @@ add_action('init', function() use ($experience_builder) {
     }, 12
 );
 
+// list all meta keys
+$fields = array(
+    '_experience_start_date',
+    '_experience_end_date',
+    '_experience_business_name',
+    '_experience_url',
+    '_experience_location',
+    '_experience_role'
+);
+
+/* Register meta on the 'init' hook. */
+add_action('init', function() use ($fields, $experience_builder) { $experience_builder->registerMeta($fields); }, 12);
+add_action('add_meta_boxes', 'add_cpt_experience_boxes');
+
+add_action('save_post', function() use ($fields, $experience_builder)
+{
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+    //security check - nonce
+    if (isset($_POST['cpt_nonce']) && $_POST && !wp_verify_nonce($_POST['cpt_nonce'], __FILE__)) {
+        return;
+    }
+
+    return $experience_builder->saveMeta($fields);
+}, 12);
+
 if (! function_exists('add_cpt_experience_boxes'))
 {
     function add_cpt_experience_boxes()
@@ -108,7 +134,7 @@ if (! function_exists('add_cpt_experience_boxes'))
             id="_experience_cole"
             name="_experience_cole"
             placeholder="Web Developer"
-            value="<?php echo esc_attr( $cole ); ?>"
+            value="<?php echo esc_attr( $role ); ?>"
             class="widefat"
         />
     <?php }

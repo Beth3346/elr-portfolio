@@ -1,52 +1,98 @@
 .main-header {
-    background-color: $elr-blue;
-    color: $white;
-    padding: 0;
-
-    @include elr-breakpoint('mars') {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-
-    @include elr-breakpoint('saturn') {
-        text-align: center;
-    }
-
-    a {
-        color: $white;
-    }
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $white;
 }
 
 .site-name {
-    @include elr-em-font(18px);
-    padding: 10px 10px 10px 0;
-    margin: 0;
-    font-weight: 700;
+    font-family: raleway;
+    font-size: to-rems(22px);
+    width: 25%;
+    border: $border;
+    border-left: 0;
+    border-top: 0;
+    padding: 15px 30px;
 
     a {
         text-decoration: none;
+        color: $link-color;
+        transition: color .3s;
+
+        &:hover {
+            text-decoration: none;
+            color: $accent-color;
+        }
     }
 }
 
-.main-menu {
+.main-nav {
+    width: 50%;
     padding: 0;
     margin: 0;
-    text-align: right;
+    border-bottom: $border;
+}
 
-    @include elr-breakpoint('saturn') {
-        text-align: center;
-    }
+.front-nav {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    // border-bottom: $border;
+    box-shadow: 1px 1px 5px rgba($black, .1)
+}
+
+.main-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
 
     li {
-        padding: 0;
+        height: 100%;
         margin: 0;
+        padding: 0;
+        display: flex;
+        text-align: center;
+
+        &.current-menu-item a {
+            border-bottom-color: $link-color;
+        }
+
+        a {
+            display: inline-block;
+            height: 100%;
+            padding: 15px 30px 12px;
+            text-decoration: none;
+            color: $link-color;
+            transition: color .3s, border-color .3s;
+            border-bottom: 3px solid transparent;
+
+            &:hover {
+                text-decoration: none;
+                color: $accent-color;
+                border-bottom-color: $accent-color;
+            }
+        }
+    }
+}
+
+.social-nav {
+    width: 25%;
+    padding: 0;
+    margin: 0;
+    border-left: $border;
+    border-bottom: $border;
+
+    .main-menu {
+        justify-content: flex-end;
     }
 
-    a {
-        padding: 12px 10px;
-
-        @include elr-breakpoint('saturn') {
-            padding: 5px;
-        }
+    li a {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }

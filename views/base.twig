@@ -6,16 +6,18 @@
 {% endblock %}
 
 <body class="{{body_class}}" data-template="base.twig">
-    {% include 'header.twig' %}
-    <main class="main-content {{content_class}}">
-        {% block content %}
-            Sorry, no content
-        {% endblock %}
-    </main>
+    <div class="wrapper">
+        {% include 'header.twig' %}
+        <main class="main-content {{content_class}}">
+            {% block content %}
+                Sorry, no content
+            {% endblock %}
+        </main>
 
-    {% block footer %}
-        {% include 'footer.twig' %}
-        {{wp_footer}}
-    {% endblock %}
+        {% block footer %}
+            {% include 'footer.twig' %}
+            {{wp_footer}}
+        {% endblock %}
+    </div>
 </body>
 </html>
