@@ -7,23 +7,13 @@
 
 .site-name {
     font-family: raleway;
-    font-size: to-rems(22px);
+    font-weight: 700;
+    font-size: to-rems(20px);
     width: 25%;
     border: $border;
     border-left: 0;
     border-top: 0;
     padding: 15px 30px;
-
-    a {
-        text-decoration: none;
-        color: $link-color;
-        transition: color .3s;
-
-        &:hover {
-            text-decoration: none;
-            color: $accent-color;
-        }
-    }
 }
 
 .main-nav {
@@ -37,8 +27,7 @@
     width: 100%;
     padding: 0;
     margin: 0;
-    // border-bottom: $border;
-    box-shadow: 1px 1px 5px rgba($black, .1)
+    box-shadow: 1px 1px 5px rgba($black, .1);
 }
 
 .main-menu {
@@ -61,21 +50,21 @@
         &.current-menu-item a {
             border-bottom-color: $link-color;
         }
+    }
 
-        a {
-            display: inline-block;
-            height: 100%;
-            padding: 15px 30px 12px;
+    a {
+        display: inline-block;
+        height: 100%;
+        padding: 15px 30px 12px;
+        text-decoration: none;
+        color: $link-color;
+        transition: color .3s, border-color .3s;
+        border-bottom: 3px solid transparent;
+
+        &:hover {
             text-decoration: none;
-            color: $link-color;
-            transition: color .3s, border-color .3s;
-            border-bottom: 3px solid transparent;
-
-            &:hover {
-                text-decoration: none;
-                color: $accent-color;
-                border-bottom-color: $accent-color;
-            }
+            color: $accent-color;
+            border-bottom-color: $accent-color;
         }
     }
 }

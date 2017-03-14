@@ -2,6 +2,17 @@ body {
     background-color: $light-blue;
 }
 
+a {
+    text-decoration: none;
+    color: $link-color;
+    transition: color .3s;
+
+    &:hover {
+        text-decoration: none;
+        color: $accent-color;
+    }
+}
+
 .wrapper {
     max-width: 1300px;
     width: 95%;
@@ -14,4 +25,146 @@ body {
 img {
     max-width: 100%;
     height: auto;
+}
+
+.shadow-box {
+    background-color: $white;
+    box-shadow: 1px 1px 5px rgba($black, .1);
+    margin-bottom: 20px;
+}
+
+.main-content {
+    padding: 40px;
+}
+
+.personal-info-box {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.personal-info-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 1px 1px 1px rgba($black, .3);
+
+    img {
+        height: 100px;
+        width: auto;
+    }
+}
+
+.personal-info {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.personal-info-name,
+.personal-info-role,
+.personal-info-location {
+    margin: 0;
+    padding: 0;
+}
+
+.personal-info-name {
+    font-size: to-rems(20px);
+    padding: 10px 0;
+    font-weight: 700;
+}
+
+.personal-info-role,
+.personal-info-location {
+    font-family: 'roboto';
+    font-size: to-rems(16px);
+    color: $darker-grey;
+    font-weight: 300;
+}
+
+.box-heading {
+    font-size: to-rems(22px);
+    border-bottom: $border;
+    width: 100%;
+    padding: 20px 30px;
+    font-weight: 700;
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+
+    .post-box {
+        width: (100% / 3);
+        padding: 20px 15px;
+
+        &:first-of-type {
+            padding-left: 30px;
+        }
+
+        &:last-of-type {
+            padding-right: 30px;
+        }
+    }
+
+    .post-box-title {
+        font-size: to-rems(18px);
+    }
+
+    .post-box-image {
+        height: 150px;
+        overflow: hidden;
+        box-shadow: 1px 1px 1px rgba($black, .3);
+        position: relative;
+        margin-bottom: 10px;
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .post-box-meta {
+        padding: 0 5px;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            list-style: none;
+            font-size: to-rems(12px);
+            padding: 0 10px 0 0;
+
+            a {
+                color: $dark-grey;
+            }
+        }
+
+        .fa {
+            font-size: 12px;
+            color: $elr-blue;
+        }
+
+        .post-box-category {
+            width: 100%;
+            padding-right: 0;
+        }
+    }
+
+    .post-excerpt {
+        font-family: 'roboto';
+        font-size: to-rems(14px);
+        color: $darker-grey;
+        font-weight: 300;
+        padding: 10px 0;
+
+        .read-more {
+            margin-top: 10px;
+            display: block;
+            // font-weight: 500;
+        }
+    }
 }

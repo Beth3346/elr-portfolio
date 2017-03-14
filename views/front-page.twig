@@ -1,53 +1,58 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<article class="elr-container">
+<article class="elr-container-full">
     <section>
         {% block page %}
-        <div class="elr-row">
-            <div class="elr-col-quarter">
-                <h3>Elizabeth Rogers</h3>
-                <h4>Web Developer</h4>
-                <h4>San Antonio, Texas</h4>
+        <div>
+            <div class="elr-col-quarter shadow-box personal-info-box">
+                <figure class="personal-info-avatar">
+                    <img src="http://elr-utilities.elizabeth-rogers.com/images/compressed/cat11-thumb.jpg" alt="">
+                </figure>
+                <div class="personal-info">
+                    <h3 class="personal-info-name">Elizabeth Rogers</h3>
+                    <h4 class="personal-info-role">Web Developer</h4>
+                    <h4 class="personal-info-location">San Antonio, Texas</h4>
+                </div>
                 <a href="/contact" class="elr-button elr-button-primary">Contact</a>
             </div>
-            <div class="elr-col-three-fourths">
+            <div class="elr-col-three-fourths content-holder" style="padding-left: 20px; padding-right: 0">
                 {% if articles %}
-                <div class="posts elr-row">
-                    <h2>Posts</h2>
+                <div class="posts elr-row shadow-box">
+                    <h2 id="posts" class="box-heading">Posts</h2>
                     {% for article in articles %}
                         {% include 'tease-post.twig' with {'post': article} %}
                     {% endfor %}
                 </div>
                 {% endif %}
                 {% if projects %}
-                <div class="projects elr-row">
-                    <h2>Projects</h2>
+                <div class="projects elr-row shadow-box">
+                    <h2 id="projects" class="box-heading">Projects</h2>
                     {% for project in projects %}
                         {% include 'tease-project.twig' with {'post': project} %}
                     {% endfor %}
                 </div>
                 {% endif %}
                 <div class="elr-row">
-                    <div class="elr-col-full">
-                        <h2>Background</h2>
+                    <div class="elr-col-full background shadow-box">
+                        <h2 id="background" class="box-heading">Background</h2>
                         <h3>Summary</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore quaerat ex atque similique labore quisquam deleniti, omnis modi, dolorem quo, explicabo quibusdam. Natus at nisi animi beatae eveniet accusamus, tempora laudantium numquam repellendus maiores quia velit id saepe iure perspiciatis impedit, perferendis. Tempore nisi quia, quasi nobis doloribus quidem at.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident veritatis ea natus. Dignissimos sequi error molestias quasi facere neque voluptatibus officia quibusdam delectus, pariatur quos, similique aliquam consequatur officiis doloribus quo culpa et cupiditate numquam quisquam. Aut doloribus sapiente vel! Odio inventore provident sunt, at, aliquid perspiciatis hic minima optio.</p>
                         {% if experiences %}
-                            <h3>Experience</h3>
+                            <h3 id="experience">Experience</h3>
                             {% for experience in experiences %}
                                 {% include 'tease-experience.twig' with {'post': experience} %}
                             {% endfor %}
                         {% endif %}
                         {% if educations %}
-                            <h3>Education</h3>
+                            <h3 id="education">Education</h3>
                             {% for education in educations %}
                                 {% include 'tease-education.twig' with {'post': education} %}
                             {% endfor %}
                         {% endif %}
                         {% if skills %}
-                            <h3>Skills</h3>
+                            <h3 id="skills">Skills</h3>
                             {% for skill in skills %}
                                 {% include 'tease-skill.twig' with {'post': skill} %}
                             {% endfor %}
@@ -55,16 +60,16 @@
                     </div>
                 </div>
                 {% if recommendations %}
-                <div class="recommendations elr-row">
-                    <h2>Recommendations</h2>
+                <div class="recommendations elr-row shadow-box">
+                    <h2 id="recommendations" class="box-heading">Recommendations</h2>
                     {% for recommendation in recommendations %}
                         {% include 'tease-recommendation.twig' with {'post': recommendation} %}
                     {% endfor %}
                 </div>
                 {% endif %}
                 {% if tutorials %}
-                <div class="tutorials elr-row">
-                    <h2>Tutorials</h2>
+                <div class="tutorials elr-row shadow-box">
+                    <h2 id="tutorials" class="box-heading">Tutorials</h2>
                     {% for tutorial in tutorials %}
                         {% include 'tease-tutorial.twig' with {'post': tutorial} %}
                     {% endfor %}
