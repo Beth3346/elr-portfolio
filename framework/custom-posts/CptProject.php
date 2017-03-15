@@ -35,7 +35,7 @@ add_action('init', function() use ($project_builder)
     $hierarchical = true;
     $default_terms = [];
     return $project_builder->registerTaxonomies($tax_singular_name, $tax_plural_name, $cpt_singular, $cpt_plural, $hierarchical, $default_terms);
-}, 12 );
+}, 12);
 
 add_action('init', function() use ($project_builder)
 {
@@ -46,7 +46,7 @@ add_action('init', function() use ($project_builder)
     $hierarchical = false;
     $default_terms = [];
     return $project_builder->registerTaxonomies($tax_singular_name, $tax_plural_name, $cpt_singular, $cpt_plural, $hierarchical, $default_terms);
-}, 12 );
+}, 12);
 
 add_action('init', function() use ($project_builder)
 {
@@ -57,7 +57,7 @@ add_action('init', function() use ($project_builder)
     $hierarchical = false;
     $default_terms = [];
     return $project_builder->registerTaxonomies($tax_singular_name, $tax_plural_name, $cpt_singular, $cpt_plural, $hierarchical, $default_terms);
-}, 12 );
+}, 12);
 
 add_action('init', function() use ($project_builder)
 {
@@ -68,12 +68,11 @@ add_action('init', function() use ($project_builder)
     $hierarchical = false;
     $default_terms = [];
     return $project_builder->registerTaxonomies($tax_singular_name, $tax_plural_name, $cpt_singular, $cpt_plural, $hierarchical, $default_terms);
-}, 12 );
+}, 12);
 
 // list all meta keys
 $fields = array(
-    '_project_start_date',
-    '_project_end_date',
+    '_project_date',
     '_project_client',
     '_project_url',
     '_project_location',
@@ -107,36 +106,26 @@ if (! function_exists('add_cpt_project_boxes'))
             'project',
             'normal',
             'high'
-        );
+       );
 
         // create meta box html
         function project_cpt_info_cb()
         {
             global $post;
-            $start_date = get_post_meta( $post->ID, '_project_start_date', true );
-            $end_date = get_post_meta( $post->ID, '_project_end_date', true );
-            $client = get_post_meta( $post->ID, '_project_client', true );
-            $url = get_post_meta( $post->ID, '_project_url', true );
-            $location = get_post_meta( $post->ID, '_project_location', true );
+            $date = get_post_meta($post->ID, '_project_date', true);
+            $client = get_post_meta($post->ID, '_project_client', true);
+            $url = get_post_meta($post->ID, '_project_url', true);
+            $location = get_post_meta($post->ID, '_project_location', true);
 
             //implement security
             wp_nonce_field(__FILE__, 'cpt_nonce'); ?>
 
-        <label for="_project_start_date">Start Date: </label>
+        <label for="_project_date">Date: </label>
         <input
-            type="date"
-            id="_project_start_date"
-            name="_project_start_date"
-            value="<?php echo esc_attr( $start_date ); ?>"
-            class="widefat"
-        />
-
-        <label for="_project_end_date">End Date: </label>
-        <input
-            type="date"
-            id="_project_end_date"
-            name="_project_end_date"
-            value="<?php echo esc_attr( $end_date ); ?>"
+            type="text"
+            id="_project_date"
+            name="_project_date"
+            value="<?php echo esc_attr($date); ?>"
             class="widefat"
         />
 
@@ -146,7 +135,7 @@ if (! function_exists('add_cpt_project_boxes'))
             id="_project_client"
             name="_project_client"
             placeholder="Wonderful Client"
-            value="<?php echo esc_attr( $client ); ?>"
+            value="<?php echo esc_attr($client); ?>"
             class="widefat"
         />
 
@@ -156,17 +145,17 @@ if (! function_exists('add_cpt_project_boxes'))
             id="_project_url"
             name="_project_url"
             placeholder="http://"
-            value="<?php echo esc_attr( $url ); ?>"
+            value="<?php echo esc_attr($url); ?>"
             class="widefat"
         />
 
-        <label for="_project_location">Client: </label>
+        <label for="_project_location">Location: </label>
         <input
             type="text"
             id="_project_location"
             name="_project_location"
             placeholder="Houston, Texas, United States"
-            value="<?php echo esc_attr( $location ); ?>"
+            value="<?php echo esc_attr($location); ?>"
             class="widefat"
         />
     <?php }

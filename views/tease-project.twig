@@ -1,30 +1,30 @@
 {% extends "tease.twig" %}
 
 {% block content %}
-    <article class="post elr-col-third">
-        <header class="post-header">
-            <h3 class="post-box-title"><a href="{{post.link}}">{{post.title}}</a></h3>
-            <ul class="post-box-meta elr-inline-list">
-                <li>
-                    <p><i class="fa fa-user"></i> <a href="{{post.author.link}}">{{post.author}}</a></p>
-                </li>
-                <li>
-                    <p><i class="fa fa-calendar"></i> {{post.date}}</p>
-                </li>
-                <li>
-                    <p><i class="fa fa-folder"></i> <a href="{{post.category.link}}">{{post.category}}</a></p>
-                </li>
-            </ul>
-        </header>
+    <article class="post-box project">
         {% if post.thumbnail.src %}
-        <figure class="post-image-holder">
+        <figure class="post-box-image">
             <a href="{{post.link}}">
                 <img src="{{post.thumbnail.src}}" />
             </a>
         </figure>
         {% endif %}
-        <div class="post-content">
-            <p class="post-excerpt">{{post.get_preview(25)}}</p>
-        </div>
+        <header class="post-header">
+            <h3 class="post-box-title"><a href="{{post.link}}">{{post.title}}</a></h3>
+            <ul class="post-box-meta">
+                {% if post.has_field('_project_date') %}
+                <li class="post-box-date">
+                    <i class="fa fa-calendar"></i> {{post.get_field('_project_date')}}
+                </li>
+                {% endif %}
+                <li class="post-box-category">
+                    <i class="fa fa-folder"></i>
+                    {% for portfolio in post.terms('portfolio') %}
+                        <a href="{{portfolio.link}}">{{portfolio.name}}</a>
+                        {% if loop.last == false %}, {% endif %}
+                    {% endfor %}
+                </li>
+            </ul>
+        </header>
     </article>
 {% endblock %}
