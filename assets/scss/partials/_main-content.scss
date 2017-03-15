@@ -90,10 +90,14 @@ img {
     font-weight: 700;
 }
 
+.background,
 .posts {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+}
 
+.posts {
     .post-box {
         width: (100% / 3);
         padding: 20px 15px;
@@ -122,12 +126,14 @@ img {
             position: absolute;
             top: 50%;
             left: 50%;
+            min-height: 150px;
+            width: auto;
             transform: translate(-50%, -50%);
         }
     }
 
     .post-box-meta {
-        padding: 0 5px;
+        padding: 0;
         margin: 0;
         width: 100%;
         display: flex;
@@ -137,10 +143,14 @@ img {
             list-style: none;
             font-size: to-rems(12px);
             padding: 0 10px 0 0;
+        }
 
-            a {
-                color: $dark-grey;
-            }
+        a {
+            color: $dark-grey;
+        }
+
+        .full-width {
+            width: 100%;
         }
 
         .fa {
@@ -160,10 +170,64 @@ img {
         color: $darker-grey;
         font-weight: 300;
         padding: 10px 0;
+    }
 
-        .read-more {
-            margin-top: 10px;
-            display: block;
+    .read-more {
+        font-family: 'roboto';
+        font-size: to-rems(14px);
+        font-weight: 300;
+        margin-top: 10px;
+        display: block;
+    }
+}
+
+.background-section {
+    width: 100%;
+    padding: 20px 30px;
+    color: $darker-grey;
+}
+
+.background-section-title {
+    font-size: to-rems(18px);
+    font-weight: 700;
+    border-bottom: $border;
+    margin-bottom: 20px;
+}
+
+.skill-link {
+    background-color: $link-color;
+    color: $white;
+    float: left;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+    transition: background-color .3s;
+
+    &:hover {
+        color: $white;
+        background-color: $accent-color;
+    }
+}
+
+.post-full {
+    .post-box-title {
+        font-size: to-rems(22px);
+    }
+
+    .post-box-meta {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 10px;
+
+        .fa {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+            color: $link-color;
         }
     }
+}
+
+.main-footer {
+    padding: 20px 10px;
 }

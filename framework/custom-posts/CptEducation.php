@@ -76,7 +76,8 @@ if (! function_exists('add_cpt_education_boxes'))
             $institution = get_post_meta( $post->ID, '_education_institution', true );
             $url = get_post_meta( $post->ID, '_education_url', true );
             $location = get_post_meta( $post->ID, '_education_location', true );
-            $role = get_post_meta( $post->ID, '_education_role', true );
+            $degree = get_post_meta( $post->ID, '_education_degree', true );
+            $concentration = get_post_meta( $post->ID, '_education_concentration', true );
 
             //implement security
             wp_nonce_field(__FILE__, 'cpt_nonce'); ?>

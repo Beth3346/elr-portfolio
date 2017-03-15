@@ -75,7 +75,7 @@ if (! function_exists('add_cpt_experience_boxes'))
             $business_name = get_post_meta( $post->ID, '_experience_business_name', true );
             $url = get_post_meta( $post->ID, '_experience_url', true );
             $location = get_post_meta( $post->ID, '_experience_location', true );
-            $role = get_post_meta( $post->ID, '_experience_role', true );
+            $exprole = get_post_meta( $post->ID, '_experience_role', true );
 
             //implement security
             wp_nonce_field(__FILE__, 'cpt_nonce'); ?>
@@ -128,13 +128,13 @@ if (! function_exists('add_cpt_experience_boxes'))
             class="widefat"
         />
 
-        <label for="_experience_cole">Role: </label>
+        <label for="_experience_role">Role: </label>
         <input
             type="text"
-            id="_experience_cole"
-            name="_experience_cole"
+            id="_experience_role"
+            name="_experience_role"
             placeholder="Web Developer"
-            value="<?php echo esc_attr( $role ); ?>"
+            value="<?php echo esc_attr( $exprole ); ?>"
             class="widefat"
         />
     <?php }

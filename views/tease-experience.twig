@@ -1,18 +1,18 @@
 {% extends "tease.twig" %}
 
 {% block content %}
-    <article class="post elr-col-third">
+    <article class="post-full experience">
         <header class="post-header">
-            <h3 class="post-box-title"><a href="{{post.link}}">{{post.title}}</a></h3>
-            <ul class="post-box-meta elr-inline-list">
+            <h3 class="post-box-title"><a href="{{post.get_field('_experience_url')}}">{{post.get_field('_experience_business_name')}}</a></h3>
+            <ul class="post-box-meta">
                 <li>
-                    <p><i class="fa fa-user"></i> <a href="{{post.author.link}}">{{post.author}}</a></p>
+                    <i class="fa fa-calendar"></i> {{post.get_field('_experience_start_date')}} - {{post.get_field('_experience_end_date')}}
                 </li>
                 <li>
-                    <p><i class="fa fa-calendar"></i> {{post.date}}</p>
+                    <i class="fa fa-wrench"></i> {{post.get_field('_experience_role')}}
                 </li>
                 <li>
-                    <p><i class="fa fa-folder"></i> <a href="{{post.category.link}}">{{post.category}}</a></p>
+                    <i class="fa fa-map-marker"></i> {{post.get_field('_experience_location')}}
                 </li>
             </ul>
         </header>
@@ -24,7 +24,7 @@
         </figure>
         {% endif %}
         <div class="post-content">
-            <p class="post-excerpt">{{post.get_preview(25)}}</p>
+            {{post.get_content}}
         </div>
     </article>
 {% endblock %}

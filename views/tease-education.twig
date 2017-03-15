@@ -1,19 +1,11 @@
 {% extends "tease.twig" %}
 
 {% block content %}
-    <article class="post elr-col-third">
+    <article class="post-full education">
         <header class="post-header">
             <h3 class="post-box-title"><a href="{{post.link}}">{{post.title}}</a></h3>
-            <ul class="post-box-meta elr-inline-list">
-                <li>
-                    <p><i class="fa fa-user"></i> <a href="{{post.author.link}}">{{post.author}}</a></p>
-                </li>
-                <li>
-                    <p><i class="fa fa-calendar"></i> {{post.date}}</p>
-                </li>
-                <li>
-                    <p><i class="fa fa-folder"></i> <a href="{{post.category.link}}">{{post.category}}</a></p>
-                </li>
+            <ul class="post-box-meta">
+
             </ul>
         </header>
         {% if post.thumbnail.src %}

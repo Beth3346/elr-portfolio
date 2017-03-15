@@ -13,8 +13,13 @@
             <h3 class="post-box-title"><a href="{{post.link}}">{{post.title}}</a></h3>
             <ul class="post-box-meta">
                 {% if post.has_field('_project_date') %}
-                <li class="post-box-date">
+                <li class="full-width post-box-date">
                     <i class="fa fa-calendar"></i> {{post.get_field('_project_date')}}
+                </li>
+                {% endif %}
+                {% if post.has_field('_project_client') %}
+                <li class="full-width post-box-client">
+                    <i class="fa fa-user"></i> <a target="_blank" href="{{post.get_field('_project_url')}}">{{post.get_field('_project_client')}}</a>
                 </li>
                 {% endif %}
                 <li class="post-box-category">
@@ -24,7 +29,15 @@
                         {% if loop.last == false %}, {% endif %}
                     {% endfor %}
                 </li>
+                <li class="post-box-category">
+                    <i class="fa fa-folder"></i>
+                    {% for technology in post.terms('technology') %}
+                        <a href="{{technology.link}}">{{technology.name}}</a>
+                        {% if loop.last == false %}, {% endif %}
+                    {% endfor %}
+                </li>
             </ul>
         </header>
+        <a href="{{post.link}}" class="read-more">Read More</a>
     </article>
 {% endblock %}
