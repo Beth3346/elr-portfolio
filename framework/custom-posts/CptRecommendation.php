@@ -20,7 +20,7 @@ if (!empty($role)) {
 add_action('init', function() use ($recommendation_builder) {
         $cpt_singular_name = 'recommendation';
         $cpt_plural_name = 'recommendations';
-        $supports = ['title', 'editor', 'thumbnail'];
+        $supports = ['title', 'editor'];
         $taxonomies = [];
         return $recommendation_builder->registerPostTypes($cpt_singular_name, $cpt_plural_name, $supports, $taxonomies);
     }, 12
@@ -28,9 +28,8 @@ add_action('init', function() use ($recommendation_builder) {
 
 // list all meta keys
 $fields = array(
-    '_recommendation_title',
-    '_recommendation_author',
-    '_recommendation_url'
+    '_recommendation_company_name',
+    '_recommendation_role'
 );
 
 /* Register meta on the 'init' hook. */
@@ -67,22 +66,11 @@ if (! function_exists('add_cpt_recommendation_boxes'))
         function recommendation_cpt_info_cb()
         {
             global $post;
-            $name = get_post_meta( $post->ID, '_recommendation_name', true );
             $company_name = get_post_meta( $post->ID, '_recommendation_company_name', true );
             $role = get_post_meta( $post->ID, '_recommendation_role', true );
 
             //implement security
             wp_nonce_field(__FILE__, 'cpt_nonce'); ?>
-
-        <label for="_recommendation_name">Name: </label>
-        <input
-            type="text"
-            id="_recommendation_name"
-            name="_recommendation_name"
-            placeholder="Title"
-            value="<?php echo esc_attr( $name ); ?>"
-            class="widefat"
-        />
 
         <label for="_recommendation_company_name">Company Name: </label>
         <input
@@ -94,7 +82,7 @@ if (! function_exists('add_cpt_recommendation_boxes'))
             class="widefat"
         />
 
-        <label for="_recommendation_role>Role: </label>
+        <label for="_recommendation_role">Role: </label>
         <input
             type="text"
             id="_recommendation_role"

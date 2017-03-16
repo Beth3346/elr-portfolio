@@ -1,0 +1,17 @@
+{% extends "tease.twig" %}
+
+{% block content %}
+    <article class="post-box recommendation">
+        <div class="post-content">
+            <blockquote class="recommendation-body">
+                <p class="post-excerpt">{{post.get_preview(25)}}</p>
+                <p>
+                    <cite class="recommendation-source">
+                        {{post.title}}<br>
+                        {{post.get_field('_recommendation_company_name')}} - {{post.get_field('_recommendation_role')}}
+                    </cite>
+                </p>
+            </blockquote>
+        </div>
+    </article>
+{% endblock %}

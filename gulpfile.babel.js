@@ -111,4 +111,12 @@ gulp.task('browser-sync', ['styles', 'scripts', 'images'], function() {
     gulp.watch(paths.imagesRaw, ['images', browserSync.reload]);
 });
 
-gulp.task('default', ['browser-sync']);
+gulp.task('watch', ['styles', 'scripts', 'images'], function() {
+    gulp.watch(paths.scss, ['styles']);
+    gulp.watch(paths.scripts, ['scripts']);
+    gulp.watch(paths.imagesRaw, ['images']);
+});
+
+gulp.task('sync', ['browser-sync']);
+gulp.task('default', ['watch']);
+gulp.task('build', ['styles', 'scripts', 'images']);

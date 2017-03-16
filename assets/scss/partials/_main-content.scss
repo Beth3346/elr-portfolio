@@ -1,5 +1,10 @@
 body {
     background-color: $light-blue;
+    padding: 20px;
+
+    @include elr-breakpoint($config: (point: 'jupiter')) {
+        padding: 10px;
+    }
 }
 
 a {
@@ -15,8 +20,8 @@ a {
 
 .wrapper {
     max-width: 1300px;
-    width: 95%;
-    margin: 20px auto;
+    width: 100%;
+    margin: 0 auto;
     background-color: $off-white;
     box-shadow: 1px 1px 5px rgba($black, .1),
         -1px -1px 5px rgba($black, .1);
@@ -35,11 +40,43 @@ img {
 
 .main-content {
     padding: 40px;
+
+    @include elr-breakpoint($config: (point: 'jupiter')) {
+        padding: 20px;
+    }
+}
+
+.page-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    @include elr-breakpoint($config: (point: 960px)) {
+        flex-wrap: wrap;
+    }
+}
+
+.content-holder {
+    margin-left: 20px;
+
+    @include elr-breakpoint($config: (point: 960px)) {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 .personal-info-box {
+    width: 25%;
     text-align: center;
     padding: 30px 20px;
+
+    @include elr-breakpoint($config: (point: 960px)) {
+        width: auto;
+    }
+
+    @include elr-breakpoint($config: (point: 600px)) {
+        width: 100%;
+    }
 }
 
 .personal-info-avatar {
@@ -88,6 +125,10 @@ img {
     width: 100%;
     padding: 20px 30px;
     font-weight: 700;
+
+    @include elr-breakpoint($config: (point: 960px)) {
+        padding: 15px;
+    }
 }
 
 .background,
@@ -102,25 +143,61 @@ img {
         width: (100% / 3);
         padding: 20px 15px;
 
+        @include elr-breakpoint($config: (point: 960px)) {
+            width: 100%;
+            display: flex;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        @include elr-breakpoint($config: (point: 600px)) {
+            flex-wrap: wrap;
+            // justify-content: center;
+        }
+
         &:first-of-type {
             padding-left: 30px;
+
+            @include elr-breakpoint($config: (point: 960px)) {
+                padding-left: 15px;
+            }
         }
 
         &:last-of-type {
             padding-right: 30px;
+
+            @include elr-breakpoint($config: (point: 960px)) {
+                padding-right: 15px;
+            }
         }
     }
 
     .post-box-title {
         font-size: to-rems(18px);
+
+        @include elr-breakpoint($config: (point: 600px)) {
+            padding-top: 0;
+        }
     }
 
     .post-box-image {
         height: 150px;
         overflow: hidden;
-        box-shadow: 1px 1px 1px rgba($black, .3);
+        // box-shadow: 1px 1px 1px rgba($black, .3);
         position: relative;
         margin-bottom: 10px;
+
+        @include elr-breakpoint($config: (point: 960px)) {
+            height: auto;
+            position: static;
+            margin-right: 20px;
+            width: (100% / 3);
+        }
+
+        @include elr-breakpoint($config: (point: 600px)) {
+            width: auto;
+            margin-right: 0;
+        }
 
         img {
             position: absolute;
@@ -129,6 +206,26 @@ img {
             min-height: 150px;
             width: auto;
             transform: translate(-50%, -50%);
+            display: block;
+
+            @include elr-breakpoint($config: (point: 960px)) {
+                position: static;
+                left: 0;
+                top: 0;
+                transform: none;
+                min-height: 0;
+            }
+        }
+    }
+
+    .post-box-content {
+        @include elr-breakpoint($config: (point: 960px)) {
+            width: (100% / 3) * 2;
+        }
+
+        @include elr-breakpoint($config: (point: 600px)) {
+            width: 100%;
+            padding-top: 10px;
         }
     }
 
@@ -185,6 +282,10 @@ img {
     width: 100%;
     padding: 20px 30px;
     color: $darker-grey;
+
+    @include elr-breakpoint($config: (point: 960px)) {
+        padding: 15px;
+    }
 }
 
 .background-section-title {
@@ -192,6 +293,10 @@ img {
     font-weight: 700;
     border-bottom: $border;
     margin-bottom: 20px;
+
+    @include elr-breakpoint($config: (point: 960px)) {
+        margin-bottom: 10px;
+    }
 }
 
 .skill-link {
@@ -226,6 +331,17 @@ img {
             color: $link-color;
         }
     }
+}
+
+.recommendation-body {
+    padding: 0;
+    margin: 0;
+}
+
+.recommendation-source {
+    font-size: to-rems(14px);
+    color: $darker-grey;
+    line-height: 1.2;
 }
 
 .main-footer {

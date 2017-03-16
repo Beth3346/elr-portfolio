@@ -5,18 +5,19 @@
         <header class="post-header">
             <h3 class="post-box-title"><a href="{{post.link}}">{{post.title}}</a></h3>
             <ul class="post-box-meta">
-
+                <li>
+                    <i class="fa fa-calendar"></i> {{post.get_field('_education_start_date')}} - {{post.get_field('_education_end_date')}}
+                </li>
+                <li>
+                    <i class="fa fa-building"></i> {{post.get_field('_education_institution')}}
+                </li>
+                <li>
+                    <i class="fa fa-map-marker"></i> {{post.get_field('_education_location')}}
+                </li>
+                <li>
+                    <i class="fa fa-certificate"></i> {{post.get_field('_education_degree')}}, {{post.get_field('_education_concentration')}}
+                </li>
             </ul>
         </header>
-        {% if post.thumbnail.src %}
-        <figure class="post-image-holder">
-            <a href="{{post.link}}">
-                <img src="{{post.thumbnail.src}}" />
-            </a>
-        </figure>
-        {% endif %}
-        <div class="post-content">
-            <p class="post-excerpt">{{post.get_preview(25)}}</p>
-        </div>
     </article>
 {% endblock %}

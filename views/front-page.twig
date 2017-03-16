@@ -1,89 +1,85 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<article class="elr-container-full">
-    <section>
-        {% block page %}
-        <div>
-            <div class="elr-col-quarter shadow-box personal-info-box">
-                <figure class="personal-info-avatar">
-                    <img src="http://elr-utilities.elizabeth-rogers.com/images/compressed/cat11-thumb.jpg" alt="">
-                </figure>
-                <div class="personal-info">
-                    <h3 class="personal-info-name">Elizabeth Rogers</h3>
-                    <h4 class="personal-info-role">Web Developer</h4>
-                    <h4 class="personal-info-location">San Antonio, Texas</h4>
-                </div>
-                <a href="/contact" class="elr-button elr-button-primary">Contact</a>
-            </div>
-            <div class="elr-col-three-fourths content-holder" style="padding-left: 20px; padding-right: 0">
-                {% if articles %}
-                <div class="posts shadow-box">
-                    <h2 id="posts" class="box-heading">Posts</h2>
-                    {% for article in articles %}
-                        {% include 'tease-post.twig' with {'post': article} %}
-                    {% endfor %}
-                </div>
-                {% endif %}
-                {% if projects %}
-                <div class="posts projects shadow-box">
-                    <h2 id="projects" class="box-heading">Projects</h2>
-                    {% for project in projects %}
-                        {% include 'tease-project.twig' with {'post': project} %}
-                    {% endfor %}
-                </div>
-                {% endif %}
-                <div class="background shadow-box">
-                    <h2 id="background" class="box-heading">Background</h2>
-                    <div class="background-section">
-                        <h3 class="background-section-title">Summary</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore quaerat ex atque similique labore quisquam deleniti, omnis modi, dolorem quo, explicabo quibusdam. Natus at nisi animi beatae eveniet accusamus, tempora laudantium numquam repellendus maiores quia velit id saepe iure perspiciatis impedit, perferendis. Tempore nisi quia, quasi nobis doloribus quidem at.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident veritatis ea natus. Dignissimos sequi error molestias quasi facere neque voluptatibus officia quibusdam delectus, pariatur quos, similique aliquam consequatur officiis doloribus quo culpa et cupiditate numquam quisquam. Aut doloribus sapiente vel! Odio inventore provident sunt, at, aliquid perspiciatis hic minima optio.</p>
-                    </div>
-                    {% if experiences %}
-                    <div class="background-section">
-                        <h3 class="background-section-title" id="experience">Experience</h3>
-                        {% for experience in experiences %}
-                            {% include 'tease-experience.twig' with {'post': experience} %}
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                    {% if educations %}
-                    <div class="background-section">
-                        <h3 class="background-section-title" id="education">Education</h3>
-                        {% for education in educations %}
-                            {% include 'tease-education.twig' with {'post': education} %}
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                    {% if skills %}
-                    <div class="background-section">
-                        <h3 class="background-section-title" id="skills">Skills</h3>
-                        {% for skill in skills %}
-                            <a class="skill-link" href="{{skill.link}}">{{skill.title}}</a>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
-                {% if recommendations %}
-                <div class="posts recommendations shadow-box">
-                    <h2 id="recommendations" class="box-heading">Recommendations</h2>
-                    {% for recommendation in recommendations %}
-                        {% include 'tease-recommendation.twig' with {'post': recommendation} %}
-                    {% endfor %}
-                </div>
-                {% endif %}
-                {% if tutorials %}
-                <div class="posts tutorials shadow-box">
-                    <h2 id="tutorials" class="box-heading">Tutorials</h2>
-                    {% for tutorial in tutorials %}
-                        {% include 'tease-tutorial.twig' with {'post': tutorial} %}
-                    {% endfor %}
-                </div>
-                {% endif %}
-            </div>
+<article class="page-content">
+{% block page %}
+    <div class="shadow-box personal-info-box">
+        <figure class="personal-info-avatar">
+            <img src="http://elr-utilities.elizabeth-rogers.com/images/compressed/cat11-thumb.jpg" alt="">
+        </figure>
+        <div class="personal-info">
+            <h3 class="personal-info-name">Elizabeth Rogers</h3>
+            <h4 class="personal-info-role">Web Developer</h4>
+            <h4 class="personal-info-location">San Antonio, Texas</h4>
         </div>
-        {% endblock %}
-    </section>
+        <a href="/contact" class="elr-button elr-button-primary">Contact</a>
+    </div>
+    <div class="content-holder">
+        {% if articles %}
+        <div class="posts shadow-box">
+            <h2 id="posts" class="box-heading">Posts</h2>
+            {% for article in articles %}
+                {% include 'tease-post.twig' with {'post': article} %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if projects %}
+        <div class="posts projects shadow-box">
+            <h2 id="projects" class="box-heading">Projects</h2>
+            {% for project in projects %}
+                {% include 'tease-project.twig' with {'post': project} %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="background shadow-box">
+            <h2 id="background" class="box-heading">Background</h2>
+            <div class="background-section">
+                <h3 class="background-section-title">Summary</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore quaerat ex atque similique labore quisquam deleniti, omnis modi, dolorem quo, explicabo quibusdam. Natus at nisi animi beatae eveniet accusamus, tempora laudantium numquam repellendus maiores quia velit id saepe iure perspiciatis impedit, perferendis. Tempore nisi quia, quasi nobis doloribus quidem at.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident veritatis ea natus. Dignissimos sequi error molestias quasi facere neque voluptatibus officia quibusdam delectus, pariatur quos, similique aliquam consequatur officiis doloribus quo culpa et cupiditate numquam quisquam. Aut doloribus sapiente vel! Odio inventore provident sunt, at, aliquid perspiciatis hic minima optio.</p>
+            </div>
+            {% if experiences %}
+            <div class="background-section">
+                <h3 class="background-section-title" id="experience">Experience</h3>
+                {% for experience in experiences %}
+                    {% include 'tease-experience.twig' with {'post': experience} %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if educations %}
+            <div class="background-section">
+                <h3 class="background-section-title" id="education">Education</h3>
+                {% for education in educations %}
+                    {% include 'tease-education.twig' with {'post': education} %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if skills %}
+            <div class="background-section">
+                <h3 class="background-section-title" id="skills">Skills</h3>
+                {% for skill in skills %}
+                    <a class="skill-link" href="{{skill.link}}">{{skill.title}}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% if recommendations %}
+        <div class="posts recommendations shadow-box">
+            <h2 id="recommendations" class="box-heading">Recommendations</h2>
+            {% for recommendation in recommendations %}
+                {% include 'tease-recommendation.twig' with {'post': recommendation} %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if tutorials %}
+        <div class="posts tutorials shadow-box">
+            <h2 id="tutorials" class="box-heading">Tutorials</h2>
+            {% for tutorial in tutorials %}
+                {% include 'tease-tutorial.twig' with {'post': tutorial} %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
 </article>
 {% endblock %}
