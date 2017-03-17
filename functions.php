@@ -37,7 +37,7 @@ if (! class_exists('Timber')) {
 
 Timber::$dirname = ['views'];
 
-class WpBoilerplate extends TimberSite {
+class ElrPortfolio extends TimberSite {
 
     public function __construct()
     {
@@ -152,4 +152,4 @@ class WpBoilerplate extends TimberSite {
     }
 }
 
-new WpBoilerplate();
+new ElrPortfolio();
