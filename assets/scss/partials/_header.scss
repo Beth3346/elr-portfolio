@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: stretch;
     background-color: $white;
 }
 
@@ -9,30 +10,28 @@
     font-family: raleway;
     font-weight: 700;
     font-size: to-rems(20px);
-    width: 25%;
+    flex-grow: 1;
     border: $border;
     border-left: 0;
     border-top: 0;
-    padding: 15px 30px;
+    padding: 15px 20px;
 
-    @include elr-breakpoint($config: (point: jupiter)) {
-        padding-left: 20px;
-        padding-right: 20px;
+    @include elr-breakpoint($config: (point: 960px)) {
+        padding-left: 10px;
+        order: 1;
     }
 }
 
 .main-nav {
-    width: 50%;
+    flex-grow: 2;
     padding: 0;
     margin: 0;
     border-bottom: $border;
-}
 
-.front-nav {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    box-shadow: 1px 1px 5px rgba($black, .1);
+    @include elr-breakpoint($config: (point: 960px)) {
+        width: 100%;
+        order: 3;
+    }
 }
 
 .main-menu {
@@ -40,6 +39,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0;
     height: 100%;
@@ -54,14 +54,6 @@
 
         &.current-menu-item a {
             border-bottom-color: $link-color;
-        }
-
-        &:first-child {
-            padding-left: 10px;
-
-            @include elr-breakpoint($config: (point: 'jupiter')) {
-                padding-left: 5px;
-            }
         }
     }
 
@@ -87,24 +79,53 @@
     }
 }
 
+.main-nav,
+.front-nav {
+    @include elr-breakpoint($config: (point: 960px)) {
+        .main-menu {
+            justify-content: center;
+        }
+
+        li,
+        a {
+            max-height: 50px;
+        }
+    }
+}
+
+.front-nav {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-shadow: 1px 1px 5px rgba($black, .1);
+
+    @include elr-breakpoint($config: (point: 960px)) {
+        order: 4;
+    }
+}
+
 .social-nav {
-    width: 25%;
+    flex-grow: 1px;
     padding: 0;
     margin: 0;
     border-left: $border;
     border-bottom: $border;
 
+    @include elr-breakpoint($config: (point: 960px)) {
+        order: 2;
+        border-left: 0;
+    }
+
     .main-menu {
         justify-content: flex-end;
     }
 
-    li a {
-        padding-left: 20px;
-        padding-right: 20px;
+    li {
+        flex-grow: 1;
 
-        @include elr-breakpoint($config: (point: 'jupiter')) {
-            padding-left: 10px;
-            padding-right: 10px;
+        a {
+            padding-left: 20px;
+            padding-right: 20px;
         }
     }
 }

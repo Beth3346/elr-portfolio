@@ -1,0 +1,24 @@
+.background {
+    width: 100%;
+}
+
+.background-section {
+    width: 100%;
+    padding: 20px 30px;
+    color: $darker-grey;
+
+    @include elr-breakpoint($config: (point: 960px)) {
+        padding: 15px;
+    }
+}
+
+.background-section-title {
+    font-size: to-rems(18px);
+    font-weight: 700;
+    border-bottom: $border;
+    margin-bottom: 20px;
+
+    @include elr-breakpoint($config: (point: 960px)) {
+        margin-bottom: 10px;
+    }
+}

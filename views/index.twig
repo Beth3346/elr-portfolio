@@ -1,18 +1,13 @@
-{% extends "base.twig" %}
+{% extends "layouts/base.twig" %}
 
 {% block content %}
-    <section id="page-top">
-        <div class="post-section elr-container">
-            <div class="elr-row">
-                <div class="elr-col-full">
-                    <div class="post-box-holder">
-                    {% for post in posts %}
-                        {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-                    {% endfor %}
-                    </div>
-                    {% include 'pagination.twig' with {'posts': posts} %}
-                </div>
-            </div>
-        </div>
-    </section>
+<article>
+    <h1 class="page-title">{{posts[0].type.label}}</h1>
+    <div class="shadow-box post-holder">
+        {% for post in posts %}
+            {% include ['tease-'~post.post_type~'.twig', 'teases/tease.twig'] %}
+        {% endfor %}
+    </div>
+    {% include 'partials/pagination.twig' with {'posts': posts} %}
+</article>
 {% endblock %}

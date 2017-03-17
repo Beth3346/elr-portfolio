@@ -1,20 +1,22 @@
-{% extends "base.twig" %}
+{% extends "layouts/base.twig" %}
 
 {% block content %}
-    <article class="elr-container">
-        <section>
-            <div class="page-content page-section elr-row">
-                <div class="content-holder elr-col-full">
-                    {% block page %}
-                        {% if post.thumbnail.src %}
-                        <figure class="post-image-holder">
-                            <img src="{{post.thumbnail.src}}" />
-                        </figure>
-                        {% endif %}
-                        {{post.content}}
-                    {% endblock %}
+<article class="page-content">
+    {% include 'partials/sidebar.twig' %}
+    <div class="content-holder">
+        {% block page %}
+            <section role="article" class="post post-type-{{post.post_type}}" id="post-{{post.ID}}">
+                <div class="shadow-box content">
+                    <h1 class="post-title">{{post.title}}</h1>
+                    {% if post.thumbnail.src %}
+                    <figure class="post-image-holder">
+                        <img src="{{post.thumbnail.src}}" />
+                    </figure>
+                    {% endif %}
+                    {{post.content}}
                 </div>
-            </div>
-        </section>
-    </article>
+            </section>
+        {% endblock %}
+    </div>
+</article>
 {% endblock %}

@@ -1,0 +1,131 @@
+.post-box {
+    padding: 20px 15px;
+    width: (100% / 3);
+
+    @include elr-breakpoint($config: (point: 960px)) {
+        display: flex;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    @include elr-breakpoint($config: (point: 600px)) {
+        flex-wrap: wrap;
+    }
+}
+
+.post-box-title {
+    font-size: to-rems(18px);
+
+    @include elr-breakpoint($config: (point: 600px)) {
+        padding-top: 0;
+    }
+}
+
+.post-box-image {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+
+    @include elr-breakpoint($config: (point: 960px)) {
+        height: auto;
+        position: static;
+        margin-right: 20px;
+        width: (100% / 3);
+    }
+
+    @include elr-breakpoint($config: (point: 600px)) {
+        width: auto;
+        margin-right: 0;
+    }
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 150px;
+        width: auto;
+        max-width: none;
+        transform: translate(-50%, -50%);
+        display: block;
+
+        @include elr-breakpoint($config: (point: 960px)) {
+            position: static;
+            left: 0;
+            top: 0;
+            transform: none;
+            min-height: 0;
+        }
+    }
+}
+
+.post-box-content {
+    @include elr-breakpoint($config: (point: 960px)) {
+        width: (100% / 3) * 2;
+    }
+
+    @include elr-breakpoint($config: (point: 600px)) {
+        width: 100%;
+        padding-top: 10px;
+    }
+}
+
+.post-box-meta {
+    padding: 0;
+    margin: 0;
+    // width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        list-style: none;
+        font-size: to-rems(12px);
+        padding: 0 10px 0 0;
+    }
+
+    a {
+        color: $dark-grey;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .fa {
+        font-size: 12px;
+        color: $elr-blue;
+    }
+
+    .post-box-category {
+        width: 100%;
+        padding-right: 0;
+    }
+}
+
+.post-excerpt {
+    font-family: 'roboto';
+    font-size: to-rems(14px);
+    color: $darker-grey;
+    font-weight: 300;
+    padding: 10px 0;
+}
+
+.post-full {
+    .post-box-title {
+        font-size: to-rems(22px);
+    }
+
+    .post-box-meta {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 10px;
+
+        .fa {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+            color: $link-color;
+        }
+    }
+}
+

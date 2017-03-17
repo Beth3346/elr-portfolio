@@ -1,10 +1,10 @@
-{% extends "tease.twig" %}
+{% extends "teases/tease.twig" %}
 
 {% block content %}
     <article class="post elr-col-third">
         <header class="post-header">
             <h3 class="post-box-title"><a href="{{post.link}}">{{post.title}}</a></h3>
-            <ul class="post-box-meta elr-inline-list">
+            <ul class="post-box-meta">
                 <li>
                     <p><i class="fa fa-user"></i> <a href="{{post.author.link}}">{{post.author}}</a></p>
                 </li>

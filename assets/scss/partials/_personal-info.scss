@@ -1,0 +1,44 @@
+.personal-info-box {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.personal-info-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 1px 1px 1px rgba($black, .3);
+
+    img {
+        height: 100px;
+        width: auto;
+    }
+}
+
+.personal-info {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.personal-info-name,
+.personal-info-role,
+.personal-info-location {
+    margin: 0;
+    padding: 0;
+}
+
+.personal-info-name {
+    font-size: to-rems(20px);
+    padding: 10px 0;
+    font-weight: 700;
+}
+
+.personal-info-role,
+.personal-info-location {
+    font-family: 'roboto';
+    font-size: to-rems(16px);
+    color: $darker-grey;
+    font-weight: 300;
+}
