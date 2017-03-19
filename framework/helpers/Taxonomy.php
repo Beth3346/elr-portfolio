@@ -50,7 +50,7 @@ class Taxonomy
 
         $items = $query->get_posts();
 
-        foreach($items as $item) {
+        foreach ($items as $item) {
             $term = wp_get_post_terms($item->ID, $taxonomy);
             array_push($rel_terms, $term[0]->name);
         }
@@ -142,7 +142,7 @@ class Taxonomy
 
     public function getChildren($term, $taxonomy)
     {
-        if($this->isParentTerm($term)) {
+        if ($this->isParentTerm($term)) {
             $terms = [];
             $ids = get_term_children($term->term_id, $taxonomy);
 
@@ -151,7 +151,6 @@ class Taxonomy
                     array_push($terms, get_term($id));
                 }
             }
-
         } else {
             $terms = null;
         }

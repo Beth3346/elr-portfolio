@@ -62,7 +62,7 @@ class Validation
         if ($colon == false) {
             $rule = $callback;
         } else {
-            $rule = substr($callback , 0, $length - ($length - $colon));
+            $rule = substr($callback, 0, $length - ($length - $colon));
         }
 
         return $rule;
@@ -85,15 +85,13 @@ class Validation
         $colon = strpos($callback, ':');
         $params = array();
 
-        if ($colon == false)
-        {
+        if ($colon == false) {
             $param = null;
         } else {
-            $param_list = substr($callback , $colon + 1);
+            $param_list = substr($callback, $colon + 1);
         }
 
-        if ($param_list != null)
-        {
+        if ($param_list != null) {
             $params = explode(':', $param_list);
         }
 
@@ -116,8 +114,7 @@ class Validation
 
         $pattern = '/^[0-9.,]*$/';
 
-        if (preg_match($pattern, $value))
-        {
+        if (preg_match($pattern, $value)) {
             $valid = true;
         } else {
             $valid = false;
@@ -142,8 +139,7 @@ class Validation
     {
         $pattern = '/^[0-9.,$]*$/';
 
-        if (preg_match($pattern, $value))
-        {
+        if (preg_match($pattern, $value)) {
             $valid = true;
         } else {
             $valid = false;
@@ -168,8 +164,7 @@ class Validation
     {
         $valid = filter_var($value, FILTER_VALIDATE_INT);
 
-        if ($valid == false)
-        {
+        if ($valid == false) {
             $this->validation_errors[] = "Please provide a whole number for $fieldname";
         } else {
             $valid = true;
@@ -195,12 +190,11 @@ class Validation
             'options' => array(
                 'max_range' => $params[0]
           )
-      );
+        );
 
         $valid = filter_var($value, FILTER_VALIDATE_INT, $options);
 
-        if ($valid == false)
-        {
+        if ($valid == false) {
             $this->validation_errors[] = "Please provide a whole number less than $params[0] for $fieldname";
         } else {
             $valid = true;
@@ -226,12 +220,11 @@ class Validation
             'options' => array(
                 'min_range' => $params[0]
           )
-      );
+        );
 
         $valid = filter_var($value, FILTER_VALIDATE_INT, $options);
 
-        if ($valid == false)
-        {
+        if ($valid == false) {
             $this->validation_errors[] = "Please provide a whole number greater than $params[0] for $fieldname";
         } else {
             $valid = true;
@@ -258,12 +251,11 @@ class Validation
                 'min_range' => $params[0],
                 'max_range' => $params[1]
           )
-      );
+        );
 
         $valid = filter_var($value, FILTER_VALIDATE_INT, $options);
 
-        if ($valid == false)
-        {
+        if ($valid == false) {
             $this->validation_errors[] = "Please provide a whole number between $params[0] and $params[1] for $fieldname";
         } else {
             $valid = true;
@@ -288,8 +280,7 @@ class Validation
     {
         $value = trim($value);
 
-        if (strlen($value) > 3)
-        {
+        if (strlen($value) > 3) {
             $valid = true;
         } else {
             $valid = false;
@@ -314,8 +305,7 @@ class Validation
     {
         $pattern = '/^[a-z]*$/i';
 
-        if (preg_match($pattern, $value))
-        {
+        if (preg_match($pattern, $value)) {
             $valid = true;
         } else {
             $valid = false;
@@ -340,8 +330,7 @@ class Validation
     {
         $value = trim($value);
 
-        if (strlen($value) > $params[0])
-        {
+        if (strlen($value) > $params[0]) {
             $valid = true;
         } else {
             $valid = false;
@@ -366,8 +355,7 @@ class Validation
     {
         $value = trim($value);
 
-        if (strlen($value) < $params[0])
-        {
+        if (strlen($value) < $params[0]) {
             $valid = true;
         } else {
             $valid = false;
@@ -392,8 +380,7 @@ class Validation
     {
         $value = trim($value);
 
-        if (strlen($value) == $params[0])
-        {
+        if (strlen($value) == $params[0]) {
             $valid = true;
         } else {
             $valid = false;
@@ -421,8 +408,7 @@ class Validation
         $min = $params[0];
         $max = $params[1];
 
-        if ($str_len >= $min and $str_len <= $max)
-        {
+        if ($str_len >= $min and $str_len <= $max) {
             $valid = true;
         } else {
             $valid = false;
@@ -451,8 +437,7 @@ class Validation
 
         $pattern = '/^[a-z.,\s]*$/i';
 
-        if (preg_match($pattern, $value))
-        {
+        if (preg_match($pattern, $value)) {
             $valid = true;
         } else {
             $valid = false;
@@ -485,8 +470,7 @@ class Validation
 
             // look for extension followed by 'x'
             // split phone number and extension into two seperate strings
-            if (strpos($value, 'x') != false)
-            {
+            if (strpos($value, 'x') != false) {
                 $complete_phone = preg_split('/[x]/i', $value);
 
                 $value = $complete_phone[0];
@@ -506,15 +490,13 @@ class Validation
 
         // make sure phone number is exactly 10 digits
 
-        if (strlen($value) < 10)
-        {
+        if (strlen($value) < 10) {
             $valid = false;
             $this->validation_errors[] = "Too short! Please provide a valid phone number for $fieldname";
         } else {
             $phone = cleanPhone($value);
 
-            if (strlen($phone) != 10)
-            {
+            if (strlen($phone) != 10) {
                 $valid = false;
                 $this->validation_errors[] = "Please provide a valid phone number for $fieldname";
             } else {
@@ -540,8 +522,7 @@ class Validation
     {
         $valid = filter_var($value, FILTER_VALIDATE_EMAIL);
 
-        if ($valid == false)
-        {
+        if ($valid == false) {
             $this->validation_errors[] = "Please provide a valid email address for $fieldname";
         } else {
             $valid = true;
@@ -565,8 +546,7 @@ class Validation
     {
         $valid = filter_var($value, FILTER_VALIDATE_URL);
 
-        if ($valid == false)
-        {
+        if ($valid == false) {
             $this->validation_errors[] = "Please provide a valid url for $fieldname";
         } else {
             $valid = true;
@@ -590,8 +570,7 @@ class Validation
     {
         $pattern = '/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/i'; // url
 
-        if (preg_match($pattern, $value))
-        {
+        if (preg_match($pattern, $value)) {
             $valid = false;
             $this->validation_errors[] = "Invalid $fieldname";
         } else {
@@ -616,8 +595,7 @@ class Validation
     {
         $pattern = '/[<>]/'; // tags
 
-        if (preg_match($pattern, $value))
-        {
+        if (preg_match($pattern, $value)) {
             $valid = false;
             $this->validation_errors[] = "$fieldname cannot contain html";
         } else {
@@ -642,8 +620,7 @@ class Validation
     {
         $valid = !empty($value);
 
-        if ($valid == false)
-        {
+        if ($valid == false) {
             $this->validation_errors[] = "The $fieldname is required";
         } else {
             $valid = true;
@@ -667,8 +644,7 @@ class Validation
     {
         $pattern = '/Content-Type:|Bcc:|Cc:/i';
 
-        if (preg_match($pattern, $value))
-        {
+        if (preg_match($pattern, $value)) {
             $valid = false;
             $this->validation_errors[] = "Invalid $fieldname";
         } else {

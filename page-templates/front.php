@@ -15,4 +15,4 @@ $context['skills'] = Timber::get_posts('post_type=skill&numberposts=-1');
 $context['tutorials'] = Timber::get_posts('post_type=tutorial&numberposts=3');
 $context['videos'] = Timber::get_posts('post_type=video&numberposts=3');
 
-Timber::render('front-page.twig', $context );
+Timber::render('front-page.twig', $context);

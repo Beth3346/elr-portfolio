@@ -16,6 +16,6 @@ class Security
 
     public function removeWpVersion()
     {
-       return '';
+        return '';
     }
 }

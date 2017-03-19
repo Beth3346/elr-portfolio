@@ -77,7 +77,7 @@ class Query
 
         // TODO: need to check if term exists
         if (!empty($terms)) {
-            foreach($terms as $term) {
+            foreach ($terms as $term) {
                 $related[] = $term->$term_id;
             }
         } else {

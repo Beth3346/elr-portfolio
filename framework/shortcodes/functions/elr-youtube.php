@@ -1,11 +1,11 @@
 <?php
 
-add_shortcode( 'elr-youtube', function( $atts ) {
-    extract( shortcode_atts( array(
+add_shortcode('elr-youtube', function ($atts) {
+    extract(shortcode_atts(array(
         'src' => '',
         'width' => 560,
         'height' => 315
-    ), $atts ) );
+    ), $atts));
 
     $string = '<div class="page-video-holder"><div class="elr-video-wrapper">';
     $string .= '<iframe width="' . $width . '" height="' . $height . '" src="';

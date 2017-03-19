@@ -71,8 +71,7 @@ class Filter
                 '$this->ajax_url' => admin_url('admin-ajax.php'),
                 '$this->current_term' => strtolower(single_term_title('', false)),
                 '$this->current_tax' => $current_tax
-           )
-       );
+           ));
     }
 
     /**
@@ -139,22 +138,22 @@ class Filter
             'tax_query' => $tax_args,
             'paged' => $paged,
             'post_status' => 'publish'
-       );
+        );
 
         // If taxonomy is not set, remove key from array and get all posts
-        if (!$taxonomy)
-        {
+        if (!$taxonomy) {
             unset($args['tax_query']);
         }
 
         $query = new \WP_Query($args);
 
         if ($query->have_posts()) :
-            while ($query->have_posts()) : $query->the_post(); ?>
+            while ($query->have_posts()) :
+                $query->the_post(); ?>
                 <?php require(get_template_directory() . '/content/content-' . $post_type . '.php'); ?>
-            <?php endwhile; ?>
+            <?php                                                                                                                                                                                                                                                                                                                         endwhile; ?>
             <?php wp_reset_postdata(); ?>
-        <?php else: ?>
+        <?php                                                                                                                                                                                                                 else: ?>
             <h2>No products found</h2>
         <?php endif;
 

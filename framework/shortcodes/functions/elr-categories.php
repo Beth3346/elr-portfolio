@@ -1,13 +1,13 @@
 <?php
 
-add_shortcode( 'elr-categories', function( $atts, $content = null ) {
-    extract( shortcode_atts( array(
+add_shortcode('elr-categories', function ($atts, $content = null) {
+    extract(shortcode_atts(array(
         'style' => '',
         'num' => 'all',
         'by_count' => false,
         'hierarchical' => true,
         'count' => false,
-    ), $atts ) );
+    ), $atts));
 
     $cat_args = array(
         'orderby' => 'name',
@@ -15,29 +15,29 @@ add_shortcode( 'elr-categories', function( $atts, $content = null ) {
         'hide_empty' => true
     );
 
-    if ( $by_count ) {
+    if ($by_count) {
         $cat_args['orderby'] = 'count';
         $cat_args['order'] = 'DESC';
     }
 
-    if ( $num != 'all' ) {
+    if ($num != 'all') {
         $cat_args['number'] = $num;
     }
 
     $string = '<section class="elr-categories">';
 
-    if ( $content != null ) {
+    if ($content != null) {
         $string .= '<h1>';
-        $string .= esc_html( $content );
+        $string .= esc_html($content);
         $string .= '</h1>';
     }
     $string .= '<ul>';
 
-    $terms = get_terms( 'category', $cat_args );
+    $terms = get_terms('category', $cat_args);
 
-    if ( !empty( $terms ) && !is_wp_error( $terms ) ){
-        foreach ( $terms as $term ) {
-            $term_link = get_term_link( $term );
+    if (!empty($terms) && !is_wp_error($terms)) {
+        foreach ($terms as $term) {
+            $term_link = get_term_link($term);
 
             $args = array(
                 'post_type' => 'any',
@@ -53,7 +53,7 @@ add_shortcode( 'elr-categories', function( $atts, $content = null ) {
                 )
             );
 
-            $query = new WP_Query( $args );
+            $query = new WP_Query($args);
             $post_count = $query->post_count;
 
             $string .= '<li>';
@@ -63,7 +63,7 @@ add_shortcode( 'elr-categories', function( $atts, $content = null ) {
             $string .= $term->name;
             $string .= '</a>';
 
-            if ( $count ) {
+            if ($count) {
                 $string .= ' ' . $post_count;
             }
 

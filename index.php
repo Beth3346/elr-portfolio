@@ -13,7 +13,7 @@
  * @since   Timber 0.1
  */
 
-if ( ! class_exists( 'Timber' ) ) {
+if (! class_exists('Timber')) {
     echo 'Timber not activated. Make sure you activate the plugin in <a href="/wp/wp-admin/plugins.php#timber">/wp/wp-admin/plugins.php</a>';
     return;
 }
@@ -24,4 +24,4 @@ $context['pagination'] = Timber::get_pagination();
 $context['title'] = 'Articles';
 $templates = ['index.twig'];
 
-Timber::render( $templates, $context );
+Timber::render($templates, $context);

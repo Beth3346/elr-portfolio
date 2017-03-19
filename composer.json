@@ -27,7 +27,11 @@
     "autoload": {
         "classmap": [
             "framework/CptBuilder.php",
+            "framework/Cpt.php",
+            "framework/CptMeta.php",
+            "framework/CustomTaxonomyBuilder.php",
             "framework/CustomFields.php",
+            "framework/Forms.php",
             "framework/ThemeOptions.php",
             "framework/helpers/Admin.php",
             "framework/helpers/Date.php",
@@ -39,14 +43,6 @@
             "framework/helpers/Utility.php"
         ],
         "files": [
-            "framework/custom-posts/CptSkill.php",
-            "framework/custom-posts/CptProject.php",
-            "framework/custom-posts/CptTutorial.php",
-            "framework/custom-posts/CptExperience.php",
-            "framework/custom-posts/CptEducation.php",
-            "framework/custom-posts/CptReading.php",
-            "framework/custom-posts/CptVideo.php",
-            "framework/custom-posts/CptRecommendation.php",
             "framework/shortcodes/elr-shortcodes.php"
         ],
         "psr-4": {

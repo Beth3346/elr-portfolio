@@ -6,9 +6,7 @@ class CustomFields
 {
     public function metaFieldsRegister($fields)
     {
-
-        foreach ($fields as $field)
-        {
+        foreach ($fields as $field) {
             $id = $field['id'];
             register_meta('post', $id, [$this, 'metaFieldsSanitize'], '__return_true');
         }
@@ -23,12 +21,12 @@ class CustomFields
 
     public function metaBoxSave($post_id, $fields)
     {
-
-        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return;
+        }
 
         //security check - nonce
-        if (isset($_POST['nonce']) && $_POST && !wp_verify_nonce($_POST['nonce'], __FILE__))
-        {
+        if (isset($_POST['nonce']) && $_POST && !wp_verify_nonce($_POST['nonce'], __FILE__)) {
             return;
         }
 
@@ -37,11 +35,9 @@ class CustomFields
 
         global $post;
 
-        foreach ($fields as $field)
-        {
+        foreach ($fields as $field) {
             $id = $field['id'];
-            if (isset($_POST[$id]))
-            {
+            if (isset($_POST[$id])) {
                 update_post_meta($post_id, $id, $_POST[$id]);
             }
         }
@@ -65,6 +61,7 @@ class CustomFields
     private function metaFieldInput($field)
     {
         global $post;
+
         $value = get_post_meta($post->ID, $field['id'], true);
 
         $label = '<label for="' . $field['id'] . '">' . $field['label'] . ': </label>';
@@ -78,6 +75,7 @@ class CustomFields
     private function metaFieldSelect($field)
     {
         global $post;
+
         $value = get_post_meta($post->ID, $field['id'], true);
 
         $label = '<label for="' . $field['id'] . '">' . $field['label']. ': </label>';
@@ -87,10 +85,8 @@ class CustomFields
         // Create default value
         $select .= '<option value="">Choose ' . $field['label']. '</option>';
 
-        foreach ($field['options'] as $option)
-        {
-            if ($value == $option)
-            {
+        foreach ($field['options'] as $option) {
+            if ($value == $option) {
                 $select .= '<option selected value="' . $option . '">' . $option . '</option>';
             } else {
                 $select .= '<option value="' . $option . '">' . $option . '</option>';
@@ -123,22 +119,17 @@ class CustomFields
 
         $inputs = '';
 
-        foreach ($fields['args'] as $field => $values)
-        {
-            foreach ($values as $value)
-            {
-                if (array_key_exists('type', $value))
-                {
+        foreach ($fields['args'] as $field => $values) {
+            foreach ($values as $value) {
+                if (array_key_exists('type', $value)) {
                     $type = $value['type'];
                 } else {
                     $type = 'text';
                 }
 
-                if ($type == 'textarea')
-                {
+                if ($type == 'textarea') {
                     echo $this->metaFieldTextarea($value);
-                } elseif ($type == 'select')
-                {
+                } elseif ($type == 'select') {
                     echo $this->metaFieldSelect($value);
                 } else {
                     echo $this->metaFieldInput($value);

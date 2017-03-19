@@ -1,4 +1,5 @@
 <?php
+namespace Elr;
 
 require_once(get_template_directory() . '/vendor/autoload.php');
 
@@ -6,6 +7,8 @@ use Framework\Helpers\Admin;
 use Framework\Helpers\Setup;
 use Framework\Helpers\Security;
 use Framework\Helpers\Utility;
+use Framework\ThemeOptions;
+use Framework\CptBuilder;
 
 $timber = new \Timber\Timber();
 
@@ -19,7 +22,7 @@ define('STYLES', THEMEROOT . '/assets/css');
 // Set Up Content Width Value
 
 if (! isset($content_width)) {
-    $content_width = 1200;
+    $content_width = 1300;
 }
 
 // Make theme available for translation
@@ -29,55 +32,260 @@ load_theme_textdomain('elr', $lang_dir);
 update_option('uploads_use_yearmonth_folders', 0);
 
 if (! class_exists('Timber')) {
-    add_action('admin_notices', function() {
+    add_action('admin_notices', function () {
             echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url(admin_url('plugins.php#timber')) . '">' . esc_url(admin_url('plugins.php')) . '</a></p></div>';
-        });
+    });
     return;
 }
 
-Timber::$dirname = ['views'];
+$timber::$dirname = ['views'];
 
-class ElrPortfolio extends TimberSite {
+class Site extends \TimberSite
+{
 
     public function __construct()
     {
         $admin = new Admin;
         $setup = new Setup;
         $security = new Security;
+        $builder = new CptBuilder;
 
         $setup->registerMenus(['main-nav', 'footer-nav', 'social-nav', 'front-nav']);
         $setup->registerSidebars(['sidebar']);
 
+        $builder->createPostType([
+            'singular_name' => 'project',
+            'taxonomies' => [],
+            'custom_taxonomies' => [
+                [
+                    'singular_name' => 'portfolio'
+                ],
+                [
+                    'singular_name' => 'technology',
+                    'plural_name' => 'technologies',
+                    'hierarchical' => false
+                ],
+                [
+                    'singular_name' => 'tool',
+                    'hierarchical' => false
+                ],
+                [
+                    'singular_name' => 'project_type',
+                    'hierarchical' => false
+                ]
+            ],
+            'fields' => [
+                [
+                    'id' => '_project_date',
+                    'label' => 'Date',
+                ],
+                [
+                    'id' => '_project_client',
+                    'label' => 'Client',
+                ],
+                [
+                    'id' => '_project_url',
+                    'label' => 'URL',
+                    'input_type' => 'url'
+                ],
+                [
+                    'id' => '_project_location',
+                    'label' => 'Client Location',
+                ],
+                [
+                    'id' => '_project_description',
+                    'label' => 'Description',
+                    'input_type' => 'textarea'
+                ]
+            ]
+        ]);
+
+        $builder->createPostType([
+            'singular_name' => 'education',
+            'plural_name' => 'education',
+            'taxonomies' => [],
+            'custom_taxonomies' => [
+                [
+                    'singular_name' => 'education_type'
+                ]
+            ],
+            'fields' => [
+                [
+                    'id' => '_education_start_date',
+                    'label' => 'Start Date',
+                ],
+                [
+                    'id' => '_education_end_date',
+                    'label' => 'End Date',
+                ],
+                [
+                    'id' => '_education_institution',
+                    'label' => 'Institution',
+                ],
+                [
+                    'id' => '_education_url',
+                    'label' => 'Institution URL',
+                    'input_type' => 'url'
+                ],
+                [
+                    'id' => '_education_location',
+                    'label' => 'Institution Location',
+                ],
+                [
+                    'id' => '_education_degree',
+                    'label' => 'Degree',
+                ],
+                [
+                    'id' => '_education_concentration',
+                    'label' => 'Concentration',
+                ]
+            ]
+        ]);
+
+        $builder->createPostType([
+            'singular_name' => 'experience',
+            'plural_name' => 'experience',
+            'taxonomies' => [],
+            'custom_taxonomies' => [
+                [
+                    'singular_name' => 'experience_type'
+                ]
+            ],
+            'fields' => [
+                [
+                    'id' => '_experience_start_date',
+                    'label' => 'Start Date'
+                ],
+                [
+                    'id' => '_experience_end_date',
+                    'label' => 'End Date'
+                ],
+                [
+                    'id' => '_experience_business_name',
+                    'label' => 'Business Name'
+                ],
+                [
+                    'id' => '_experience_url',
+                    'label' => 'Business URL',
+                    'input_type' => 'url'
+                ],
+                [
+                    'id' => '_experience_location',
+                    'label' => 'Location'
+                ],
+                [
+                    'id' => '_experience_role',
+                    'label' => 'Role'
+                ]
+            ]
+        ]);
+
+        $builder->createPostType([
+            'singular_name' => 'Reading',
+            'taxonomies' => [],
+            'custom_taxonomies' => [
+                [
+                    'singular_name' => 'reading_type'
+                ]
+            ],
+            'fields' => [
+                [
+                    'id' => '_reading_title',
+                    'label' => 'Title'
+                ],
+                [
+                    'id' => '_reading_author',
+                    'label' => 'Author'
+                ],
+                [
+                    'id' => '_reading_url',
+                    'label' => 'URL',
+                    'input_type' => 'url'
+                ]
+            ]
+        ]);
+
+        $builder->createPostType([
+            'singular_name' => 'Recommendation',
+            'taxonomies' => [],
+            'fields' => [
+                [
+                    'id' => '_recommendation_company_name',
+                    'label' => 'Company'
+                ],
+                [
+                    'id' => '_recommendation_role',
+                    'label' => 'Role'
+                ]
+            ]
+        ]);
+
+        $builder->createPostType([
+            'singular_name' => 'Skill',
+            'taxonomies' => [],
+            'custom_taxonomies' => [
+                [
+                    'singular_name' => 'skill_type'
+                ]
+            ]
+        ]);
+
+        $builder->createPostType([
+            'singular_name' => 'Tutorial',
+            'taxonomies' => [],
+            'custom_taxonomies' => [
+                [
+                    'singular_name' => 'lesson'
+                ],
+                [
+                    'singular_name' => 'difficulty',
+                    'singular_name' => 'difficulties'
+                ]
+            ]
+        ]);
+
+        $builder->createPostType([
+            'singular_name' => 'Video',
+            'taxonomies' => [],
+            'fields' => [
+                [
+                    'id' => 'video_url',
+                    'label' => 'Video URL'
+                ]
+            ]
+        ]);
+
         add_theme_support('post-thumbnails');
         add_theme_support('automatic-feed-links');
         add_theme_support('menus');
-        add_filter('timber_context', [$this, 'add_to_context']);
-        add_filter('get_twig', [$this, 'add_to_twig']);
+        add_filter('timber_context', [$this, 'addToContext']);
+        add_filter('get_twig', [$this, 'addToTwig']);
         add_filter('manage_posts_columns', [$admin, 'thumbnailColumn'], 5);
-        add_filter('user_can_richedit' , [$this, 'disableVisualEditor'], 50);
+        add_filter('user_can_richedit', [$this, 'disableVisualEditor'], 50);
         add_filter('the_generator', [$security, 'removeWpVersion']);
         add_action('wp_enqueue_scripts', [$this, 'loadScripts']);
         add_action('wp_print_scripts', [$this, 'themeQueueJs']);
         add_action('after_setup_theme', [$setup, 'themeSlugSetup']);
         add_action('manage_posts_custom_column', [$admin, 'thumbnailCustomColumn'], 5, 2);
-        add_action('dashboard_glance_items' , [$admin, 'dashboardCpts']);
+        add_action('dashboard_glance_items', [$admin, 'dashboardCpts']);
+        add_action('admin_menu', [$this, 'themeMenu']);
         parent::__construct();
     }
 
-    public function add_to_context($context)
+    public function addToContext($context)
     {
-        $context['main_nav'] = new TimberMenu('main-nav');
-        $context['social_nav'] = new TimberMenu('social-nav');
-        $context['front_nav'] = new TimberMenu('front-nav');
-        $context['footer_nav'] = new TimberMenu('footer-nav');
+        $context['main_nav'] = new \TimberMenu('main-nav');
+        $context['social_nav'] = new \TimberMenu('social-nav');
+        $context['front_nav'] = new \TimberMenu('front-nav');
+        $context['footer_nav'] = new \TimberMenu('footer-nav');
         $context['site'] = $this;
         return $context;
     }
 
-    public function add_to_twig($twig)
+    public function addToTwig($twig)
     {
         /* this is where you can add your own fuctions to twig */
-        $twig->addExtension(new Twig_Extension_StringLoader());
+        $twig->addExtension(new \Twig_Extension_StringLoader());
 
         return $twig;
     }
@@ -111,7 +319,7 @@ class ElrPortfolio extends TimberSite {
     public function breadcrumbs()
     {
         if (function_exists('yoast_breadcrumb')) {
-            yoast_breadcrumb('<p id="breadcrumbs" class="breadcrumbs">','</p>');
+            yoast_breadcrumb('<p id="breadcrumbs" class="breadcrumbs">', '</p>');
         }
 
         return;
@@ -150,6 +358,74 @@ class ElrPortfolio extends TimberSite {
             return $query;
         }
     }
+
+    public function themeMenu()
+    {
+        $settings = new ThemeOptions;
+
+        $subpages = [
+            'general' => [
+                'id' => 'general_options',
+                'title' => 'General Options',
+                'description' => 'These are some general options for your theme'
+            ],
+            'social' => [
+                'id' => 'social_options',
+                'title' => 'Social Options',
+                'description' => 'These are some social options for your theme'
+            ]
+        ];
+
+        $general_fields = [
+            [
+                'id' => 'name',
+                'label' => 'Name',
+                'default_value' => ''
+            ],
+            [
+                'id' => 'email',
+                'label' => 'Email',
+                'default_value' => '',
+                'input_type' => 'email'
+            ],
+            [
+                'id' => 'phone',
+                'label' => 'Phone',
+                'default_value' => '',
+                'input_type' => 'tel'
+            ],
+            [
+                'id' => 'summary',
+                'label' => 'Summary',
+                'default_value' => '',
+                'input_type' => 'textarea'
+            ],
+            [
+                'id' => 'color',
+                'label' => 'Color',
+                'default_value' => '',
+                'input_type' => 'select',
+                'options' => [
+                    'red',
+                    'blue',
+                    'yellow'
+                ]
+            ]
+        ];
+
+        $social_fields = [
+            [
+                'id' => 'facebook',
+                'label' => 'Facebook',
+                'default_value' => '',
+                'input_type' => 'url'
+            ]
+        ];
+
+        $settings->addThemeMenu('ELR Portfolio Settings', $subpages);
+        $settings->initializeOptions($general_fields, $subpages['general']);
+        $settings->initializeOptions($social_fields, $subpages['social']);
+    }
 }
 
-new ElrPortfolio();
+new Site();

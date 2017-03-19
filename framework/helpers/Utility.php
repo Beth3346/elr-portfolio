@@ -31,12 +31,12 @@ class Utility
      * @return void
      */
 
-    public function isCustomPostType($post = NULL)
+    public function isCustomPostType($post = null)
     {
         $all_custom_post_types = get_post_types(array ('_builtin' => false));
 
         // there are no custom post types
-        if (empty ($all_custom_post_types)) {
+        if (empty($all_custom_post_types)) {
             return false;
         }
 
