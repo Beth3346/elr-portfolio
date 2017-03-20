@@ -1,8 +1,8 @@
 <?php
 
-namespace Framework;
+namespace Framework\ThemeOptions;
 
-use \Framework\Forms;
+use Framework\ThemeOptions\Forms;
 
 class ThemeOptions {
     public function addThemeMenu($options_title = 'Theme Options', array $subpages = [])

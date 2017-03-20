@@ -1,10 +1,10 @@
 <?php
 
-namespace Framework;
+namespace Framework\Customposts;
 
-use Framework\Cpt;
-use Framework\CptMeta;
-use Framework\CustomTaxonomyBuilder;
+use Framework\Customposts\Cpt;
+use Framework\Customposts\CptMeta;
+use Framework\Customposts\CustomTaxonomyBuilder;
 
 class CptBuilder
 {
@@ -14,7 +14,7 @@ class CptBuilder
         $tax_builder = new CustomTaxonomyBuilder;
 
         $builder->setRoles($cpt);
-        $builder->registerPost($cpt);
+        $builder->register($cpt);
 
         if (isset($cpt['custom_taxonomies'])) {
             $tax_builder->registerTaxonomies($cpt);

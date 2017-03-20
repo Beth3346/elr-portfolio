@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework;
+namespace Framework\ThemeOptions;
 
 class Forms {
     public function defaultOptions(array $fields)

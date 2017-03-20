@@ -1,6 +1,8 @@
 <?php
 
-namespace Framework;
+namespace Framework\Customposts;
+
+use Framework\Customposts\CptForms;
 
 class CptMeta {
 
@@ -20,73 +22,6 @@ class CptMeta {
         // if meta key has url then sanitize url
         // if meta key has email then sanitize email
         return strip_tags($meta_value);
-    }
-
-    private function createFields($fields)
-    {
-        // implement security
-        wp_nonce_field(__FILE__, 'cpt_nonce');
-
-        $html = '';
-
-        foreach ($fields as $field) {
-            $type = $this->getFieldType($field);
-
-            $html .= '<label for="' . $field['id'] . '">' . $field['label'] . ': </label>';
-
-            if ($type == 'textarea') {
-                $html .= $this->createTextArea($field);
-            } else {
-                $html .= $this->createTextField($field);
-            }
-        }
-
-        echo $html;
-    }
-
-    private function getFieldValue($field)
-    {
-        global $post;
-
-        $current = get_post_meta($post->ID, $field['id'], true);
-
-        if ($current) {
-            return $current;
-        } else if (isset($field['default_value'])) {
-            return $field['default_value'];
-        }
-
-        return '';
-    }
-
-    private function getFieldType($field)
-    {
-        if (isset($field['input_type'])) {
-            return $field['input_type'];
-        }
-
-        return 'text';
-    }
-
-    private function createTextField($field)
-    {
-        $html = '<input type="' . $this->getFieldType($field) . '"';
-        $html .= 'id="' . $field['id'] . '"';
-        $html .= 'name="' . $field['id'] . '"';
-        $html .= 'value="' . esc_attr($this->getFieldValue($field)) . '"';
-        $html .= 'class="widefat"';
-        $html .= '/>';
-
-        return $html;
-    }
-
-    private function createTextArea($field)
-    {
-        $html = '<textarea cols="10" rows="3" class="widefat" id="' . $field['id'] . '" name="' . $field['id'] . '">';
-        $html .= $this->getFieldValue($field);
-        $html .= '</textarea>';
-
-        return $html;
     }
 
     private function registerMeta($fields)
@@ -134,5 +69,29 @@ class CptMeta {
 
             return $this->saveMeta($fields);
         }, 12);
+    }
+
+    public function createFields($fields)
+    {
+        $forms = new CptForms;
+
+        // implement security
+        wp_nonce_field(__FILE__, 'cpt_nonce');
+
+        $html = '';
+
+        foreach ($fields as $field) {
+            $type = $forms->getFieldType($field);
+
+            $html .= '<label for="' . $field['id'] . '">' . $field['label'] . ': </label>';
+
+            if ($type == 'textarea') {
+                $html .= $forms->createTextArea($field);
+            } else {
+                $html .= $forms->createTextField($field);
+            }
+        }
+
+        echo $html;
     }
 }

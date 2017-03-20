@@ -7,8 +7,8 @@ use Framework\Helpers\Admin;
 use Framework\Helpers\Setup;
 use Framework\Helpers\Security;
 use Framework\Helpers\Utility;
-use Framework\ThemeOptions;
-use Framework\CptBuilder;
+use Framework\ThemeOptions\ThemeOptions;
+use Framework\Customposts\CptBuilder;
 
 $timber = new \Timber\Timber();
 
