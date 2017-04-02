@@ -22,7 +22,7 @@ const paths = {
     css: 'assets/css/*.css',
     scripts: ['assets/js/vendor/**/*.js', 'assets/js/assets/**/*.js', 'assets/js/main.js'],
     imagesRaw: ['assets/images/raw/**/*.jpg', 'assets/images/raw/**/*.png', 'assets/images/raw/**/*.gif', 'assets/images/raw/**/*.svg'],
-    images: ['assets/images/*.jpg', 'assets/images/*.png', 'assets/images/*.gif', 'assets/images/*.svg']
+    images: ['assets/images/compressed/*.jpg', 'assets/images/compressed/*.png', 'assets/images/compressed/*.gif', 'assets/images/compressed/*.svg']
 };
 
 gulp.task('clean:styles', function() {
@@ -88,7 +88,7 @@ gulp.task('scripts', ['babel'], function() {
 gulp.task('images', ['clean:images'], function() {
     return gulp.src(paths.imagesRaw)
         .pipe(imagemin())
-        .pipe(gulp.dest('assets/images'));
+        .pipe(gulp.dest('assets/images/compressed'));
 });
 
 gulp.task('browser-sync', ['styles', 'scripts', 'images'], function() {

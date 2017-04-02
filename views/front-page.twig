@@ -68,7 +68,7 @@
     {% if recommendations %}
     <div class="recommendations shadow-box">
         <h2 id="recommendations" class="box-heading">Recommendations</h2>
-        <div class="post-holder">
+        <div class="page-block-content post-holder">
             {% for recommendation in recommendations %}
                 {% include 'teases/tease-recommendation.twig' with {'post': recommendation} %}
             {% endfor %}
@@ -80,7 +80,7 @@
         <div class="page-block-header">
             <h2 id="tutorials" class="box-heading">Tutorials</h2>
         </div>
-        <div class="post-holder">
+        <div class="page-block-content post-holder">
             {% for tutorial in tutorials %}
                 {% include 'teases/tease-tutorial.twig' with {'post': tutorial} %}
             {% endfor %}

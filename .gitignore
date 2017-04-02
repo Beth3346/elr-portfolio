@@ -223,4 +223,6 @@ dwsync.xml
 *.scssc
 /.sass-cache/
 /vendor/
-composer.lock
+/css/
+/images/compressed/
+*.min.js

@@ -1,5 +1,17 @@
-.post-box {
-    padding: 20px 15px;
+.post-loop {
+    display: flex;
+    margin-left: -10px;
+    margin-right: -10px;
+    flex-wrap: wrap;
+
+    .post-box {
+        min-width: 350px;
+        max-width: 400px;
+        margin: 10px;
+    }
+}
+
+.page-block-content .post-box {
     width: (100% / 3);
 
     @include elr-breakpoint($config: (point: 960px)) {
@@ -11,6 +23,49 @@
     @include elr-breakpoint($config: (point: 600px)) {
         flex-wrap: wrap;
     }
+
+    .post-box-image {
+        height: 150px;
+        max-width: 100%;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 10px;
+
+        @include elr-breakpoint($config: (point: 960px)) {
+            height: auto;
+            position: static;
+            margin-right: 20px;
+            width: (100% / 3);
+        }
+
+        @include elr-breakpoint($config: (point: 600px)) {
+            width: auto;
+            margin-right: 0;
+        }
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 150px;
+            width: auto;
+            max-width: none;
+            transform: translate(-50%, -50%);
+            display: block;
+
+            @include elr-breakpoint($config: (point: 960px)) {
+                position: static;
+                left: 0;
+                top: 0;
+                transform: none;
+                min-height: 0;
+            }
+        }
+    }
+}
+
+.post-box {
+    padding: 10px;
 }
 
 .post-box-title {
@@ -18,44 +73,6 @@
 
     @include elr-breakpoint($config: (point: 600px)) {
         padding-top: 0;
-    }
-}
-
-.post-box-image {
-    height: 150px;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 10px;
-
-    @include elr-breakpoint($config: (point: 960px)) {
-        height: auto;
-        position: static;
-        margin-right: 20px;
-        width: (100% / 3);
-    }
-
-    @include elr-breakpoint($config: (point: 600px)) {
-        width: auto;
-        margin-right: 0;
-    }
-
-    img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        height: 150px;
-        width: auto;
-        max-width: none;
-        transform: translate(-50%, -50%);
-        display: block;
-
-        @include elr-breakpoint($config: (point: 960px)) {
-            position: static;
-            left: 0;
-            top: 0;
-            transform: none;
-            min-height: 0;
-        }
     }
 }
 

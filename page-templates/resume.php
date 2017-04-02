@@ -1,5 +1,5 @@
 <?php
-// Template Name: Front
+// Template Name: Resume
 
 $post = new TimberPost();
 

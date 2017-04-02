@@ -1,8 +1,10 @@
 <aside class="sidebar">
     <div class="shadow-box personal-info-box">
+        {% if logo %}
         <figure class="personal-info-avatar">
-            <img src="http://elr-utilities.elizabeth-rogers.com/images/compressed/cat11-thumb.jpg" alt="">
+            <img src="{{logo}}" alt="">
         </figure>
+        {% endif %}
         <div class="personal-info">
             <h3 class="personal-info-name">Elizabeth Rogers</h3>
             <h4 class="personal-info-role">Web Developer</h4>
