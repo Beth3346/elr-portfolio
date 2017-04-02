@@ -3,7 +3,9 @@
 namespace Framework\ThemeOptions;
 
 class Forms {
-    public function defaultOptions(array $fields)
+    use \Framework\Traits\StringHelpers;
+
+    public function applyDefaultOptions(array $fields)
     {
         // push default values to defaults array
         // print_r($fields);
@@ -44,20 +46,21 @@ class Forms {
         echo '<small>' . $instructions . '</small>';
     }
 
-    private function setFieldLabel(array $field) {
-        return (isset($field['label'])) ? $field['label'] : 'text';
+    private function setFieldType(array $field) {
+        return isset($field['type']) ? $field['type'] : 'text';
     }
 
-    private function setFieldType(array $field) {
-        return (isset($field['label'])) ? $field['label'] :  ucwords(str_replace('_', ' ', $field['id']));
+    private function setFieldLabel(array $field) {
+        return isset($field['label']) ? $field['label'] :  $this->deslugify($field['id']);
     }
 
     private function createTextInput(array $field, $subpage_id, $value) {
         $id = $field['id'];
         $label = $this->setFieldLabel($field);
         $type = $this->setFieldLabel($field);
+        $placeholder = isset($field['placeholder']) ? $field['placeholder'] : $label;
 
-        $html = '<input type="' . $type . '" class="widefat" id="' . $id . '"placeholder="' . $label . '"name="' . $subpage_id . '[' . $id . ']' . '"value="' . $value . '"
+        $html = '<input type="' . $type . '" class="widefat" id="' . $id . '" placeholder="' . $placeholder . '" name="' . $subpage_id . '[' . $id . ']' . '" value="' . $value . '"
             />';
 
         return $html;
@@ -65,8 +68,11 @@ class Forms {
 
     private function createTextArea(array $field, $subpage_id, $value) {
         $id = $field['id'];
+        $label = $this->setFieldLabel($field);
+        $placeholder = isset($field['placeholder']) ? $field['placeholder'] : $label;
 
-        $html = '<textarea class="widefat" name="' . $subpage_id . '[' . $id . ']' . '" id="' . $id . '" cols="30" rows="10">' . $value . '</textarea>';
+        $html = '<textarea class="widefat" placeholder="' . $placeholder . '" name="' . $subpage_id . '[' . $id . ']' . '" id="' . $id . '" cols="30" rows="10">' . $value . '</textarea>';
+
         return $html;
     }
 

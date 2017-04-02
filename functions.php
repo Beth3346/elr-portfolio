@@ -15,7 +15,7 @@ $timber = new \Timber\Timber();
 // Define Constants
 
 define('THEMEROOT', get_stylesheet_directory_uri());
-define('IMAGES', THEMEROOT . '/assets/images');
+define('IMAGES', THEMEROOT . '/assets/images/compressed');
 define('SCRIPTS', THEMEROOT . '/assets/js');
 define('STYLES', THEMEROOT . '/assets/css');
 
@@ -182,6 +182,7 @@ class Site extends \TimberSite
 
         $builder->createPostType([
             'singular_name' => 'Reading',
+            'plural_name' => 'Reading',
             'taxonomies' => [],
             'custom_taxonomies' => [
                 [
@@ -279,6 +280,7 @@ class Site extends \TimberSite
         $context['front_nav'] = new \TimberMenu('front-nav');
         $context['footer_nav'] = new \TimberMenu('footer-nav');
         $context['site'] = $this;
+        $context['logo'] = IMAGES . '/cat11-thumb.jpg';
         return $context;
     }
 
@@ -362,69 +364,91 @@ class Site extends \TimberSite
     public function themeMenu()
     {
         $settings = new ThemeOptions;
-
-        $subpages = [
-            'general' => [
-                'id' => 'general_options',
-                'title' => 'General Options',
-                'description' => 'These are some general options for your theme'
-            ],
-            'social' => [
-                'id' => 'social_options',
-                'title' => 'Social Options',
-                'description' => 'These are some social options for your theme'
-            ]
-        ];
-
-        $general_fields = [
-            [
-                'id' => 'name',
-                'label' => 'Name',
-                'default_value' => ''
-            ],
-            [
-                'id' => 'email',
-                'label' => 'Email',
-                'default_value' => '',
-                'input_type' => 'email'
-            ],
-            [
-                'id' => 'phone',
-                'label' => 'Phone',
-                'default_value' => '',
-                'input_type' => 'tel'
-            ],
-            [
-                'id' => 'summary',
-                'label' => 'Summary',
-                'default_value' => '',
-                'input_type' => 'textarea'
-            ],
-            [
-                'id' => 'color',
-                'label' => 'Color',
-                'default_value' => '',
-                'input_type' => 'select',
-                'options' => [
-                    'red',
-                    'blue',
-                    'yellow'
+        $options = [
+            'title' => 'ELR Portfolio Settings',
+            'subpages' => [
+                [
+                    'id' => 'general_options',
+                    'title' => 'General Options',
+                    'description' => 'These are some general options for your theme',
+                    'fields' => [
+                        [
+                            'id' => 'name',
+                            'instructions' => 'Your first name and last name'
+                        ],
+                        [
+                            'id' => 'email',
+                            'input_type' => 'email',
+                            'instructions' => 'your preferred email for recruiters and HR managers'
+                        ],
+                        [
+                            'id' => 'phone',
+                            'input_type' => 'tel',
+                            'instructions' => 'your preferred phone for recruiters and HR managers'
+                        ],
+                        [
+                            'id' => 'locatation',
+                            'input_type' => 'text',
+                            'instructions' => 'your current location'
+                        ],
+                        [
+                            'id' => 'role',
+                            'input_type' => 'text',
+                            'instructions' => 'your current role or industry eg. Web Developer'
+                        ],
+                        [
+                            'id' => 'summary',
+                            'input_type' => 'textarea',
+                            'instructions' => 'your summary for resume and home page'
+                        ],
+                        [
+                            'id' => 'contact_method',
+                            'label' => 'Preferred Contact Method',
+                            'input_type' => 'select',
+                            'options' => [
+                                'phone',
+                                'email',
+                                'linkedin'
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'id' => 'social_options',
+                    'title' => 'Social Options',
+                    'description' => 'These are some social options for your theme',
+                    'fields' => [
+                        [
+                            'id' => 'facebook',
+                            'input_type' => 'url',
+                            'placeholder' => 'http://facebook.com'
+                        ],
+                        [
+                            'id' => 'twitter',
+                            'input_type' => 'url',
+                            'placeholder' => 'http://twitter.com'
+                        ],
+                        [
+                            'id' => 'github',
+                            'input_type' => 'url',
+                            'placeholder' => 'http://github.com'
+                        ],
+                        [
+                            'id' => 'linkedin',
+                            'input_type' => 'url',
+                            'placeholder' => 'http://linkedin.com'
+                        ],
+                        [
+                            'id' => 'instagram',
+                            'input_type' => 'url',
+                            'placeholder' => 'http://instagram.com'
+                        ]
+                    ]
                 ]
             ]
         ];
 
-        $social_fields = [
-            [
-                'id' => 'facebook',
-                'label' => 'Facebook',
-                'default_value' => '',
-                'input_type' => 'url'
-            ]
-        ];
-
-        $settings->addThemeMenu('ELR Portfolio Settings', $subpages);
-        $settings->initializeOptions($general_fields, $subpages['general']);
-        $settings->initializeOptions($social_fields, $subpages['social']);
+        $settings->initializeThemeSettings($options);
     }
 }
 

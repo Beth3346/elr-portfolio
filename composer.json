@@ -31,8 +31,11 @@
             "framework/customposts/CptForms.php",
             "framework/customposts/CptMeta.php",
             "framework/customposts/CustomTaxonomyBuilder.php",
-            "framework/CustomFields.php",
+            "framework/customfields/CustomFields.php",
             "framework/themeoptions/Forms.php",
+            "framework/themeoptions/Menu.php",
+            "framework/themeoptions/Options.php",
+            "framework/themeoptions/Subpages.php",
             "framework/themeoptions/ThemeOptions.php",
             "framework/helpers/Admin.php",
             "framework/helpers/Date.php",
@@ -41,7 +44,8 @@
             "framework/helpers/Security.php",
             "framework/helpers/Setup.php",
             "framework/helpers/Taxonomy.php",
-            "framework/helpers/Utility.php"
+            "framework/helpers/Utility.php",
+            "framework/traits/StringHelpers.php"
         ],
         "files": [
             "framework/shortcodes/elr-shortcodes.php"

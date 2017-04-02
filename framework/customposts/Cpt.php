@@ -3,15 +3,7 @@
 namespace Framework\Customposts;
 
 class Cpt {
-    public function slugify($str)
-    {
-        return str_replace('_', '-', $str);
-    }
-
-    public function deslugify($str)
-    {
-        return ucwords(str_replace('_', ' ', $str));
-    }
+    use \Framework\Traits\StringHelpers;
 
     public function getDefaultSettings($singular_name, $plural_name)
     {
