@@ -12,38 +12,59 @@
                         </figure>
                         {% endif %}
                         <h1 class="post-title">{{post.title}}</h1>
-                        <ul class="post-box-meta">
-                            {% if post.has_field('_project_date') %}
-                            <li class="full-width post-box-date">
-                                <i class="fa fa-calendar"></i> {{post.get_field('_project_date')}}
-                            </li>
-                            {% endif %}
-                            {% if post.has_field('_project_client') %}
-                            <li class="full-width post-box-client">
-                                <i class="fa fa-user"></i> <a target="_blank" href="{{post.get_field('_project_url')}}">{{post.get_field('_project_client')}}</a>
-                            </li>
-                            {% endif %}
+                        <ul class="post-meta">
                             <li class="post-box-category">
-                                <i class="fa fa-folder"></i>
+                                <i class="fa fa-folder post-meta-icon"></i>
+                                <span class="post-meta-label">Type: </span>
                                 {% for type in post.terms('project_type') %}
                                     <a href="{{type.link}}">{{type.name}}</a>
                                     {% if loop.last == false %}, {% endif %}
                                 {% endfor %}
                             </li>
                             <li class="post-box-category">
-                                <i class="fa fa-folder"></i>
+                                <i class="fa fa-folder post-meta-icon"></i>
+                                <span class="post-meta-label">Portfolio: </span>
                                 {% for portfolio in post.terms('portfolio') %}
                                     <a href="{{portfolio.link}}">{{portfolio.name}}</a>
                                     {% if loop.last == false %}, {% endif %}
                                 {% endfor %}
                             </li>
                             <li class="post-box-category">
-                                <i class="fa fa-folder"></i>
+                                <i class="fa fa-folder post-meta-icon"></i>
+                                <span class="post-meta-label">Tech: </span>
                                 {% for technology in post.terms('technology') %}
                                     <a href="{{technology.link}}">{{technology.name}}</a>
                                     {% if loop.last == false %}, {% endif %}
                                 {% endfor %}
                             </li>
+                            {% if post.has_field('_project_date') %}
+                            <li class="full-width post-box-date">
+                                <i class="fa fa-calendar post-meta-icon"></i>
+                                <span class="post-meta-label">Launch Date: </span>
+                                {{post.get_field('_project_date')}}
+                            </li>
+                            {% endif %}
+                            {% if post.has_field('_project_client') %}
+                            <li class="full-width post-box-client">
+                                <i class="fa fa-user post-meta-icon"></i>
+                                <span class="post-meta-label">Client: </span>
+                                <a target="_blank" href="{{post.get_field('_project_url')}}">{{post.get_field('_project_client')}}</a>
+                            </li>
+                            {% endif %}
+                            {% if post.has_field('_project_url') %}
+                            <li class="post-box-category">
+                                <i class="fa fa-link post-meta-icon"></i>
+                                <span class="post-meta-label">URL: </span>
+                                <a target="_blank" href="{{post.get_field('_project_url')}}">{{post.get_field('_project_url')}}</a>
+                            </li>
+                            {% endif %}
+                            {% if post.has_field('_project_location') %}
+                            <li class="post-box-category">
+                                <i class="fa fa-map-marker post-meta-icon"></i>
+                                <span class="post-meta-label">Client Location: </span>
+                                {{post.get_field('_project_location')}}
+                            </li>
+                            {% endif %}
                         </ul>
                         {{post.content}}
                     </div>

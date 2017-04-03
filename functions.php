@@ -91,11 +91,6 @@ class Site extends \TimberSite
                 [
                     'id' => '_project_location',
                     'label' => 'Client Location',
-                ],
-                [
-                    'id' => '_project_description',
-                    'label' => 'Description',
-                    'input_type' => 'textarea'
                 ]
             ]
         ]);
