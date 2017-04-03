@@ -4,7 +4,8 @@ namespace Framework\ThemeOptions;
 
 use Framework\ThemeOptions\Subpages;
 
-class Menu {
+class Menu
+{
     public function addThemeMenu(array $options)
     {
         $page = new Subpages;

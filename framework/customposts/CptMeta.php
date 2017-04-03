@@ -4,7 +4,8 @@ namespace Framework\Customposts;
 
 use Framework\Customposts\CptForms;
 
-class CptMeta {
+class CptMeta
+{
 
     private function saveMeta($fields)
     {
@@ -33,7 +34,7 @@ class CptMeta {
 
     public function register($fields)
     {
-        add_action('init', function() use ($fields) {
+        add_action('init', function () use ($fields) {
             foreach ($fields as $field) {
                 $this->registerMeta($field);
             }
@@ -42,25 +43,27 @@ class CptMeta {
 
     public function addMetaBoxes($fields, $name)
     {
-        add_action('add_meta_boxes', function() use ($fields, $name) {
+        add_action('add_meta_boxes', function () use ($fields, $name) {
             // add meta boxes here
             add_meta_box(
                 'elr_' . $name . '_information',
                 ucwords($name) . ' Information',
-                function() use ($fields) {
+                function () use ($fields) {
                     $this->createFields($fields);
                 },
                 $name,
                 'normal',
                 'high'
-           );
+            );
         });
     }
 
     public function save($fields)
     {
-        add_action('save_post', function() use ($fields) {
-            if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+        add_action('save_post', function () use ($fields) {
+            if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+                return;
+            }
 
             //security check - nonce
             if ($_POST && isset($_POST['cpt_nonce']) && !wp_verify_nonce($_POST['cpt_nonce'], __FILE__)) {

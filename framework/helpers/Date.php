@@ -24,7 +24,7 @@ class Date
 
             if ($datetime > $current_time) {
                 echo 'in about ' . human_time_diff($datetime, current_time('timestamp'));
-            } else if ($datetime = $current_time) {
+            } elseif ($datetime = $current_time) {
                 echo 'Right Now';
             } else {
                 echo 'about ' . human_time_diff($datetime, current_time('timestamp')) . ' ago';

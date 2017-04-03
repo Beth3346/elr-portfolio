@@ -5,7 +5,8 @@ namespace Framework\ThemeOptions;
 use Framework\ThemeOptions\Menu;
 use Framework\ThemeOptions\Options;
 
-class ThemeOptions {
+class ThemeOptions
+{
     public function initializeThemeSettings(array $options)
     {
         $menu = new Menu;

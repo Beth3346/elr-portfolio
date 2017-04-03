@@ -60,7 +60,7 @@ class Query
         if ($taxonomy === 'category') {
             $term_name = $taxonomy;
             $term_id = 'cat_ID';
-        } else if ($taxonomy === 'tag') {
+        } elseif ($taxonomy === 'tag') {
             $term_name = 'post_tag';
             $term_id = 'term_id';
         } else {
@@ -93,7 +93,7 @@ class Query
                     'post_type' => $post_type
                 ]
             );
-        } else if ($taxonomy == 'tag') {
+        } elseif ($taxonomy == 'tag') {
             $query = new \WP_Query(
                 [
                     'posts_per_page' => $num_posts,

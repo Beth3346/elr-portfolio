@@ -14,7 +14,8 @@
  */
 
 if (! class_exists('Timber')) {
-    echo 'Timber not activated. Make sure you activate the plugin in <a href="/wp/wp-admin/plugins.php#timber">/wp/wp-admin/plugins.php</a>';
+    echo 'Timber not activated. Make sure you activate the plugin in' .
+    '<a href="/wp/wp-admin/plugins.php#timber">/wp/wp-admin/plugins.php</a>';
     return;
 }
 

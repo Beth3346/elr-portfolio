@@ -2,8 +2,10 @@
 
 namespace Framework\ThemeOptions;
 
-class Subpages {
-    public function addSubPages(array $subpages) {
+class Subpages
+{
+    public function addSubPages(array $subpages)
+    {
         foreach ($subpages as $subpage) {
             add_submenu_page(
                 'elr_theme_menu',
@@ -76,14 +78,15 @@ class Subpages {
         $title = $options['title'];
         $active_tab = $this->getActiveTab($subpages);
         echo '<div class="wrap">';
-            echo '<h2>' . __($title, 'elr') . '</h2>';
-            settings_errors();
+        echo '<h2>' . __($title, 'elr') . '</h2>';
+        settings_errors();
 
-            echo $this->createNavTabs($subpages);
+        echo $this->createNavTabs($subpages);
 
-            foreach ($subpages as $subpage) {
-                $this->createSettingsForm($subpage, $active_tab);
-            }
+        foreach ($subpages as $subpage) {
+            $this->createSettingsForm($subpage, $active_tab);
+        }
+
         echo '</div>';
     }
 }

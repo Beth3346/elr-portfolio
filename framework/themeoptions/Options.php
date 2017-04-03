@@ -2,7 +2,8 @@
 
 namespace Framework\ThemeOptions;
 
-class Options {
+class Options
+{
     use \Framework\Traits\StringHelpers;
 
     public function addSubpageOptions(array $subpages)
@@ -29,7 +30,8 @@ class Options {
         }
     }
 
-    private function registerSettings($subpage_id, $sanitize = null) {
+    private function registerSettings($subpage_id, $sanitize = null)
+    {
         register_setting(
             $subpage_id,
             $subpage_id,

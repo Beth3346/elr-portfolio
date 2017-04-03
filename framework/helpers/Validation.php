@@ -253,10 +253,11 @@ class Validation
           )
         );
 
+        $message = "Please provide a whole number between $params[0] and $params[1] for $fieldname"
         $valid = filter_var($value, FILTER_VALIDATE_INT, $options);
 
         if ($valid == false) {
-            $this->validation_errors[] = "Please provide a whole number between $params[0] and $params[1] for $fieldname";
+            $this->validation_errors[] = $message;
         } else {
             $valid = true;
         }

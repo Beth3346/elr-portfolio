@@ -2,7 +2,8 @@
 
 namespace Framework\ThemeOptions;
 
-class Forms {
+class Forms
+{
     use \Framework\Traits\StringHelpers;
 
     public function applyDefaultOptions(array $fields)
@@ -46,37 +47,43 @@ class Forms {
         echo '<small>' . $instructions . '</small>';
     }
 
-    private function setFieldType(array $field) {
+    private function setFieldType(array $field)
+    {
         return isset($field['type']) ? $field['type'] : 'text';
     }
 
-    private function setFieldLabel(array $field) {
+    private function setFieldLabel(array $field)
+    {
         return isset($field['label']) ? $field['label'] :  $this->deslugify($field['id']);
     }
 
-    private function createTextInput(array $field, $subpage_id, $value) {
+    private function createTextInput(array $field, $subpage_id, $value)
+    {
         $id = $field['id'];
         $label = $this->setFieldLabel($field);
         $type = $this->setFieldLabel($field);
         $placeholder = isset($field['placeholder']) ? $field['placeholder'] : $label;
 
-        $html = '<input type="' . $type . '" class="widefat" id="' . $id . '" placeholder="' . $placeholder . '" name="' . $subpage_id . '[' . $id . ']' . '" value="' . $value . '"
-            />';
+        $html = '<input type="' . $type . '" class="widefat" id="' . $id . '" placeholder="' . $placeholder;
+        $html .= '" name="' . $subpage_id . '[' . $id . ']' . '" value="' . $value . '" />';
 
         return $html;
     }
 
-    private function createTextArea(array $field, $subpage_id, $value) {
+    private function createTextArea(array $field, $subpage_id, $value)
+    {
         $id = $field['id'];
         $label = $this->setFieldLabel($field);
         $placeholder = isset($field['placeholder']) ? $field['placeholder'] : $label;
 
-        $html = '<textarea class="widefat" placeholder="' . $placeholder . '" name="' . $subpage_id . '[' . $id . ']' . '" id="' . $id . '" cols="30" rows="10">' . $value . '</textarea>';
+        $html = '<textarea class="widefat" placeholder="' . $placeholder . '" name="' . $subpage_id;
+        $html .= '[' . $id . ']' . '" id="' . $id . '" cols="30" rows="10">' . $value . '</textarea>';
 
         return $html;
     }
 
-    private function getSelectOptions($options, $value) {
+    private function getSelectOptions($options, $value)
+    {
         $html = '';
 
         foreach ($options as $option) {
@@ -91,7 +98,8 @@ class Forms {
         return $html;
     }
 
-    private function createSelectField(array $field, $subpage_id, $value) {
+    private function createSelectField(array $field, $subpage_id, $value)
+    {
         $id = $field['id'];
         $label = $this->setFieldLabel($field);
 

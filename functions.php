@@ -33,7 +33,8 @@ update_option('uploads_use_yearmonth_folders', 0);
 
 if (! class_exists('Timber')) {
     add_action('admin_notices', function () {
-            echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url(admin_url('plugins.php#timber')) . '">' . esc_url(admin_url('plugins.php')) . '</a></p></div>';
+            echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' .
+            esc_url(admin_url('plugins.php#timber')) . '">' . esc_url(admin_url('plugins.php')) . '</a></p></div>';
     });
     return;
 }
@@ -42,9 +43,11 @@ $timber::$dirname = ['views'];
 
 class Site extends \TimberSite
 {
-
+    private $fonts;
     public function __construct()
     {
+        $fonts = 'https://fonts.googleapis.com/css?family='.
+            'Roboto:700,500,400,300, 200|Raleway:300italic,400,300|Roboto+Slab:300,400,500';
         $admin = new Admin;
         $setup = new Setup;
         $security = new Security;
@@ -292,7 +295,7 @@ class Site extends \TimberSite
         wp_register_script('main', SCRIPTS . '/main.min.js', ['jquery'], null, true);
         wp_register_script('font-awesome', 'https://use.fontawesome.com/185c4dbad0.js', [], null);
         wp_register_style('style', STYLES . '/custom.css', [], null, 'screen');
-        wp_register_style('fonts', 'https://fonts.googleapis.com/css?family=Roboto:700,500,400,300, 200|Raleway:300italic,400,300|Roboto+Slab:300,400,500', [], null, 'screen');
+        wp_register_style('fonts', $fonts, [], null, 'screen');
 
         wp_enqueue_script('main');
         wp_enqueue_script('font-awesome');

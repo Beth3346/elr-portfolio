@@ -8,7 +8,8 @@ use Framework\Customposts\CustomTaxonomyBuilder;
 
 class CptBuilder
 {
-    public function createPostType(array $cpt) {
+    public function createPostType(array $cpt)
+    {
         $builder = new Cpt;
         $meta = new CptMeta;
         $tax_builder = new CustomTaxonomyBuilder;

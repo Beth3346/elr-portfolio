@@ -1,9 +1,11 @@
 <?php
 
 namespace Framework\Customposts;
+
 use Framework\Customposts\Cpt;
 
-class CustomTaxonomyBuilder {
+class CustomTaxonomyBuilder
+{
     /**
      * Adds default terms to taxonomy
      */
@@ -34,7 +36,7 @@ class CustomTaxonomyBuilder {
 
     private function register($tax, $cpt_singular, $cpt_plural)
     {
-        add_action('init', function() use ($tax, $cpt_singular, $cpt_plural) {
+        add_action('init', function () use ($tax, $cpt_singular, $cpt_plural) {
             return $this->registerTaxonomy($tax, $cpt_singular, $cpt_plural);
         }, 12);
 
@@ -94,7 +96,8 @@ class CustomTaxonomyBuilder {
      * Register taxonomies for the plugin.\
      */
 
-    private function registerTaxonomy($tax, $cpt_singular, $cpt_plural) {
+    private function registerTaxonomy($tax, $cpt_singular, $cpt_plural)
+    {
         $singular_name = $this->getSingularTaxName($tax);
         $plural_name = $this->getPluralTaxName($tax);
         $hierarchical = isset($tax['hierarchical']) ? $tax['hierarchical'] : true;

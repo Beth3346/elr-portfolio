@@ -2,7 +2,8 @@
 
 namespace Framework\Traits;
 
-trait StringHelpers {
+trait StringHelpers
+{
     public function deslugify($str)
     {
         return ucwords(str_replace('_', ' ', $str));

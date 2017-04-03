@@ -2,7 +2,8 @@
 
 namespace Framework\Customposts;
 
-class CptForms {
+class CptForms
+{
 
     private function getFieldValue($field)
     {
@@ -12,7 +13,7 @@ class CptForms {
 
         if ($current) {
             return $current;
-        } else if (isset($field['default_value'])) {
+        } elseif (isset($field['default_value'])) {
             return $field['default_value'];
         }
 

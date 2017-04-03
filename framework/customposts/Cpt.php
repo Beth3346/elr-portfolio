@@ -2,7 +2,8 @@
 
 namespace Framework\Customposts;
 
-class Cpt {
+class Cpt
+{
     use \Framework\Traits\StringHelpers;
 
     public function getDefaultSettings($singular_name, $plural_name)
@@ -85,7 +86,7 @@ class Cpt {
 
         if ($archive == true) {
             return $settings[$singular_name . '_root'];
-        } else if ($archive == false) {
+        } elseif ($archive == false) {
             return false;
         }
 
@@ -139,7 +140,9 @@ class Cpt {
 
     public function setRoles($cpt)
     {
-        if (!$this->getSingularName($cpt)) { return; }
+        if (!$this->getSingularName($cpt)) {
+            return;
+        }
 
         // Get the administrator role.
         $role = get_role('administrator');
@@ -155,11 +158,12 @@ class Cpt {
     public function register($cpt)
     {
         // if there is no singular name don't attempt to register the post type
-        if (!$this->getSingularName($cpt)) { return; }
+        if (!$this->getSingularName($cpt)) {
+            return;
+        }
 
-        add_action('init', function() use ($cpt) {
+        add_action('init', function () use ($cpt) {
                 return $this->registerPostType($cpt);
-            }, 12
-        );
+        }, 12);
     }
 }
