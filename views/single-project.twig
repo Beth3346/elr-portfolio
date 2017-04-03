@@ -6,12 +6,45 @@
             <div class="content-holder elr-row">
                 <article role="article" class="elr-col-full post post-type-{{post.post_type}}" id="post-{{post.ID}}">
                     <div class="post-content">
-                        <h1 class="post-title">{{post.title}}</h1>
                         {% if post.thumbnail.src %}
                         <figure class="post-image-holder">
                             <img src="{{post.thumbnail.src}}" />
                         </figure>
                         {% endif %}
+                        <h1 class="post-title">{{post.title}}</h1>
+                        <ul class="post-box-meta">
+                            {% if post.has_field('_project_date') %}
+                            <li class="full-width post-box-date">
+                                <i class="fa fa-calendar"></i> {{post.get_field('_project_date')}}
+                            </li>
+                            {% endif %}
+                            {% if post.has_field('_project_client') %}
+                            <li class="full-width post-box-client">
+                                <i class="fa fa-user"></i> <a target="_blank" href="{{post.get_field('_project_url')}}">{{post.get_field('_project_client')}}</a>
+                            </li>
+                            {% endif %}
+                            <li class="post-box-category">
+                                <i class="fa fa-folder"></i>
+                                {% for type in post.terms('project_type') %}
+                                    <a href="{{type.link}}">{{type.name}}</a>
+                                    {% if loop.last == false %}, {% endif %}
+                                {% endfor %}
+                            </li>
+                            <li class="post-box-category">
+                                <i class="fa fa-folder"></i>
+                                {% for portfolio in post.terms('portfolio') %}
+                                    <a href="{{portfolio.link}}">{{portfolio.name}}</a>
+                                    {% if loop.last == false %}, {% endif %}
+                                {% endfor %}
+                            </li>
+                            <li class="post-box-category">
+                                <i class="fa fa-folder"></i>
+                                {% for technology in post.terms('technology') %}
+                                    <a href="{{technology.link}}">{{technology.name}}</a>
+                                    {% if loop.last == false %}, {% endif %}
+                                {% endfor %}
+                            </li>
+                        </ul>
                         {{post.content}}
                     </div>
                 </article>
