@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\Helpers;
+namespace ELR\Portfolio\Helpers;
 
 class Setup
 {

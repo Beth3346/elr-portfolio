@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework;
+namespace ELR\Portfolio\CustomFields;
 
 class CustomFields
 {

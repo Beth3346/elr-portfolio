@@ -1,8 +1,8 @@
 <?php
 
-namespace Framework\Customposts;
+namespace ELR\Portfolio\Customposts;
 
-use Framework\Customposts\CptForms;
+use ELR\Portfolio\Customposts\CptForms;
 
 class CptMeta
 {

@@ -1,14 +1,28 @@
 <?php
-namespace Elr;
 
-require_once(get_template_directory() . '/vendor/autoload.php');
+use ELR\Portfolio\Helpers\Admin;
+use ELR\Portfolio\Helpers\Setup;
+use ELR\Portfolio\Helpers\Security;
+use ELR\Portfolio\Helpers\Utility;
+use ELR\Portfolio\ThemeOptions\ThemeOptions;
+use ELR\Portfolio\CustomPosts\CptBuilder;
 
-use Framework\Helpers\Admin;
-use Framework\Helpers\Setup;
-use Framework\Helpers\Security;
-use Framework\Helpers\Utility;
-use Framework\ThemeOptions\ThemeOptions;
-use Framework\Customposts\CptBuilder;
+$error = function ($message, $subtitle = '', $title = '') {
+    $title = $title ?: __('Sage &rsaquo; Error', 'elr');
+    $footer = '<a href="https://roots.io/sage/docs/">roots.io/sage/docs/</a>';
+    $message = "<h1>{$title}<br><small>{$subtitle}</small></h1><p>{$message}</p><p>{$footer}</p>";
+    wp_die($message, $title);
+};
+
+// Ensure dependencies are loaded
+
+if (!file_exists($composer = __DIR__.'/vendor/autoload.php')) {
+    $error(
+        __('You must run <code>composer install</code> from the ELR directory.', 'elr'),
+        __('Autoloader not found.', 'elr')
+    );
+}
+require_once $composer;
 
 $timber = new \Timber\Timber();
 

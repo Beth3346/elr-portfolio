@@ -1,9 +1,9 @@
 <?php
 
-namespace Framework\ThemeOptions;
+namespace ELR\Portfolio\ThemeOptions;
 
-use Framework\ThemeOptions\Menu;
-use Framework\ThemeOptions\Options;
+use ELR\Portfolio\ThemeOptions\Menu;
+use ELR\Portfolio\ThemeOptions\Options;
 
 class ThemeOptions
 {
