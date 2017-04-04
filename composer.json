@@ -29,7 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ELR\\Portfolio\\": "src/"
+            "Portfolio\\": "src/"
         }
     },
     "scripts": {

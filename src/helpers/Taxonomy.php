@@ -1,6 +1,6 @@
 <?php
 
-namespace ELR\Portfolio\Helpers;
+namespace Portfolio\Helpers;
 
 class Taxonomy
 {

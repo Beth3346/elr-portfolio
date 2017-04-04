@@ -1,10 +1,10 @@
 <?php
 
-namespace ELR\Portfolio\ThemeOptions;
+namespace Portfolio\ThemeOptions;
 
 class Forms
 {
-    use \ELR\Portfolio\Traits\StringHelpers;
+    use \Portfolio\Traits\StringHelpers;
 
     public function applyDefaultOptions(array $fields)
     {

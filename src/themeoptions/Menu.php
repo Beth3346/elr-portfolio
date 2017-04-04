@@ -1,8 +1,8 @@
 <?php
 
-namespace ELR\Portfolio\ThemeOptions;
+namespace Portfolio\ThemeOptions;
 
-use ELR\Portfolio\ThemeOptions\Subpages;
+use \Portfolio\ThemeOptions\Subpages;
 
 class Menu
 {

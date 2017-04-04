@@ -1,10 +1,10 @@
 <?php
 
-namespace ELR\Portfolio\ThemeOptions;
+namespace Portfolio\ThemeOptions;
 
 class Options
 {
-    use \ELR\Portfolio\Traits\StringHelpers;
+    use \Portfolio\Traits\StringHelpers;
 
     public function addSubpageOptions(array $subpages)
     {

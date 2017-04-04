@@ -1,13 +1,13 @@
 <?php
 
-use ELR\Portfolio\Helpers\Admin;
-use ELR\Portfolio\Helpers\Setup;
-use ELR\Portfolio\Helpers\Security;
-use ELR\Portfolio\Helpers\Utility;
-use ELR\Portfolio\ThemeOptions\ThemeOptions;
-use ELR\Portfolio\CustomPosts\CptBuilder;
+use Portfolio\Helpers\Admin;
+use Portfolio\Helpers\Setup;
+use Portfolio\Helpers\Security;
+use Portfolio\Helpers\Utility;
+use Portfolio\ThemeOptions\ThemeOptions;
+use Portfolio\CustomPosts\CptBuilder;
 
-$error = function ($message, $subtitle = '', $title = '') {
+$elrError = function ($message, $subtitle = '', $title = '') {
     $title = $title ?: __('Sage &rsaquo; Error', 'elr');
     $footer = '<a href="https://roots.io/sage/docs/">roots.io/sage/docs/</a>';
     $message = "<h1>{$title}<br><small>{$subtitle}</small></h1><p>{$message}</p><p>{$footer}</p>";
@@ -17,7 +17,7 @@ $error = function ($message, $subtitle = '', $title = '') {
 // Ensure dependencies are loaded
 
 if (!file_exists($composer = __DIR__.'/vendor/autoload.php')) {
-    $error(
+    $elrError(
         __('You must run <code>composer install</code> from the ELR directory.', 'elr'),
         __('Autoloader not found.', 'elr')
     );
@@ -193,8 +193,8 @@ class Site extends \TimberSite
         ]);
 
         $builder->createPostType([
-            'singular_name' => 'Reading',
-            'plural_name' => 'Reading',
+            'singular_name' => 'reading',
+            'plural_name' => 'reading',
             'taxonomies' => [],
             'custom_taxonomies' => [
                 [
@@ -219,7 +219,7 @@ class Site extends \TimberSite
         ]);
 
         $builder->createPostType([
-            'singular_name' => 'Recommendation',
+            'singular_name' => 'recommendation',
             'taxonomies' => [],
             'fields' => [
                 [
@@ -234,7 +234,7 @@ class Site extends \TimberSite
         ]);
 
         $builder->createPostType([
-            'singular_name' => 'Skill',
+            'singular_name' => 'skill',
             'taxonomies' => [],
             'custom_taxonomies' => [
                 [
@@ -244,7 +244,7 @@ class Site extends \TimberSite
         ]);
 
         $builder->createPostType([
-            'singular_name' => 'Tutorial',
+            'singular_name' => 'tutorial',
             'taxonomies' => [],
             'custom_taxonomies' => [
                 [
@@ -258,7 +258,7 @@ class Site extends \TimberSite
         ]);
 
         $builder->createPostType([
-            'singular_name' => 'Video',
+            'singular_name' => 'video',
             'taxonomies' => [],
             'fields' => [
                 [

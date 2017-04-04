@@ -1,6 +1,6 @@
 <?php
 
-namespace ELR\Portfolio\ThemeOptions;
+namespace Portfolio\ThemeOptions;
 
 class Subpages
 {

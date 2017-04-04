@@ -1,6 +1,6 @@
 <?php
 
-namespace ELR\Portfolio\Traits;
+namespace Portfolio\Traits;
 
 trait StringHelpers
 {
