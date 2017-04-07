@@ -35,8 +35,7 @@
     },
     "scripts": {
         "test": [
-            "phpcs",
-            "vendor/bin/phpunit --colors=always"
+            "phpcs"
         ],
         "fix": [
             "phpcbf"
