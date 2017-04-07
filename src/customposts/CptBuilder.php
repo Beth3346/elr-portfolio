@@ -1,10 +1,10 @@
 <?php
 
-namespace Portfolio\Customposts;
+namespace ELR\Portfolio\Customposts;
 
-use \Portfolio\Customposts\Cpt;
-use \Portfolio\Customposts\CptMeta;
-use \Portfolio\Customposts\CustomTaxonomyBuilder;
+use \ELR\Portfolio\Customposts\Cpt;
+use \ELR\Portfolio\Customposts\CptMeta;
+use \ELR\Portfolio\Customposts\CustomTaxonomyBuilder;
 
 class CptBuilder
 {

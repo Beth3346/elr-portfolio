@@ -218,11 +218,11 @@ dwsync.xml
 *.sublime-project
 *.sublime-workspace
 
-/node_modules/
+node_modules/
 
 *.scssc
-/.sass-cache/
-/vendor/
-/assets/css/
-/assets/images/compressed/
-/assets/js/*.min.js
+.sass-cache/
+vendor/
+assets/css/
+assets/images/compressed/
+assets/js/*.min.js

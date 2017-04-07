@@ -1,32 +1,13 @@
 <?php
 
-namespace Portfolio\Helpers;
+namespace ELR\Portfolio\Helpers;
 
 class Setup
 {
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     public function themeSlugSetup()
     {
         add_theme_support('title-tag');
     }
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     public function registerMenus(array $menus)
     {
@@ -39,15 +20,6 @@ class Setup
             ]);
         }
     }
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     public function registerSidebars(array $sidebars, $title_tag = 'h3')
     {

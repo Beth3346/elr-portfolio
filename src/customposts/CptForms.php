@@ -1,10 +1,9 @@
 <?php
 
-namespace Portfolio\Customposts;
+namespace ELR\Portfolio\Customposts;
 
 class CptForms
 {
-
     private function getFieldValue($field)
     {
         global $post;

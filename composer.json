@@ -25,19 +25,33 @@
         "timber/timber": "1.2.4"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^2.8"
+        "squizlabs/php_codesniffer": "^2.8",
+        "phpunit/phpunit": "^6.0"
     },
     "autoload": {
         "psr-4": {
-            "Portfolio\\": "src/"
+            "ELR\\Portfolio\\": "src/"
         }
     },
     "scripts": {
         "test": [
-            "phpcs"
+            "phpcs",
+            "vendor/bin/phpunit --colors=always"
         ],
         "fix": [
             "phpcbf"
+        ]
+    },
+    "archive" : {
+        "exclude": [
+            ".editorconfig",
+            ".gitattributes",
+            ".gitignore",
+            ".travis.yml",
+            "CONTRIBUTING.md",
+            "phpcs.xml",
+            "phpunit.xml",
+            "tests"
         ]
     }
 }

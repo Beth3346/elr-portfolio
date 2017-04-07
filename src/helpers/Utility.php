@@ -1,18 +1,9 @@
 <?php
 
-namespace Portfolio\Helpers;
+namespace ELR\Portfolio\Helpers;
 
 class Utility
 {
-    /**
-     * Test to see if the page is a date based archive page cpt archive
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return boolean
-     */
-
     public function isCptArchive()
     {
         if (is_category() || is_author() || is_tag() || is_date() || is_front_page() || is_home()) {
@@ -21,15 +12,6 @@ class Utility
 
         return true;
     }
-
-    /**
-     * Test to find out if post type is cpt
-     *
-     * @since  1.0.0
-     * @access public
-     * @param  string $post post to test optional
-     * @return void
-     */
 
     public function isCustomPostType($post = null)
     {
@@ -51,15 +33,6 @@ class Utility
         return in_array($current_post_type, $custom_types);
     }
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     public function isBlogPage()
     {
         if (is_front_page() && is_home()) {
@@ -72,15 +45,6 @@ class Utility
             return false;
         }
     }
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     public function slugify($str)
     {

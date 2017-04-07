@@ -1,12 +1,11 @@
 <?php
 
-namespace Portfolio\Customposts;
+namespace ELR\Portfolio\Customposts;
 
-use \Portfolio\Customposts\CptForms;
+use \ELR\Portfolio\Customposts\CptForms;
 
 class CptMeta
 {
-
     private function saveMeta($fields)
     {
         global $post;

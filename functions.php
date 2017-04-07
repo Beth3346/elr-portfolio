@@ -1,15 +1,15 @@
 <?php
 
-use Portfolio\Helpers\Admin;
-use Portfolio\Helpers\Setup;
-use Portfolio\Helpers\Security;
-use Portfolio\Helpers\Utility;
-use Portfolio\ThemeOptions\ThemeOptions;
-use Portfolio\CustomPosts\CptBuilder;
+use ELR\Portfolio\Helpers\Admin;
+use ELR\Portfolio\Helpers\Setup;
+use ELR\Portfolio\Helpers\Security;
+use ELR\Portfolio\Helpers\Utility;
+use ELR\Portfolio\ThemeOptions\ThemeOptions;
+use ELR\Portfolio\CustomPosts\CptBuilder;
 
 $elrError = function ($message, $subtitle = '', $title = '') {
-    $title = $title ?: __('Sage &rsaquo; Error', 'elr');
-    $footer = '<a href="https://roots.io/sage/docs/">roots.io/sage/docs/</a>';
+    $title = $title ?: __('ELR &rsaquo; Error', 'elr');
+    $footer = '';
     $message = "<h1>{$title}<br><small>{$subtitle}</small></h1><p>{$message}</p><p>{$footer}</p>";
     wp_die($message, $title);
 };

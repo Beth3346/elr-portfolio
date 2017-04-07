@@ -1,18 +1,9 @@
 <?php
 
-namespace Portfolio\Helpers;
+namespace ELR\Portfolio\Helpers;
 
 class Loop
 {
-    /**
-     * Updates the number of posts that display on each archive page
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     public function setNumberOfCpts($query, $num = -1, $post_types = [], $taxonomies = [])
     {
         if ($query->is_main_query()) {

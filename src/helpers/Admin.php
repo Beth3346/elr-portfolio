@@ -1,6 +1,6 @@
 <?php
 
-namespace Portfolio\Helpers;
+namespace ELR\Portfolio\Helpers;
 
 class Admin
 {

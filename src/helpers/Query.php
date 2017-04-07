@@ -1,33 +1,14 @@
 <?php
 
-namespace Portfolio\Helpers;
+namespace ELR\Portfolio\Helpers;
 
 class Query
 {
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     public function getPostCount($post_type = 'post')
     {
         $posts = wp_count_posts($post_type);
         return $posts->publish;
     }
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     public function postQuery($post_type = 'post', $num = 3, $sort = 'date')
     {
@@ -42,15 +23,6 @@ class Query
 
         return $query;
     }
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     public function getRelatedPosts($taxonomy = 'category', $post_type = 'current', $num_posts = 3)
     {
@@ -121,15 +93,6 @@ class Query
 
         return $query;
     }
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     public function getQueryPostCount($query)
     {

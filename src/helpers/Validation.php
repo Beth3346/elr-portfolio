@@ -1,19 +1,10 @@
 <?php
 
-namespace Portfolio\Helpers;
+namespace ELR\Portfolio\Helpers;
 
 class Validation
 {
-    public $validation_errors = array();
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
+    public $validation_errors = [];
 
     public function validate($data, $rules)
     {
@@ -45,15 +36,6 @@ class Validation
         return $valid;
     }
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateParseCallback($callback)
     {
         $colon = strpos($callback, ':');
@@ -69,15 +51,6 @@ class Validation
     }
 
     // extracts $params array from $rule
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     private function validateParseParam($callback)
     {
@@ -100,15 +73,6 @@ class Validation
 
     // checks that a value is numeric
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateNumeric($value, $fieldname)
     {
 
@@ -126,15 +90,6 @@ class Validation
 
     // checks that a value is currency
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateCurrency($value, $fieldname)
     {
         $pattern = '/^[0-9.,$]*$/';
@@ -151,15 +106,6 @@ class Validation
 
     // checks that a value is an integer
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateInteger($value, $fieldname)
     {
         $valid = filter_var($value, FILTER_VALIDATE_INT);
@@ -174,15 +120,6 @@ class Validation
     }
 
     // checks for an integer that is less than a max value
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     private function validateMax($value, $fieldname, $params)
     {
@@ -205,15 +142,6 @@ class Validation
 
     // checks for an integer that is greater than a min value
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateMin($value, $fieldname, $params)
     {
         $options = array (
@@ -234,15 +162,6 @@ class Validation
     }
 
     // checks for an integer that falls within a specified range
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     private function validateRange($value, $fieldname, $params)
     {
@@ -268,15 +187,6 @@ class Validation
     // most form values are at least 3 characters long
     // automatically rejects any value that is less than 3 characters in length
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateShort($value, $fieldname)
     {
         $value = trim($value);
@@ -292,15 +202,6 @@ class Validation
     }
 
     // checks that a value is alpha characters only
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     private function validateAlpha($value, $fieldname)
     {
@@ -318,15 +219,6 @@ class Validation
 
     // checks a value for a minimum string length
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateMinLength($value, $fieldname, $params)
     {
         $value = trim($value);
@@ -342,15 +234,6 @@ class Validation
     }
 
     // checks a value for a maximum string length
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     private function validateMaxLength($value, $fieldname, $params)
     {
@@ -368,15 +251,6 @@ class Validation
 
     // checks a value for an exact string length
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateLength($value, $fieldname, $params)
     {
         $value = trim($value);
@@ -392,15 +266,6 @@ class Validation
     }
 
     // checks a value for a string length range
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     private function validateBetweenLength($value, $fieldname, $params)
     {
@@ -424,15 +289,6 @@ class Validation
     // Only looks for acceptable chararacters that would appear in a person's full name
     // Examples: John Q. Public, John, John Doe
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateFullName($value, $fieldname)
     {
 
@@ -450,15 +306,6 @@ class Validation
 
     // validates that a ten digit phone number with an optional extension is provided
     // only validates US phone numbers for now
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     private function validatePhone($value, $fieldname)
     {
@@ -510,15 +357,6 @@ class Validation
 
     // checks for a valid email
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateEmail($value, $fieldname)
     {
         $valid = filter_var($value, FILTER_VALIDATE_EMAIL);
@@ -534,15 +372,6 @@ class Validation
 
     // checks for a valid url
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateUrl($value, $fieldname)
     {
         $valid = filter_var($value, FILTER_VALIDATE_URL);
@@ -557,15 +386,6 @@ class Validation
     }
 
     // checks a string to see if it contains any urls
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     private function validateNoUrl($value, $fieldname)
     {
@@ -583,15 +403,6 @@ class Validation
 
     // checks a string to see if it contains any html tags
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateNoTags($value, $fieldname)
     {
         $pattern = '/[<>]/'; // tags
@@ -608,15 +419,6 @@ class Validation
 
     // checks to see that any required fields are not null
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     private function validateRequired($value, $fieldname)
     {
         $valid = !empty($value);
@@ -631,15 +433,6 @@ class Validation
     }
 
     // checks for header attack attempts
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     private function validateAttacks($value, $fieldname)
     {
@@ -656,15 +449,6 @@ class Validation
     }
 
     // honeypot
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     private function validateHoneypot($value, $fieldname)
     {

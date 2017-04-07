@@ -1,19 +1,9 @@
 <?php
 
-namespace Portfolio\Helpers;
+namespace ELR\Portfolio\Helpers;
 
 class Taxonomy
 {
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     public function getCurrentTax($query)
     {
         if (is_tax()) {
@@ -23,15 +13,6 @@ class Taxonomy
             return null;
         }
     }
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     public function getRelatedTerms($taxonomy, $type, $terms, $term_tax)
     {
@@ -58,15 +39,6 @@ class Taxonomy
         return array_unique($rel_terms);
     }
 
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
-
     public function isParentTerm($term)
     {
         if ($term->parent == 0) {
@@ -75,15 +47,6 @@ class Taxonomy
             return false;
         }
     }
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     public function getParents($taxonomy)
     {
@@ -98,15 +61,6 @@ class Taxonomy
 
         return $parents;
     }
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     public function termHasPosts($id, $taxonomy)
     {
@@ -130,15 +84,6 @@ class Taxonomy
             return false;
         }
     }
-
-    /**
-     *
-     *
-     * @since  1.0.0
-     * @access public
-     * @param
-     * @return void
-     */
 
     public function getChildren($term, $taxonomy)
     {
