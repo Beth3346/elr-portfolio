@@ -3,8 +3,8 @@
 use Framework\Helpers\Admin;
 use Framework\Helpers\Setup;
 use Framework\Helpers\Security;
-use Framework\Themeoptions\ThemeOptions;
-use Framework\Customposts\CptBuilder;
+use Framework\ThemeOptions\ThemeOptions;
+use Framework\CustomPosts\CptBuilder;
 
 $elrError = function ($message, $subtitle = '', $title = '') {
     $title = $title ?: __('ELR &rsaquo; Error', 'elr');
@@ -52,12 +52,12 @@ if (! class_exists('Timber')) {
     return;
 }
 
-if (! class_exists('Admin') || ! class_exists('Setup') || ! class_exists('Security') || ! class_exists('ThemeOptions') || ! class_exists('CptBuilder')) {
-    $elrError(
-        __('You must run <code>composer install</code> from the ELR directory.', 'elr'),
-        __('Autoloaded classes not found', 'elr')
-    );
-}
+// if (! class_exists('Admin') || ! class_exists('Setup') || ! class_exists('Security') || ! class_exists('ThemeOptions') || ! class_exists('CptBuilder')) {
+//     $elrError(
+//         __('You must run <code>composer install</code> from the ELR directory.', 'elr'),
+//         __('Autoloaded classes not found', 'elr')
+//     );
+// }
 
 $timber::$dirname = ['views'];
 
