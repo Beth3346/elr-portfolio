@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\ThemeOptions;
+namespace Framework\ThemeOptions;
 
-use \Src\ThemeOptions\Menu;
-use \Src\ThemeOptions\Options;
+use \Framework\ThemeOptions\Menu;
+use \Framework\ThemeOptions\Options;
 
 class ThemeOptions
 {

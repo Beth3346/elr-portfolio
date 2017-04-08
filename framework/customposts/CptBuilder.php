@@ -1,10 +1,10 @@
 <?php
 
-namespace Src\Customposts;
+namespace Framework\Customposts;
 
-use \Src\Customposts\Cpt;
-use \Src\Customposts\CptMeta;
-use \Src\Customposts\CustomTaxonomyBuilder;
+use \Framework\Customposts\Cpt;
+use \Framework\Customposts\CptMeta;
+use \Framework\Customposts\CustomTaxonomyBuilder;
 
 class CptBuilder
 {

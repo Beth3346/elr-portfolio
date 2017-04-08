@@ -1,10 +1,10 @@
 <?php
 
-namespace Src\Customposts;
+namespace Framework\Customposts;
 
 class Cpt
 {
-    use \Src\Traits\StringHelpers;
+    use \Framework\Traits\StringHelpers;
 
     public function getDefaultSettings($singular_name, $plural_name)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Customposts;
+namespace Framework\Customposts;
 
 class CptForms
 {

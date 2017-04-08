@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\CustomFields;
+namespace Framework\CustomFields;
 
 class CustomFields
 {

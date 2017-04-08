@@ -1,11 +1,10 @@
 <?php
 
-use Src\Helpers\Admin;
-use Src\Helpers\Setup;
-use Src\Helpers\Security;
-use Src\Helpers\Utility;
-use Src\ThemeOptions\ThemeOptions;
-use Src\CustomPosts\CptBuilder;
+use Framework\Helpers\Admin;
+use Framework\Helpers\Setup;
+use Framework\Helpers\Security;
+use Framework\Themeoptions\ThemeOptions;
+use Framework\Customposts\CptBuilder;
 
 $elrError = function ($message, $subtitle = '', $title = '') {
     $title = $title ?: __('ELR &rsaquo; Error', 'elr');
@@ -53,7 +52,7 @@ if (! class_exists('Timber')) {
     return;
 }
 
-if (! class_exists('Admin') || ! class_exists('Setup') || ! class_exists('Security') || ! class_exists('Utility') || ! class_exists('ThemeOptions') || ! class_exists('CptBuilder')) {
+if (! class_exists('Admin') || ! class_exists('Setup') || ! class_exists('Security') || ! class_exists('ThemeOptions') || ! class_exists('CptBuilder')) {
     $elrError(
         __('You must run <code>composer install</code> from the ELR directory.', 'elr'),
         __('Autoloaded classes not found', 'elr')

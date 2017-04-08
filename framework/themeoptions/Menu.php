@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\ThemeOptions;
+namespace Framework\ThemeOptions;
 
-use \Src\ThemeOptions\Subpages;
+use \Framework\ThemeOptions\Subpages;
 
 class Menu
 {
