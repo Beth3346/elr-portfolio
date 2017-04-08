@@ -53,6 +53,13 @@ if (! class_exists('Timber')) {
     return;
 }
 
+if (! class_exists('Admin') || ! class_exists('Setup') || ! class_exists('Security') || ! class_exists('Utility') || ! class_exists('ThemeOptions') || ! class_exists('CptBuilder')) {
+    $elrError(
+        __('You must run <code>composer install</code> from the ELR directory.', 'elr'),
+        __('Autoloaded classes not found', 'elr')
+    );
+}
+
 $timber::$dirname = ['views'];
 
 class Site extends \TimberSite
