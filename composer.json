@@ -28,9 +28,28 @@
         "squizlabs/php_codesniffer": "^2.8"
     },
     "autoload": {
-        "psr-4": {
-            "ELR\\Portfolio\\": "src/"
-        }
+        "classmap": [
+            "src/customposts/CptBuilder.php",
+            "src/customposts/Cpt.php",
+            "src/customposts/CptForms.php",
+            "src/customposts/CptMeta.php",
+            "src/customposts/CustomTaxonomyBuilder.php",
+            "src/customfields/CustomFields.php",
+            "src/themeoptions/Forms.php",
+            "src/themeoptions/Menu.php",
+            "src/themeoptions/Options.php",
+            "src/themeoptions/Subpages.php",
+            "src/themeoptions/ThemeOptions.php",
+            "src/helpers/Admin.php",
+            "src/helpers/Date.php",
+            "src/helpers/Loop.php",
+            "src/helpers/Query.php",
+            "src/helpers/Security.php",
+            "src/helpers/Setup.php",
+            "src/helpers/Taxonomy.php",
+            "src/helpers/Utility.php",
+            "src/traits/StringHelpers.php"
+        ],
     },
     "scripts": {
         "test": [
