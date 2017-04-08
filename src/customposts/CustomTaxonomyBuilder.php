@@ -1,8 +1,8 @@
 <?php
 
-namespace ELR\Portfolio\Customposts;
+namespace Src\Customposts;
 
-use \ELR\Portfolio\Customposts\Cpt;
+use \Src\Customposts\Cpt;
 
 class CustomTaxonomyBuilder
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace ELR\Portfolio\Customposts;
+namespace Src\Customposts;
 
 class Cpt
 {
-    use \ELR\Portfolio\Traits\StringHelpers;
+    use \Src\Traits\StringHelpers;
 
     public function getDefaultSettings($singular_name, $plural_name)
     {

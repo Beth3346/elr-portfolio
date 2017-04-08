@@ -49,7 +49,7 @@
             "src/helpers/Taxonomy.php",
             "src/helpers/Utility.php",
             "src/traits/StringHelpers.php"
-        ],
+        ]
     },
     "scripts": {
         "test": [

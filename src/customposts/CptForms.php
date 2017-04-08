@@ -1,6 +1,6 @@
 <?php
 
-namespace ELR\Portfolio\Customposts;
+namespace Src\Customposts;
 
 class CptForms
 {

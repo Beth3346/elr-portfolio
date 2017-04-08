@@ -1,11 +1,11 @@
 <?php
 
-use ELR\Portfolio\Helpers\Admin;
-use ELR\Portfolio\Helpers\Setup;
-use ELR\Portfolio\Helpers\Security;
-use ELR\Portfolio\Helpers\Utility;
-use ELR\Portfolio\ThemeOptions\ThemeOptions;
-use ELR\Portfolio\CustomPosts\CptBuilder;
+use Src\Helpers\Admin;
+use Src\Helpers\Setup;
+use Src\Helpers\Security;
+use Src\Helpers\Utility;
+use Src\ThemeOptions\ThemeOptions;
+use Src\CustomPosts\CptBuilder;
 
 $elrError = function ($message, $subtitle = '', $title = '') {
     $title = $title ?: __('ELR &rsaquo; Error', 'elr');
