@@ -5,7 +5,7 @@
   <!-- Scan these files -->
   <!-- <file>functions.php</file> -->
   <file>index.php</file>
-  <file>src</file>
+  <file>framework</file>
   <file>page-templates</file>
 
   <!-- Show colors in console -->
@@ -56,7 +56,7 @@
 
   <!-- Allow long lines -->
   <rule ref="Generic.Files.LineLength.TooLong">
-    <exclude-pattern>src</exclude-pattern>
+    <exclude-pattern>framework</exclude-pattern>
     <exclude-pattern>page-templates</exclude-pattern>
   </rule>
 
