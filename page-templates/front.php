@@ -14,5 +14,6 @@ $context['recommendations'] = Timber::get_posts('post_type=recommendation&number
 $context['skills'] = Timber::get_posts('post_type=skill&numberposts=-1');
 $context['tutorials'] = Timber::get_posts('post_type=tutorial&numberposts=3');
 $context['videos'] = Timber::get_posts('post_type=video&numberposts=3');
+$context['summary'] = wpautop(get_option('general_options')['summary']);
 
 Timber::render('front-page.twig', $context);

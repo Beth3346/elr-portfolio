@@ -46,8 +46,8 @@ update_option('uploads_use_yearmonth_folders', 0);
 
 if (! class_exists('Timber')) {
     add_action('admin_notices', function () {
-            echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' .
-            esc_url(admin_url('plugins.php#timber')) . '">' . esc_url(admin_url('plugins.php')) . '</a></p></div>';
+        echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' .
+        esc_url(admin_url('plugins.php#timber')) . '">' . esc_url(admin_url('plugins.php')) . '</a></p></div>';
     });
     return;
 }
@@ -74,7 +74,7 @@ class Site extends \TimberSite
         $builder = new CptBuilder;
 
         $setup->registerMenus(['main-nav', 'footer-nav', 'social-nav', 'front-nav']);
-        $setup->registerSidebars(['sidebar']);
+        // $setup->registerSidebars(['sidebar']);
 
         $builder->createPostType([
             'singular_name' => 'project',
@@ -288,6 +288,9 @@ class Site extends \TimberSite
         add_action('manage_posts_custom_column', [$admin, 'thumbnailCustomColumn'], 5, 2);
         add_action('dashboard_glance_items', [$admin, 'dashboardCpts']);
         add_action('admin_menu', [$this, 'themeMenu']);
+        add_action('widgets_init', function () use ($setup) {
+            $setup->registerSidebars(['sidebar']);
+        });
         parent::__construct();
     }
 
@@ -298,7 +301,7 @@ class Site extends \TimberSite
         $context['front_nav'] = new \TimberMenu('front-nav');
         $context['footer_nav'] = new \TimberMenu('footer-nav');
         $context['site'] = $this;
-        $context['logo'] = IMAGES . '/cat11-thumb.jpg';
+        $context['sidebar'] = Timber::get_sidebar('sidebar.php');
         return $context;
     }
 

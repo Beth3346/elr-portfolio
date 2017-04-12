@@ -25,25 +25,25 @@ const paths = {
     images: ['assets/images/compressed/*.jpg', 'assets/images/compressed/*.png', 'assets/images/compressed/*.gif', 'assets/images/compressed/*.svg']
 };
 
-gulp.task('clean:styles', function() {
+gulp.task('clean:styles', function () {
     return del([
         'assets/css',
     ]);
 });
 
-gulp.task('clean:scripts', function() {
+gulp.task('clean:scripts', function () {
     return del([
         'assets/js/*.min.js'
     ]);
 });
 
-gulp.task('clean:images', function() {
+gulp.task('clean:images', function () {
     return del(paths.images);
 });
 
 gulp.task('clean', ['clean:styles', 'clean:scripts', 'clean:images']);
 
-gulp.task('styles', ['scsslint', 'clean:styles'], function() {
+gulp.task('styles', ['scsslint', 'clean:styles'], function () {
 
     return gulp.src(paths.scss)
         .pipe(sass().on('error', sass.logError))
@@ -57,18 +57,18 @@ gulp.task('styles', ['scsslint', 'clean:styles'], function() {
         .pipe(gulp.dest('assets/css'));
 });
 
-gulp.task('scsslint', function() {
+gulp.task('scsslint', function () {
     return gulp.src('assets/scss/partials/**/*.scss')
         .pipe(scsslint());
 });
 
-gulp.task('jshint', function() {
+gulp.task('jshint', function () {
     return gulp.src(['assets/js/assets/**/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
-gulp.task('babel', ['jshint', 'clean:scripts'], function() {
+gulp.task('babel', ['jshint', 'clean:scripts'], function () {
     return gulp.src(paths.scripts)
         .pipe(babel({
             presets: ['es2015']
@@ -76,7 +76,7 @@ gulp.task('babel', ['jshint', 'clean:scripts'], function() {
         .pipe(gulp.dest('assets/js/'));
 });
 
-gulp.task('scripts', ['babel'], function() {
+gulp.task('scripts', ['babel'], function () {
     return gulp.src('assets/js/*.js')
     .pipe(sourcemaps.init())
         .pipe(concat('main.min.js'))
@@ -85,23 +85,23 @@ gulp.task('scripts', ['babel'], function() {
     .pipe(gulp.dest('assets/js'));
 });
 
-gulp.task('images', ['clean:images'], function() {
+gulp.task('images', ['clean:images'], function () {
     return gulp.src(paths.imagesRaw)
         .pipe(imagemin())
         .pipe(gulp.dest('assets/images/compressed'));
 });
 
-gulp.task('browser-sync', ['styles', 'scripts', 'images'], function() {
+gulp.task('browser-sync', ['styles', 'scripts', 'images'], function () {
     const files = [
         '**/*.php',
         'views/*.twig'
     ];
 
     connect.server({
-        base: './../../../'
-    }, function() {
+        base: './../../../../'
+    }, function () {
         browserSync.init(files, {
-            proxy: 'localhost:8000',
+            proxy: 'localhost:8888',
             notify: false
         });
     });
@@ -111,7 +111,7 @@ gulp.task('browser-sync', ['styles', 'scripts', 'images'], function() {
     gulp.watch(paths.imagesRaw, ['images', browserSync.reload]);
 });
 
-gulp.task('watch', ['styles', 'scripts', 'images'], function() {
+gulp.task('watch', ['styles', 'scripts', 'images'], function () {
     gulp.watch(paths.scss, ['styles']);
     gulp.watch(paths.scripts, ['scripts']);
     gulp.watch(paths.imagesRaw, ['images']);

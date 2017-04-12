@@ -4,7 +4,7 @@ namespace Framework\ThemeOptions;
 
 class Forms
 {
-    use \Src\Traits\StringHelpers;
+    use \Framework\Traits\StringHelpers;
 
     public function applyDefaultOptions(array $fields)
     {
