@@ -223,6 +223,3 @@ node_modules/
 *.scssc
 .sass-cache/
 vendor/
-assets/css/
-assets/images/compressed/
-assets/js/*.min.js
