@@ -408,7 +408,7 @@ class Site extends \TimberSite
                             'instructions' => 'your preferred phone for recruiters and HR managers'
                         ],
                         [
-                            'id' => 'locatation',
+                            'id' => 'location',
                             'input_type' => 'text',
                             'instructions' => 'your current location'
                         ],
