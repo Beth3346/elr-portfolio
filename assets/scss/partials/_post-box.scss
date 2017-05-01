@@ -15,13 +15,13 @@
     width: (100% / 3);
 
     @include elr-breakpoint($config: (point: 960px)) {
-        display: flex;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        max-width: 50%;
+        width: 50%;
     }
 
-    @include elr-breakpoint($config: (point: 600px)) {
-        flex-wrap: wrap;
+    @include elr-breakpoint($config: (point: 768px)) {
+        max-width: 100%;
+        width: 100%;
     }
 
     .post-box-image {
@@ -30,18 +30,6 @@
         overflow: hidden;
         position: relative;
         margin-bottom: 10px;
-
-        @include elr-breakpoint($config: (point: 960px)) {
-            height: auto;
-            position: static;
-            margin-right: 20px;
-            width: (100% / 3);
-        }
-
-        @include elr-breakpoint($config: (point: 600px)) {
-            width: auto;
-            margin-right: 0;
-        }
     }
 
     img {
@@ -53,14 +41,6 @@
         max-width: none;
         transform: translate(-50%, -50%);
         display: block;
-
-        @include elr-breakpoint($config: (point: 960px)) {
-            position: static;
-            left: 0;
-            top: 0;
-            transform: none;
-            min-height: 0;
-        }
     }
 }
 
@@ -70,21 +50,6 @@
 
 .post-box-title {
     font-size: to-rems(18px);
-
-    @include elr-breakpoint($config: (point: 600px)) {
-        padding-top: 0;
-    }
-}
-
-.post-box-content {
-    @include elr-breakpoint($config: (point: 960px)) {
-        width: (100% / 3) * 2;
-    }
-
-    @include elr-breakpoint($config: (point: 600px)) {
-        width: 100%;
-        padding-top: 10px;
-    }
 }
 
 .post-box-meta {
