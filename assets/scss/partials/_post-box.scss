@@ -8,7 +8,16 @@
         min-width: 350px;
         max-width: 400px;
         margin: 10px;
+
+        @include elr-breakpoint($config: (point: 768px)) {
+            min-width: 0;
+            max-width: none;
+        }
     }
+}
+
+.post-box-image {
+    max-width: 100%;
 }
 
 .page-block-content .post-box {
@@ -30,17 +39,34 @@
         overflow: hidden;
         position: relative;
         margin-bottom: 10px;
+
+        @include elr-breakpoint($config: (point: 768px)) {
+            height: auto;
+            position: static;
+        }
     }
 
     img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        height: 150px;
-        width: auto;
-        max-width: none;
-        transform: translate(-50%, -50%);
         display: block;
+
+        @include elr-breakpoint($config: (
+            point: 769px,
+            modifier: 'min-width'
+        )) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 150px;
+            width: auto;
+            max-width: none;
+            transform: translate(-50%, -50%);
+        }
+
+        @include elr-breakpoint($config: (point: 768px)) {
+            height: auto;
+            max-width: 100%;
+            width: auto;
+        }
     }
 }
 
