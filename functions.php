@@ -249,11 +249,11 @@ class Site extends \TimberSite
             ],
             'fields' => [
                 [
-                    'id' => 'length',
+                    'id' => '_skill_length',
                     'label' => 'Length of Experience (in years)'
                 ],
                 [
-                    'id' => 'example_project',
+                    'id' => '_skill_example_project',
                     'label' => 'Link to example project'
                 ]
             ]
@@ -319,6 +319,9 @@ class Site extends \TimberSite
     {
         /* this is where you can add your own fuctions to twig */
         $twig->addExtension(new \Twig_Extension_StringLoader());
+        $twig->addFilter(new Twig_SimpleFilter('human_diff', function($string) {
+            return human_time_diff(strtotime('01/01/' . $string), current_time('timestamp'));
+        }));
 
         return $twig;
     }

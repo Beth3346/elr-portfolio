@@ -137,17 +137,21 @@ img {
 }
 
 .skill-link {
-    background-color: $link-color;
-    color: $white;
     float: left;
-    border-radius: 5px;
-    padding: 5px 10px;
     margin: 5px;
-    transition: background-color .3s;
 
-    &:hover {
-        color: $white;
-        background-color: $accent-color;
+    > a {
+        display: inline-block;
+        border-radius: 5px;
+        padding: 5px 10px;
+        transition: background-color .3s;
+        background-color: $link-color;
+        color: $white !important;
+
+        &:hover {
+            color: $white;
+            background-color: $accent-color;
+        }
     }
 }
 
@@ -217,5 +221,23 @@ img {
 
     .pagination-list a:hover {
         color: $white !important;
+    }
+}
+
+.skills-content-holder {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skill {
+    width: 50%;
+    padding: 10px;
+
+    &:nth-child(odd) {
+        padding-left: 0;
+    }
+
+    &:nth-child(even) {
+        padding-right: 0;
     }
 }
