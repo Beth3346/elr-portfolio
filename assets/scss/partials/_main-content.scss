@@ -61,6 +61,10 @@ img {
     width: 100%;
     flex-wrap: wrap;
     flex: 1;
+
+    @include elr-breakpoint($config: (point: 768px)) {
+        display: block;
+    }
 }
 
 .content-holder {
@@ -74,7 +78,8 @@ img {
     max-width: 400px;
     margin-right: 20px;
 
-    @include elr-breakpoint($config: (point: 568px)) {
+    @include elr-breakpoint($config: (point: 768px)) {
+        // width: 100%;
         max-width: 100%;
         margin-right: 0;
     }
@@ -227,11 +232,21 @@ img {
 .skills-content-holder {
     display: flex;
     flex-wrap: wrap;
+
+    @include elr-breakpoint($config: (point: 768px)) {
+        display: block;
+    }
 }
 
 .skill {
     width: 50%;
     padding: 10px;
+
+    @include elr-breakpoint($config: (point: 768px)) {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 
     &:nth-child(odd) {
         padding-left: 0;
