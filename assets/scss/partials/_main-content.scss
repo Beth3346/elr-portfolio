@@ -1,3 +1,5 @@
+// scss-lint:disable ImportantRule
+
 body {
     background-color: $light-blue;
     padding: 20px;
@@ -199,5 +201,21 @@ img {
         width: 20px;
         padding-right: 5px;
         color: $link-color;
+    }
+}
+
+.pagination {
+    @include elr-pagination;
+    @include elr-pagination-links;
+    text-align: center;
+    padding-top: 40px;
+
+    .prev,
+    .next {
+        color: $white !important;
+    }
+
+    .pagination-list a:hover {
+        color: $white !important;
     }
 }

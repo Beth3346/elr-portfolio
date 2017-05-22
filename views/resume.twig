@@ -6,8 +6,7 @@
         {% if summary %}
         <div class="background-section">
             <h3 class="background-section-title">Summary</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore quaerat ex atque similique labore quisquam deleniti, omnis modi, dolorem quo, explicabo quibusdam. Natus at nisi animi beatae eveniet accusamus, tempora laudantium numquam repellendus maiores quia velit id saepe iure perspiciatis impedit, perferendis. Tempore nisi quia, quasi nobis doloribus quidem at.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident veritatis ea natus. Dignissimos sequi error molestias quasi facere neque voluptatibus officia quibusdam delectus, pariatur quos, similique aliquam consequatur officiis doloribus quo culpa et cupiditate numquam quisquam. Aut doloribus sapiente vel! Odio inventore provident sunt, at, aliquid perspiciatis hic minima optio.</p>
+            {{summary}}
         </div>
         {% endif %}
         {% if experiences %}
@@ -31,7 +30,8 @@
             <h3 class="background-section-title" id="skills">Skills</h3>
             <div class="skills-holder">
                 {% for skill in skills %}
-                    <a class="skill-link" href="{{skill.link}}">{{skill.title}}</a>
+                    {# <a class="skill-link" href="{{skill.link}}">{{skill.title}}</a> #}
+                    <p class="skill-link">{{skill.title}}</p>
                 {% endfor %}
             </div>
         </div>
