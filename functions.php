@@ -246,6 +246,16 @@ class Site extends \TimberSite
                 [
                     'singular_name' => 'skill_type'
                 ]
+            ],
+            'fields' => [
+                [
+                    'id' => 'length',
+                    'label' => 'Length of Experience (in years)'
+                ],
+                [
+                    'id' => 'example_project',
+                    'label' => 'Link to example project'
+                ]
             ]
         ]);
 

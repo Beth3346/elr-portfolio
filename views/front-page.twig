@@ -60,8 +60,7 @@
             <h3 class="background-section-title" id="skills">Skills</h3>
             <div class="skills-holder">
                 {% for skill in skills %}
-                    {# <a class="skill-link" href="{{skill.link}}">{{skill.title}}</a> #}
-                    <p class="skill-link">{{skill.title}}</p>
+                    <a class="skill-link" href="skills/#{{skill.slug}}">{{skill.title}}</a>
                 {% endfor %}
             </div>
         </div>

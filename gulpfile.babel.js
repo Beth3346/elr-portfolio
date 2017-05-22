@@ -98,16 +98,17 @@ gulp.task('browser-sync', ['styles', 'scripts', 'images'], function () {
     ];
 
     connect.server({
-        base: './../../../../'
-    // }, function () {
-    //     browserSync.init(files, {
-    //         notify: false
-    //     });
+        base: './../../../'
+    }, function () {
+        browserSync.init(files, {
+            proxy: 'localhost:8888/web',
+            notify: false
+        });
     });
 
-    gulp.watch(paths.scss, ['styles', connect.reload]);
-    gulp.watch(paths.scripts, ['scripts', connect.reload]);
-    gulp.watch(paths.imagesRaw, ['images', connect.reload]);
+    gulp.watch(paths.scss, ['styles', browserSync.reload]);
+    gulp.watch(paths.scripts, ['scripts', browserSync.reload]);
+    gulp.watch(paths.imagesRaw, ['images', browserSync.reload]);
 });
 
 gulp.task('watch', ['styles', 'scripts', 'images'], function () {

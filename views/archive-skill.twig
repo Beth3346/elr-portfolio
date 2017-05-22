@@ -1,0 +1,18 @@
+{% extends "page.twig" %}
+
+{% block content %}
+<article>
+    <h1 class="page-title">{{posts[0].type.label}}</h1>
+    {# skills links should take users to related skill section further down the page #}
+    <div class="skills-holder">
+        {% for skill in skills %}
+            <a class="skill-link" href="#{{skill.slug}}">{{skill.title}}</a>
+        {% endfor %}
+    </div>
+    <div>
+        {% for skill in skills %}
+            {% include 'teases/tease-skill.twig' with {'post': skill} %}
+        {% endfor %}
+    </div>
+</article>
+{% endblock %}
