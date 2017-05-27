@@ -9,29 +9,29 @@ class Shortcodes
     public function addShortcodes()
     {
         // new up all shortcodes
-        add_shortcode('elr-author', function($atts, $content = null) {
+        add_shortcode('elr-author', function ($atts, $content = null) {
             $author = new Authors;
 
             return $author->shortcode($atts, $content);
         });
 
-        add_shortcode('elr-categories', function($atts, $content = null) {
+        add_shortcode('elr-categories', function ($atts, $content = null) {
             $categories = new Categories;
 
             return $categories->shortcode($atts, $content);
         });
 
-        add_shortcode('elr-email', function($atts, $content = null) {
+        add_shortcode('elr-email', function ($atts, $content = null) {
             if ($content) {
                 return '<a href="mailto:' . antispambot($content) . '">' . antispambot($content) . '</a>';
             }
         });
 
-        add_shortcode('elr-phone', function($atts, $content = null) {
+        add_shortcode('elr-phone', function ($atts, $content = null) {
             return '<a href="tel:' . $content . '">' . $content . '</a>';
         });
 
-        add_shortcode('elr-video', function($atts) {
+        add_shortcode('elr-video', function ($atts) {
             extract(shortcode_atts([
                 'src' => '',
                 'width' => 641,

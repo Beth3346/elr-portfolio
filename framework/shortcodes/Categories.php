@@ -59,7 +59,7 @@ class Categories
 
         $terms = get_terms('category', $cat_args);
 
-        if (!empty($terms) && !is_wp_error($terms)){
+        if (!empty($terms) && !is_wp_error($terms)) {
             foreach ($terms as $term) {
                 $string .= $this->createTerm($term);
             }
