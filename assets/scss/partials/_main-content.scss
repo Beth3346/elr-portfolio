@@ -271,18 +271,19 @@ img {
     border-bottom: 1px solid $light-grey;
     padding-bottom: 10px;
     margin-bottom: 20px;
-    width: 100%;
+}
+
+.author-info {
+    display: flex;
 }
 
 .author-avatar {
     padding-right: 15px;
     padding-bottom: 10px;
+    min-width: 95px;
     width: 95px;
-    float: left;
 }
 
 .author-description {
     margin-top: -5px;
-    width: 600px - (95 + 15 + 30 + 2);
-    float: left;
 }
