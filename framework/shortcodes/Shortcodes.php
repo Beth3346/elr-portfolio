@@ -8,7 +8,7 @@ class Shortcodes
 {
     private $helper;
 
-    private function __construct()
+    public function __construct()
     {
         $this->helper = new Content;
     }
