@@ -5,9 +5,10 @@ use \Framework\Helpers\Taxonomy;
 
 class Categories
 {
-    protected $tax;
+    private $tax;
 
-    function __construct() {
+    private function __construct()
+    {
         $this->tax = new Taxonomy;
     }
 

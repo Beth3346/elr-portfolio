@@ -6,9 +6,10 @@ use \Framework\Helpers\Content;
 
 class Shortcodes
 {
-    protected $helper;
+    private $helper;
 
-    function __construct() {
+    private function __construct()
+    {
         $this->helper = new Content;
     }
 
