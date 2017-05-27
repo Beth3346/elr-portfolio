@@ -41,6 +41,7 @@
             "framework/themeoptions/Subpages.php",
             "framework/themeoptions/ThemeOptions.php",
             "framework/helpers/Admin.php",
+            "framework/helpers/Content.php",
             "framework/helpers/Date.php",
             "framework/helpers/Loop.php",
             "framework/helpers/Query.php",
@@ -51,7 +52,6 @@
             "framework/traits/StringHelpers.php",
             "framework/shortcodes/Shortcodes.php",
             "framework/shortcodes/Categories.php",
-            "framework/shortcodes/Authors.php",
             "framework/shortcodes/PostTerms.php",
             "framework/shortcodes/RecentPosts.php",
             "framework/shortcodes/RelatedPosts.php"

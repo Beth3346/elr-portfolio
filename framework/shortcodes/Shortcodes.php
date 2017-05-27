@@ -1,18 +1,22 @@
 <?php
 namespace Framework\Shortcodes;
 
-use \Framework\Shortcodes\Authors;
 use \Framework\Shortcodes\Categories;
+use \Framework\Helpers\Content;
 
 class Shortcodes
 {
+    protected $helper;
+
+    function __construct() {
+        $this->helper = new Content;
+    }
+
     public function addShortcodes()
     {
         // new up all shortcodes
-        add_shortcode('elr-author', function ($atts, $content = null) {
-            $author = new Authors;
-
-            return $author->shortcode($atts, $content);
+        add_shortcode('elr-author', function () {
+            return $this->helper->authorBox();
         });
 
         add_shortcode('elr-categories', function ($atts, $content = null) {
@@ -23,12 +27,12 @@ class Shortcodes
 
         add_shortcode('elr-email', function ($atts, $content = null) {
             if ($content) {
-                return '<a href="mailto:' . antispambot($content) . '">' . antispambot($content) . '</a>';
+                return $this->helper->email($content);
             }
         });
 
         add_shortcode('elr-phone', function ($atts, $content = null) {
-            return '<a href="tel:' . $content . '">' . $content . '</a>';
+            return $this->helper->phone($content);
         });
 
         add_shortcode('elr-video', function ($atts) {
@@ -44,14 +48,7 @@ class Shortcodes
                 return;
             }
 
-            $string = '<div style="position:relative;height:0;padding-bottom:56.21%">';
-            $string .= '<iframe src="' . $src . '"';
-            $string .= 'style="position:absolute;width:100%;height:100%;left:0" ';
-            $string .= 'width="' . $width . '" height="' . $height . '" frameborder="0" allowfullscreen>';
-            $string .= '</iframe>';
-            $string .= '</div>';
-
-            return $string;
+            return $this->helper->video($src, $width, $height);
         });
     }
 }

@@ -4,6 +4,83 @@ namespace Framework\Helpers;
 
 class Taxonomy
 {
+    public function setTermArgs($term)
+    {
+        return [
+            'post_type' => 'any',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'tax_query' => [
+                [
+                    'taxonomy' => 'category',
+                    'terms' => $term->slug,
+                    'field' => 'slug',
+                    'operator' => 'IN',
+                ]
+            ]
+        ];
+    }
+
+    public function createTermLink($term)
+    {
+        $term_link = get_term_link($term);
+
+        return '<a href="' . $term_link . '">' . $term->name . '</a>';
+    }
+
+    public function createTerm($term)
+    {
+        $args = $this->setTermArgs($term);
+
+        $query = new \WP_Query($args);
+        $post_count = $query->post_count;
+
+        $string = $this->createTermLink($term);
+
+        if (isset($cat_args['count'])) {
+            $string .= ' ' . $post_count;
+        }
+
+        return $string;
+    }
+
+    public function createCategoryList(array $cat_args)
+    {
+        $string = '<ul>';
+
+        $terms = get_terms('category', $cat_args);
+
+        if (!empty($terms) && !is_wp_error($terms)) {
+            foreach ($terms as $term) {
+                $string .= '<li>' . $this->createTerm($term) . '</li>';
+            }
+        }
+
+        $string .= '</ul>';
+
+        return $string;
+    }
+
+    public function createCatArgs(array $attrs)
+    {
+        $cat_args = [
+            'orderby' => 'name',
+            'hierarchical' => $attrs['hierarchical'],
+            'hide_empty' => true
+        ];
+
+        if ($attrs['by_count']) {
+            $cat_args['orderby'] = 'count';
+            $cat_args['order'] = 'DESC';
+        }
+
+        if ($attrs['num'] != 'all') {
+            $cat_args['number'] = $attrs['num'];
+        }
+
+        return $cat_args;
+    }
+
     public function getCurrentTax($query)
     {
         if (is_tax()) {
