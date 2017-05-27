@@ -5,6 +5,7 @@ use Framework\Helpers\Setup;
 use Framework\Helpers\Security;
 use Framework\ThemeOptions\ThemeOptions;
 use Framework\CustomPosts\CptBuilder;
+use Framework\Shortcodes\Shortcodes;
 
 $elrError = function ($message, $subtitle = '', $title = '') {
     $title = $title ?: __('ELR &rsaquo; Error', 'elr');
@@ -21,9 +22,19 @@ if (!file_exists($composer = __DIR__.'/vendor/autoload.php')) {
         __('Autoloader not found.', 'elr')
     );
 }
+
 require_once $composer;
 
+// define Timber
 $timber = new \Timber\Timber();
+
+if (! class_exists('Timber')) {
+    add_action('admin_notices', function () {
+        echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' .
+        esc_url(admin_url('plugins.php#timber')) . '">' . esc_url(admin_url('plugins.php')) . '</a></p></div>';
+    });
+    return;
+}
 
 // Define Constants
 
@@ -34,7 +45,7 @@ define('STYLES', THEMEROOT . '/assets/css');
 
 // Set Up Content Width Value
 
-if (! isset($content_width)) {
+if (!isset($content_width)) {
     $content_width = 1300;
 }
 
@@ -43,14 +54,6 @@ $lang_dir = THEMEROOT . '/languages';
 load_theme_textdomain('elr', $lang_dir);
 
 update_option('uploads_use_yearmonth_folders', 0);
-
-if (! class_exists('Timber')) {
-    add_action('admin_notices', function () {
-        echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' .
-        esc_url(admin_url('plugins.php#timber')) . '">' . esc_url(admin_url('plugins.php')) . '</a></p></div>';
-    });
-    return;
-}
 
 // if (! class_exists('Admin') || ! class_exists('Setup') || ! class_exists('Security') || ! class_exists('ThemeOptions') || ! class_exists('CptBuilder')) {
 //     $elrError(
@@ -72,9 +75,18 @@ class Site extends \TimberSite
         $setup = new Setup;
         $security = new Security;
         $builder = new CptBuilder;
+        $shortcodes = New Shortcodes;
 
-        $setup->registerMenus(['main-nav', 'footer-nav', 'social-nav', 'front-nav']);
+        $setup->registerMenus([
+            'main-nav',
+            'footer-nav',
+            'social-nav',
+            'front-nav'
+        ]);
+
         // $setup->registerSidebars(['sidebar']);
+
+        $shortcodes->addShortcodes();
 
         $builder->createPostType([
             'singular_name' => 'project',

@@ -48,7 +48,13 @@
             "framework/helpers/Setup.php",
             "framework/helpers/Taxonomy.php",
             "framework/helpers/Utility.php",
-            "framework/traits/StringHelpers.php"
+            "framework/traits/StringHelpers.php",
+            "framework/shortcodes/Shortcodes.php",
+            "framework/shortcodes/Categories.php",
+            "framework/shortcodes/Authors.php",
+            "framework/shortcodes/PostTerms.php",
+            "framework/shortcodes/RecentPosts.php",
+            "framework/shortcodes/RelatedPosts.php"
         ]
     },
     "scripts": {

@@ -256,3 +256,33 @@ img {
         padding-right: 0;
     }
 }
+
+.author-box {
+    @include elr-clearfix;
+    background-color: $lightest-grey;
+    border: 1px solid $light-grey;
+    padding: 10px 15px;
+    max-width: 600px;
+}
+
+.author-title {
+    color: $accent-color;
+    font-size: 24px;
+    border-bottom: 1px solid $light-grey;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.author-avatar {
+    padding-right: 15px;
+    padding-bottom: 10px;
+    width: 95px;
+    float: left;
+}
+
+.author-description {
+    margin-top: -5px;
+    width: 600px - (95 + 15 + 30 + 2);
+    float: left;
+}

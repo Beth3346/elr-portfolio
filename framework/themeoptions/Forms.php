@@ -1,5 +1,4 @@
 <?php
-
 namespace Framework\ThemeOptions;
 
 class Forms
