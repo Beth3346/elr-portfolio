@@ -24,74 +24,120 @@ class Query
         return $query;
     }
 
-    public function getRelatedPosts($taxonomy = 'category', $post_type = 'current', $num_posts = 3)
+    public function getPostTerms(int $post_id, string $taxonomy)
     {
-        $id = get_the_ID();
+        return get_the_terms($post_id, $taxonomy);
+    }
 
-        // config
-        if ($taxonomy === 'category') {
-            $term_name = $taxonomy;
-            $term_id = 'cat_ID';
-        } elseif ($taxonomy === 'tag') {
-            $term_name = 'post_tag';
-            $term_id = 'term_id';
-        } else {
-            $term_name = $taxonomy;
-            $term_id = 'term_id';
+    public function getRelatedTerms($terms)
+    {
+        $related = [];
+
+        foreach ($terms as $term) {
+            var_dump($term->name);
+            $related[] = $term->term_id;
         }
 
+        return $related;
+    }
+
+    private function getCategoryPosts(int $post_id, int $num = 3, string $post_type = 'current')
+    {
         if ($post_type == 'current') {
             $post_type = get_post_type();
         }
 
-        $terms = get_the_terms($id, $term_name);
-        $related = [];
+        // get all categories attached to post
+        $terms = $this->getPostTerms($post_id, 'category');
 
-        // TODO: need to check if term exists
         if (!empty($terms)) {
-            foreach ($terms as $term) {
-                $related[] = $term->$term_id;
-            }
-        } else {
-            return;
+
+            // get category term ids
+            $related = $this->getRelatedTerms($terms);
+
+            return new \WP_Query([
+                'posts_per_page' => $num,
+                'category__in' => $related,
+                'post__not_in' => [$post_id],
+                'post_type' => $post_type
+            ]);
         }
 
-        if ($taxonomy == 'category') {
-            $query = new \WP_Query(
-                [
-                    'posts_per_page' => $num_posts,
-                    'category__in' => $related,
-                    'post__not_in' => [$id],
-                    'post_type' => $post_type
-                ]
-            );
-        } elseif ($taxonomy == 'tag') {
-            $query = new \WP_Query(
-                [
-                    'posts_per_page' => $num_posts,
-                    'tag__in' => $related,
-                    'post__not_in' => [$id],
-                    'post_type' => $post_type
-                ]
-            );
-        } else {
-            $query = new \WP_Query(
-                [
-                    'posts_per_page' => $num_posts,
-                    'post_type' => $post_type,
-                    'post__not_in' => [$id],
-                    'tax_query' => [
-                        [
-                            'taxonomy' => $taxonomy,
-                            'terms'    => $related,
-                            'field'    => 'term_id',
-                        ],
+        return;
+    }
+
+    private function getTagPosts(int $post_id, int $num = 3, string $post_type = 'current')
+    {
+        if ($post_type == 'current') {
+            $post_type = get_post_type();
+        }
+
+        // get all categories attached to post
+        $terms = $this->getPostTerms($post_id, 'post_tag');
+
+        if (!empty($terms)) {
+
+            // get category term ids
+            $related = $this->getRelatedTerms($terms);
+
+            return new \WP_Query([
+                'posts_per_page' => $num,
+                'tag__in' => $related,
+                'post__not_in' => [$post_id],
+                'post_type' => $post_type
+            ]);
+        }
+
+        return;
+    }
+
+    private function getTaxPosts(int $post_id, int $num = 3, string $post_type = 'current', string $taxonomy)
+    {
+        if ($post_type == 'current') {
+            $post_type = get_post_type();
+        }
+
+        // get all categories attached to post
+        $terms = $this->getPostTerms($post_id, $taxonomy);
+
+        if (!empty($terms)) {
+
+            // get category term ids
+            $related = $this->getRelatedTerms($terms);
+
+            // build category post query
+            return new \WP_Query([
+                'posts_per_page' => $num,
+                'post_type' => $post_type,
+                'post__not_in' => [$post_id],
+                'tax_query' => [
+                    [
+                        'taxonomy' => $taxonomy,
+                        'terms'    => $related,
+                        'field'    => 'term_id',
                     ],
-                ]
-            );
+                ],
+            ]);
         }
 
-        return $query;
+        return;
+    }
+
+    public function getRelatedPosts(
+        $taxonomy = 'category',
+        $num = 3,
+        $post_type = 'current'
+    ) {
+        $post_id = get_the_ID();
+
+        // config
+        if ($taxonomy === 'category') {
+            return $this->getCategoryPosts($post_id, $num, $post_type);
+        } elseif ($taxonomy === 'post_tag') {
+            return $this->getTagPosts($post_id, $num, $post_type);
+        }
+
+        return $this->getTaxPosts($post_id, $num, $post_type, $taxonomy);
     }
 
     public function getQueryPostCount($query)

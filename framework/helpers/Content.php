@@ -2,8 +2,63 @@
 
 namespace Framework\Helpers;
 
+use \Framework\Helpers\Query;
+
 class Content
 {
+    private $query;
+
+    public function __construct()
+    {
+        $this->query = new Query;
+    }
+
+    public function title($content, $tag = 'h3')
+    {
+        return '<' . $tag . '>' . esc_html($content) . '</' . $tag . '>';
+    }
+
+    public function postLink()
+    {
+        $string = '<a href="' . get_the_permalink() . '">';
+            $string .= get_the_title();
+        $string .= '</a>';
+
+        return $string;
+    }
+
+    public function relatedPostList($tax, $num)
+    {
+        $q = $this->query->getRelatedPosts($tax, $num);
+
+        return $this->postList($q, 'There are no related posts');
+    }
+
+    public function recentPostList($post_type, $num)
+    {
+        return $this->postList($this->query->postQuery($post_type, $num));
+    }
+
+    public function postList($q, $message = 'There are no recent posts')
+    {
+        if ($q && $q->have_posts()) {
+            $string = '<ul class="post-list">';
+
+            while ($q->have_posts()) :
+                $q->the_post();
+                $string .= '<li>' . $this->postLink() . '</li>';
+            endwhile;
+
+            wp_reset_query();
+
+            $string .= '</ul>';
+
+            return $string;
+        }
+
+        return $message;
+    }
+
     public function email(string $email)
     {
         return '<a href="mailto:' . antispambot($email) . '">' . antispambot($email) . '</a>';
