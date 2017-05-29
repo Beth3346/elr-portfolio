@@ -30,7 +30,7 @@ if (is_day()) {
     $context['page_title'] = single_tag_title('', false);
 } else if (is_category()) {
     $current_category = get_the_category();
-    $current_category = $current_category[0]->name;
+    $current_category = ($current_category) ? $current_category[0]->name : 'Category';
     $context['page_title'] = single_cat_title('', false);
     $context['current_category'] = $current_category;
     array_unshift($templates, 'archive-' . get_query_var('cat') . '.twig');

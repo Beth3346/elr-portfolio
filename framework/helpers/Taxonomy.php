@@ -66,7 +66,7 @@ class Taxonomy
         $cat_args = [
             'orderby' => 'name',
             'hierarchical' => $attrs['hierarchical'],
-            'hide_empty' => true
+            'hide_empty' => 1
         ];
 
         if ($attrs['by_count']) {

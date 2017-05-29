@@ -53,11 +53,10 @@ class Shortcodes
                 'post_type' => 'post'
             ], $atts));
 
-            $string = $this->content->title($content);
-            $string .= $this->content
-                ->recentPostList($post_type, $num);
-
-            return $string;
+            return '<div class="elr-recent-posts">' .
+                $this->content->title($content) .
+                $this->content->recentPostList($post_type, $num) .
+                '</div>';
         });
 
         add_shortcode('elr-related-posts', function ($atts, $content = null) {
@@ -66,11 +65,10 @@ class Shortcodes
                 'num' => 5
             ], $atts));
 
-            $string = $this->content->title($content);
-            $string .= $this->content
-                ->relatedPostList($tax, $num);
-
-            return $string;
+            return '<div class="elr-related-posts">' .
+                $this->content->title($content) .
+                $this->content->relatedPostList($tax, $num) .
+                '</div>';
         });
 
         add_shortcode('elr-email', function ($atts, $content = null) {
@@ -90,10 +88,8 @@ class Shortcodes
                 'height' => 360
             ], $atts));
 
-            // if there is no video source don't output any html
-
             if (!$src) {
-                return;
+                return '<p>No Video Source Provided</p>';
             }
 
             return $this->content->video($src, $width, $height);

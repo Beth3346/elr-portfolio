@@ -51,7 +51,6 @@ class Query
         $terms = $this->getPostTerms($post_id, 'category');
 
         if (!empty($terms)) {
-
             // get category term ids
             $related = $this->getRelatedTerms($terms);
 
@@ -76,7 +75,6 @@ class Query
         $terms = $this->getPostTerms($post_id, 'post_tag');
 
         if (!empty($terms)) {
-
             // get category term ids
             $related = $this->getRelatedTerms($terms);
 
@@ -91,7 +89,7 @@ class Query
         return;
     }
 
-    private function getTaxPosts(int $post_id, int $num = 3, string $post_type = 'current', string $taxonomy)
+    private function getTaxPosts(int $post_id, string $taxonomy, int $num = 3, string $post_type = 'current')
     {
         if ($post_type == 'current') {
             $post_type = get_post_type();
@@ -101,7 +99,6 @@ class Query
         $terms = $this->getPostTerms($post_id, $taxonomy);
 
         if (!empty($terms)) {
-
             // get category term ids
             $related = $this->getRelatedTerms($terms);
 
@@ -137,7 +134,7 @@ class Query
             return $this->getTagPosts($post_id, $num, $post_type);
         }
 
-        return $this->getTaxPosts($post_id, $num, $post_type, $taxonomy);
+        return $this->getTaxPosts($post_id, $taxonomy, $num, $post_type);
     }
 
     public function getQueryPostCount($query)
