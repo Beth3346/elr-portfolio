@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "05fb6f3e6c5f4d63c6bfef10cc0d1d4c",
+    "content-hash": "c81087ad4161615b0822f0a4ddbac0d0",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -113,16 +113,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "d78064c68299743e0161004f2de3a0204e33b804"
+                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/d78064c68299743e0161004f2de3a0204e33b804",
-                "reference": "d78064c68299743e0161004f2de3a0204e33b804",
+                "url": "https://api.github.com/repos/composer/installers/zipball/79ad876c7498c0bbfe7eed065b8651c93bfd6045",
+                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045",
                 "shasum": ""
             },
             "require": {
@@ -164,12 +164,16 @@
             "keywords": [
                 "Craft",
                 "Dolibarr",
+                "Eliasis",
                 "Hurad",
                 "ImageCMS",
+                "Kanboard",
                 "MODX Evo",
                 "Mautic",
+                "Maya",
                 "OXID",
                 "Plentymarkets",
+                "Porto",
                 "RadPHP",
                 "SMF",
                 "Thelia",
@@ -192,9 +196,11 @@
                 "fuelphp",
                 "grav",
                 "installer",
+                "itop",
                 "joomla",
                 "kohana",
                 "laravel",
+                "lavalite",
                 "lithium",
                 "magento",
                 "mako",
@@ -209,6 +215,7 @@
                 "roundcube",
                 "shopware",
                 "silverstripe",
+                "sydes",
                 "symfony",
                 "typo3",
                 "wordpress",
@@ -216,7 +223,424 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-08-13T20:53:52+00:00"
+            "time": "2017-04-24T06:37:16+00:00"
+        },
+        {
+            "name": "elr/wpadmin",
+            "version": "0.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Beth3346/wp-admin.git",
+                "reference": "41c7c6a9cf7ba7d53dd775c03eec7912039d8ed1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Beth3346/wp-admin/zipball/41c7c6a9cf7ba7d53dd775c03eec7912039d8ed1",
+                "reference": "41c7c6a9cf7ba7d53dd775c03eec7912039d8ed1",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WpAdmin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elizabeth Rogers",
+                    "email": "beth@elizabeth-rogers.com",
+                    "homepage": "https://github.com/Beth3346"
+                }
+            ],
+            "description": "WordPress admin helpers",
+            "homepage": "http://www.elizabeth-rogers.com",
+            "keywords": [
+                "admin",
+                "wordpress"
+            ],
+            "time": "2017-05-29T17:42:33+00:00"
+        },
+        {
+            "name": "elr/wpcontent",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Beth3346/wp-content.git",
+                "reference": "f6af869d0a8515be0b407afbaab7c21a77ed358e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Beth3346/wp-content/zipball/f6af869d0a8515be0b407afbaab7c21a77ed358e",
+                "reference": "f6af869d0a8515be0b407afbaab7c21a77ed358e",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "elr/wpseek": "^0.0.1",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WpContent\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elizabeth Rogers",
+                    "email": "beth@elizabeth-rogers.com",
+                    "homepage": "https://github.com/Beth3346"
+                }
+            ],
+            "description": "WordPress content helpers",
+            "homepage": "http://www.elizabeth-rogers.com",
+            "keywords": [
+                "content",
+                "wordpress"
+            ],
+            "time": "2017-05-30T00:42:27+00:00"
+        },
+        {
+            "name": "elr/wpcustomposts",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Beth3346/wp-custom-posts.git",
+                "reference": "fff61593c466dc87b6e61239a0255947159a11f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Beth3346/wp-custom-posts/zipball/fff61593c466dc87b6e61239a0255947159a11f1",
+                "reference": "fff61593c466dc87b6e61239a0255947159a11f1",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WpCustomPosts\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elizabeth Rogers",
+                    "email": "beth@elizabeth-rogers.com",
+                    "homepage": "https://github.com/Beth3346"
+                }
+            ],
+            "description": "WordPress custom post builder",
+            "homepage": "http://www.elizabeth-rogers.com",
+            "keywords": [
+                "admin",
+                "wordpress"
+            ],
+            "time": "2017-05-30T00:45:21+00:00"
+        },
+        {
+            "name": "elr/wpsecurity",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Beth3346/wp-security.git",
+                "reference": "a14aa133a2dbba230bb83b1c1d722d8a33fddaea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Beth3346/wp-security/zipball/a14aa133a2dbba230bb83b1c1d722d8a33fddaea",
+                "reference": "a14aa133a2dbba230bb83b1c1d722d8a33fddaea",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WpSecurity\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elizabeth Rogers",
+                    "email": "beth@elizabeth-rogers.com",
+                    "homepage": "https://github.com/Beth3346"
+                }
+            ],
+            "description": "WordPress security helpers",
+            "homepage": "http://www.elizabeth-rogers.com",
+            "keywords": [
+                "security",
+                "wordpress"
+            ],
+            "time": "2017-05-29T23:47:43+00:00"
+        },
+        {
+            "name": "elr/wpseek",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Beth3346/wp-seek.git",
+                "reference": "25ade25adfaeb2a958c2abc16e312c60ad704a39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Beth3346/wp-seek/zipball/25ade25adfaeb2a958c2abc16e312c60ad704a39",
+                "reference": "25ade25adfaeb2a958c2abc16e312c60ad704a39",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WpSeek\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elizabeth Rogers",
+                    "email": "beth@elizabeth-rogers.com",
+                    "homepage": "https://github.com/Beth3346"
+                }
+            ],
+            "description": "WordPress query helpers",
+            "homepage": "http://www.elizabeth-rogers.com",
+            "keywords": [
+                "query",
+                "wordpress"
+            ],
+            "time": "2017-05-29T23:20:23+00:00"
+        },
+        {
+            "name": "elr/wpsetup",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Beth3346/wp-setup.git",
+                "reference": "5410521736baa1c7375537766aae90e370a83cc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Beth3346/wp-setup/zipball/5410521736baa1c7375537766aae90e370a83cc9",
+                "reference": "5410521736baa1c7375537766aae90e370a83cc9",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WpSetup\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elizabeth Rogers",
+                    "email": "beth@elizabeth-rogers.com",
+                    "homepage": "https://github.com/Beth3346"
+                }
+            ],
+            "description": "WordPress setup helpers",
+            "homepage": "http://www.elizabeth-rogers.com",
+            "keywords": [
+                "setup",
+                "wordpress"
+            ],
+            "time": "2017-05-29T23:48:55+00:00"
+        },
+        {
+            "name": "elr/wpshortcodes",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Beth3346/wp-shortcodes.git",
+                "reference": "37149c76900744d00550cefe93c9eeff8bdd587b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Beth3346/wp-shortcodes/zipball/37149c76900744d00550cefe93c9eeff8bdd587b",
+                "reference": "37149c76900744d00550cefe93c9eeff8bdd587b",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "elr/wpcontent": "^0.0.2",
+                "elr/wptaxonomy": "^0.0.1",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WpShortcodes\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elizabeth Rogers",
+                    "email": "beth@elizabeth-rogers.com",
+                    "homepage": "https://github.com/Beth3346"
+                }
+            ],
+            "description": "WordPress shortcodes",
+            "homepage": "http://www.elizabeth-rogers.com",
+            "keywords": [
+                "shortcodes",
+                "wordpress"
+            ],
+            "time": "2017-05-30T00:47:38+00:00"
+        },
+        {
+            "name": "elr/wptaxonomy",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Beth3346/wp-taxonomy.git",
+                "reference": "3427011783eacb56206f28e82fff483eeccd5fd7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Beth3346/wp-taxonomy/zipball/3427011783eacb56206f28e82fff483eeccd5fd7",
+                "reference": "3427011783eacb56206f28e82fff483eeccd5fd7",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WpTaxonomy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elizabeth Rogers",
+                    "email": "beth@elizabeth-rogers.com",
+                    "homepage": "https://github.com/Beth3346"
+                }
+            ],
+            "description": "WordPress taxonomy helpers",
+            "homepage": "http://www.elizabeth-rogers.com",
+            "keywords": [
+                "taxonomy",
+                "wordpress"
+            ],
+            "time": "2017-05-29T23:52:36+00:00"
+        },
+        {
+            "name": "elr/wpthemeoptions",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Beth3346/wp-theme-options.git",
+                "reference": "c23208432ec8afffa5e5d49055664975adc1b1ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Beth3346/wp-theme-options/zipball/c23208432ec8afffa5e5d49055664975adc1b1ff",
+                "reference": "c23208432ec8afffa5e5d49055664975adc1b1ff",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WpThemeOptions\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elizabeth Rogers",
+                    "email": "beth@elizabeth-rogers.com",
+                    "homepage": "https://github.com/Beth3346"
+                }
+            ],
+            "description": "WordPress theme options framework",
+            "homepage": "http://www.elizabeth-rogers.com",
+            "keywords": [
+                "theme optiosn",
+                "wordpress"
+            ],
+            "time": "2017-05-29T23:53:36+00:00"
         },
         {
             "name": "timber/timber",
@@ -281,16 +705,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.33.0",
+            "version": "v1.33.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a"
+                "reference": "dd6ca96227917e1e85b41c7c3cc6507b411e0927"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
-                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/dd6ca96227917e1e85b41c7c3cc6507b411e0927",
+                "reference": "dd6ca96227917e1e85b41c7c3cc6507b411e0927",
                 "shasum": ""
             },
             "require": {
@@ -339,7 +763,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-03-22T15:40:09+00:00"
+            "time": "2017-04-20T17:39:48+00:00"
         },
         {
             "name": "upstatement/routes",
@@ -396,16 +820,16 @@
     "packages-dev": [
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.8.1",
+            "version": "2.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "d7cf0d894e8aa4c73712ee4a331cc1eaa37cdc7d"
+                "reference": "dcbed1074f8244661eecddfc2a675430d8d33f62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/d7cf0d894e8aa4c73712ee4a331cc1eaa37cdc7d",
-                "reference": "d7cf0d894e8aa4c73712ee4a331cc1eaa37cdc7d",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/dcbed1074f8244661eecddfc2a675430d8d33f62",
+                "reference": "dcbed1074f8244661eecddfc2a675430d8d33f62",
                 "shasum": ""
             },
             "require": {
@@ -470,7 +894,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-01T22:17:45+00:00"
+            "time": "2017-05-22T02:43:20+00:00"
         }
     ],
     "aliases": [],

@@ -1,12 +1,5 @@
 <?php
 
-use Framework\Helpers\Admin;
-use Framework\Helpers\Setup;
-use Framework\Helpers\Security;
-use Framework\ThemeOptions\ThemeOptions;
-use Framework\CustomPosts\CptBuilder;
-use Framework\Shortcodes\Shortcodes;
-
 $elrError = function ($message, $subtitle = '', $title = '') {
     $title = $title ?: __('ELR &rsaquo; Error', 'elr');
     $footer = '';
@@ -71,11 +64,12 @@ class Site extends \TimberSite
     {
         $fonts = 'https://fonts.googleapis.com/css?family='.
             'Roboto:700,500,400,300, 200|Raleway:300italic,400,300|Roboto+Slab:300,400,500';
-        $admin = new Admin;
-        $setup = new Setup;
-        $security = new Security;
-        $builder = new CptBuilder;
-        $shortcodes = New Shortcodes;
+
+        $admin = new \WpAdmin\Admin;
+        $setup = new \WpSetup\Setup;
+        $security = new \WpSecurity\Security;
+        $builder = new \WpCustomPosts\CptBuilder;
+        $shortcodes = New \WpShortcodes\Shortcodes;
 
         $setup->registerMenus([
             'main-nav',
@@ -409,7 +403,7 @@ class Site extends \TimberSite
 
     public function themeMenu()
     {
-        $settings = new ThemeOptions;
+        $settings = new \WpThemeOptions\ThemeOptions;
         $options = [
             'title' => 'ELR Portfolio Settings',
             'subpages' => [

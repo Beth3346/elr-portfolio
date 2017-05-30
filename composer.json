@@ -22,37 +22,16 @@
     "require": {
         "php": ">=5.6.0",
         "composer/installers": "~1.0",
-        "timber/timber": "1.2.4"
+        "timber/timber": "1.2.4",
+        "elr/wpadmin": "^0.1.0",
+        "elr/wpsetup": "^0.0.1",
+        "elr/wpsecurity": "^0.0.1",
+        "elr/wpcustomposts": "^0.0.2",
+        "elr/wpthemeoptions": "^0.0.1",
+        "elr/wpshortcodes": "^0.0.2"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.8"
-    },
-    "autoload": {
-        "classmap": [
-            "framework/customposts/CptBuilder.php",
-            "framework/customposts/Cpt.php",
-            "framework/customposts/CptForms.php",
-            "framework/customposts/CptMeta.php",
-            "framework/customposts/CustomTaxonomyBuilder.php",
-            "framework/customfields/CustomFields.php",
-            "framework/themeoptions/Forms.php",
-            "framework/themeoptions/Menu.php",
-            "framework/themeoptions/Options.php",
-            "framework/themeoptions/Subpages.php",
-            "framework/themeoptions/ThemeOptions.php",
-            "framework/helpers/Admin.php",
-            "framework/helpers/Content.php",
-            "framework/helpers/Date.php",
-            "framework/helpers/Loop.php",
-            "framework/helpers/Query.php",
-            "framework/helpers/Security.php",
-            "framework/helpers/Setup.php",
-            "framework/helpers/Taxonomy.php",
-            "framework/helpers/Utility.php",
-            "framework/traits/StringHelpers.php",
-            "framework/shortcodes/Shortcodes.php",
-            "framework/shortcodes/PostTerms.php"
-        ]
     },
     "scripts": {
         "test": [
