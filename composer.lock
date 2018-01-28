@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c81087ad4161615b0822f0a4ddbac0d0",
+    "content-hash": "1c456828468d7cb717174c949bf520d0",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -113,16 +113,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.3.0",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045"
+                "reference": "049797d727261bf27f2690430d935067710049c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/79ad876c7498c0bbfe7eed065b8651c93bfd6045",
-                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045",
+                "url": "https://api.github.com/repos/composer/installers/zipball/049797d727261bf27f2690430d935067710049c2",
+                "reference": "049797d727261bf27f2690430d935067710049c2",
                 "shasum": ""
             },
             "require": {
@@ -134,7 +134,7 @@
             },
             "require-dev": {
                 "composer/composer": "1.0.*@dev",
-                "phpunit/phpunit": "4.1.*"
+                "phpunit/phpunit": "^4.8.36"
             },
             "type": "composer-plugin",
             "extra": {
@@ -168,6 +168,7 @@
                 "Hurad",
                 "ImageCMS",
                 "Kanboard",
+                "Lan Management System",
                 "MODX Evo",
                 "Mautic",
                 "Maya",
@@ -191,6 +192,7 @@
                 "croogo",
                 "dokuwiki",
                 "drupal",
+                "eZ Platform",
                 "elgg",
                 "expressionengine",
                 "fuelphp",
@@ -203,14 +205,18 @@
                 "lavalite",
                 "lithium",
                 "magento",
+                "majima",
                 "mako",
                 "mediawiki",
                 "modulework",
+                "modx",
                 "moodle",
+                "osclass",
                 "phpbb",
                 "piwik",
                 "ppi",
                 "puppet",
+                "pxcms",
                 "reindex",
                 "roundcube",
                 "shopware",
@@ -223,7 +229,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2017-04-24T06:37:16+00:00"
+            "time": "2017-12-29T09:13:20+00:00"
         },
         {
             "name": "elr/wpadmin",
@@ -273,21 +279,21 @@
         },
         {
             "name": "elr/wpcontent",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Beth3346/wp-content.git",
-                "reference": "f6af869d0a8515be0b407afbaab7c21a77ed358e"
+                "reference": "379fdf04ecd2cd358d3ce639dfb6090202063665"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Beth3346/wp-content/zipball/f6af869d0a8515be0b407afbaab7c21a77ed358e",
-                "reference": "f6af869d0a8515be0b407afbaab7c21a77ed358e",
+                "url": "https://api.github.com/repos/Beth3346/wp-content/zipball/379fdf04ecd2cd358d3ce639dfb6090202063665",
+                "reference": "379fdf04ecd2cd358d3ce639dfb6090202063665",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "~1.0",
-                "elr/wpseek": "^0.0.1",
+                "elr/wpseek": "*",
                 "php": ">=5.6.0"
             },
             "require-dev": {
@@ -316,20 +322,20 @@
                 "content",
                 "wordpress"
             ],
-            "time": "2017-05-30T00:42:27+00:00"
+            "time": "2018-01-28T02:51:04+00:00"
         },
         {
             "name": "elr/wpcustomposts",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Beth3346/wp-custom-posts.git",
-                "reference": "fff61593c466dc87b6e61239a0255947159a11f1"
+                "reference": "7a7440b1a08685db32c4eb4bed0941dad182bd22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Beth3346/wp-custom-posts/zipball/fff61593c466dc87b6e61239a0255947159a11f1",
-                "reference": "fff61593c466dc87b6e61239a0255947159a11f1",
+                "url": "https://api.github.com/repos/Beth3346/wp-custom-posts/zipball/7a7440b1a08685db32c4eb4bed0941dad182bd22",
+                "reference": "7a7440b1a08685db32c4eb4bed0941dad182bd22",
                 "shasum": ""
             },
             "require": {
@@ -362,7 +368,7 @@
                 "admin",
                 "wordpress"
             ],
-            "time": "2017-05-30T00:45:21+00:00"
+            "time": "2017-06-02T20:35:29+00:00"
         },
         {
             "name": "elr/wpsecurity",
@@ -412,16 +418,16 @@
         },
         {
             "name": "elr/wpseek",
-            "version": "0.0.1",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Beth3346/wp-seek.git",
-                "reference": "25ade25adfaeb2a958c2abc16e312c60ad704a39"
+                "reference": "dba1f55a7d721718f7d5366358712df757b75452"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Beth3346/wp-seek/zipball/25ade25adfaeb2a958c2abc16e312c60ad704a39",
-                "reference": "25ade25adfaeb2a958c2abc16e312c60ad704a39",
+                "url": "https://api.github.com/repos/Beth3346/wp-seek/zipball/dba1f55a7d721718f7d5366358712df757b75452",
+                "reference": "dba1f55a7d721718f7d5366358712df757b75452",
                 "shasum": ""
             },
             "require": {
@@ -454,7 +460,7 @@
                 "query",
                 "wordpress"
             ],
-            "time": "2017-05-29T23:20:23+00:00"
+            "time": "2018-01-28T02:47:18+00:00"
         },
         {
             "name": "elr/wpsetup",
@@ -504,22 +510,22 @@
         },
         {
             "name": "elr/wpshortcodes",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Beth3346/wp-shortcodes.git",
-                "reference": "37149c76900744d00550cefe93c9eeff8bdd587b"
+                "reference": "7f820e6802d2301b7e71f51ae17300269f02b9ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Beth3346/wp-shortcodes/zipball/37149c76900744d00550cefe93c9eeff8bdd587b",
-                "reference": "37149c76900744d00550cefe93c9eeff8bdd587b",
+                "url": "https://api.github.com/repos/Beth3346/wp-shortcodes/zipball/7f820e6802d2301b7e71f51ae17300269f02b9ce",
+                "reference": "7f820e6802d2301b7e71f51ae17300269f02b9ce",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "~1.0",
-                "elr/wpcontent": "^0.0.2",
-                "elr/wptaxonomy": "^0.0.1",
+                "elr/wpcontent": "*",
+                "elr/wptaxonomy": "*",
                 "php": ">=5.6.0"
             },
             "require-dev": {
@@ -548,7 +554,7 @@
                 "shortcodes",
                 "wordpress"
             ],
-            "time": "2017-05-30T00:47:38+00:00"
+            "time": "2018-01-28T02:51:46+00:00"
         },
         {
             "name": "elr/wptaxonomy",
@@ -598,16 +604,16 @@
         },
         {
             "name": "elr/wpthemeoptions",
-            "version": "0.0.1",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Beth3346/wp-theme-options.git",
-                "reference": "c23208432ec8afffa5e5d49055664975adc1b1ff"
+                "reference": "3e50867271624fecfe955c576b3f79cbe7bb525f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Beth3346/wp-theme-options/zipball/c23208432ec8afffa5e5d49055664975adc1b1ff",
-                "reference": "c23208432ec8afffa5e5d49055664975adc1b1ff",
+                "url": "https://api.github.com/repos/Beth3346/wp-theme-options/zipball/3e50867271624fecfe955c576b3f79cbe7bb525f",
+                "reference": "3e50867271624fecfe955c576b3f79cbe7bb525f",
                 "shasum": ""
             },
             "require": {
@@ -640,7 +646,7 @@
                 "theme optiosn",
                 "wordpress"
             ],
-            "time": "2017-05-29T23:53:36+00:00"
+            "time": "2017-10-14T16:29:44+00:00"
         },
         {
             "name": "timber/timber",
@@ -705,20 +711,20 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.33.2",
+            "version": "v1.35.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "dd6ca96227917e1e85b41c7c3cc6507b411e0927"
+                "reference": "daa657073e55b0a78cce8fdd22682fddecc6385f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/dd6ca96227917e1e85b41c7c3cc6507b411e0927",
-                "reference": "dd6ca96227917e1e85b41c7c3cc6507b411e0927",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/daa657073e55b0a78cce8fdd22682fddecc6385f",
+                "reference": "daa657073e55b0a78cce8fdd22682fddecc6385f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.7"
+                "php": ">=5.3.3"
             },
             "require-dev": {
                 "psr/container": "^1.0",
@@ -728,12 +734,15 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.33-dev"
+                    "dev-master": "1.35-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
                     "Twig_": "lib/"
+                },
+                "psr-4": {
+                    "Twig\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -763,7 +772,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-04-20T17:39:48+00:00"
+            "time": "2017-09-27T18:06:46+00:00"
         },
         {
             "name": "upstatement/routes",
