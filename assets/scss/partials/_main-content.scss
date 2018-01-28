@@ -111,7 +111,7 @@ img {
 
 .post-holder {
     display: flex;
-    padding: 0 15px;
+    padding: 10px 25px;
     justify-content: stretch;
     flex-wrap: wrap;
 
@@ -145,7 +145,7 @@ img {
     float: left;
     margin: 5px;
 
-    > a {
+    .skill-pill {
         display: inline-block;
         border-radius: 5px;
         padding: 5px 10px;
@@ -153,10 +153,10 @@ img {
         background-color: $link-color;
         color: $white !important;
 
-        &:hover {
-            color: $white;
-            background-color: $accent-color;
-        }
+        // &:hover {
+        //     color: $white;
+        //     background-color: $accent-color;
+        // }
     }
 }
 

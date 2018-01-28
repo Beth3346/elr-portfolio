@@ -3,7 +3,7 @@
 {% block content %}
     <article class="post-full experience">
         <header class="post-header">
-            <h3 class="post-box-title"><a href="{{post.get_field('_experience_url')}}">{{post.get_field('_experience_business_name')}}</a></h3>
+            <h3 class="post-box-title">{{post.get_field('_experience_business_name')}}</h3>
             <ul class="post-box-meta">
                 <li>
                     <i class="fa fa-calendar"></i> {{post.get_field('_experience_start_date')}} - {{post.get_field('_experience_end_date')}}
@@ -18,9 +18,7 @@
         </header>
         {% if post.thumbnail.src %}
         <figure class="post-image-holder">
-            <a href="{{post.link}}">
-                <img src="{{post.thumbnail.src}}" />
-            </a>
+            <img src="{{post.thumbnail.src}}" />
         </figure>
         {% endif %}
         <div class="post-content">

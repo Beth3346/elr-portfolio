@@ -16,18 +16,18 @@
         </div>
     </div>
     {% endif %}
-    {% if projects %}
+    {% if websites %}
     <div class="shadow-box page-block">
         <div class="page-block-header">
-            <h2 id="projects" class="box-heading">Projects</h2>
+            <h2 id="projects" class="box-heading">Portfolio</h2>
         </div>
         <div class="page-block-content post-holder">
-            {% for project in projects %}
-                {% include 'teases/tease-project.twig' with {'post': project} %}
+            {% for site in websites %}
+                {% include 'teases/tease-project.twig' with {'post': site} %}
             {% endfor %}
         </div>
         <div class="page-block-footer">
-            <a href="/projects" class="elr-button elr-button-primary">View More Projects</a>
+            <a href="/projects" class="elr-button elr-button-primary">View More</a>
         </div>
     </div>
     {% endif %}
@@ -61,7 +61,8 @@
             <div class="skills-holder">
                 {% for skill in skills %}
                     <div class="skill-link">
-                        <a href="skills/#{{skill.slug}}">{{skill.title}}</a>
+                        {# <a href="skills/#{{skill.slug}}">{{skill.title}}</a> #}
+                        <span class="skill-pill">{{skill.title}}</span>
                     </div>
                 {% endfor %}
             </div>
