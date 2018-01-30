@@ -15,6 +15,9 @@ $context['skills'] = Timber::get_posts('post_type=skill&numberposts=-1');
 $context['tutorials'] = Timber::get_posts('post_type=tutorial&numberposts=3');
 $context['videos'] = Timber::get_posts('post_type=video&numberposts=3');
 $context['summary'] = wpautop(get_option('general_options')['summary']);
+$contact['blog_url'] = get_permalink(get_option('page_for_posts'));
+$contact['portfolio_url'] = get_permalink(get_post_type_archive_link('project'));
+$contact['tutorials_url'] = get_permalink(get_post_type_archive_link('tutorial'));
 
 // open source projects
 // $context['projects'] = Timber::get_posts('post_type=project&numberposts=3');
