@@ -418,16 +418,16 @@
         },
         {
             "name": "elr/wpseek",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Beth3346/wp-seek.git",
-                "reference": "dba1f55a7d721718f7d5366358712df757b75452"
+                "reference": "ac62b79579a2ebf69c93962ce2fb6bca67c2f0a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Beth3346/wp-seek/zipball/dba1f55a7d721718f7d5366358712df757b75452",
-                "reference": "dba1f55a7d721718f7d5366358712df757b75452",
+                "url": "https://api.github.com/repos/Beth3346/wp-seek/zipball/ac62b79579a2ebf69c93962ce2fb6bca67c2f0a8",
+                "reference": "ac62b79579a2ebf69c93962ce2fb6bca67c2f0a8",
                 "shasum": ""
             },
             "require": {
@@ -460,7 +460,7 @@
                 "query",
                 "wordpress"
             ],
-            "time": "2018-01-28T02:47:18+00:00"
+            "time": "2018-01-28T03:02:44+00:00"
         },
         {
             "name": "elr/wpsetup",
@@ -711,16 +711,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.35.0",
+            "version": "v1.35.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "daa657073e55b0a78cce8fdd22682fddecc6385f"
+                "reference": "b48680b6eb7d16b5025b9bfc4108d86f6b8af86f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/daa657073e55b0a78cce8fdd22682fddecc6385f",
-                "reference": "daa657073e55b0a78cce8fdd22682fddecc6385f",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/b48680b6eb7d16b5025b9bfc4108d86f6b8af86f",
+                "reference": "b48680b6eb7d16b5025b9bfc4108d86f6b8af86f",
                 "shasum": ""
             },
             "require": {
@@ -728,8 +728,8 @@
             },
             "require-dev": {
                 "psr/container": "^1.0",
-                "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~3.3@dev"
+                "symfony/debug": "^2.7",
+                "symfony/phpunit-bridge": "^3.3"
             },
             "type": "library",
             "extra": {
@@ -772,7 +772,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-09-27T18:06:46+00:00"
+            "time": "2018-03-20T04:25:58+00:00"
         },
         {
             "name": "upstatement/routes",

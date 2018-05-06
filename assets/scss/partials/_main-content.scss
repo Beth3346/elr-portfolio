@@ -1,289 +1,296 @@
 // scss-lint:disable ImportantRule
 
 body {
-    background-color: $light-blue;
-    padding: 20px;
+  background-color: $light-blue;
+  padding: 20px;
 
-    @include elr-breakpoint($config: (point: 'jupiter')) {
-        padding: 10px;
-    }
+  @include elr-breakpoint($config: (point: 'jupiter')) {
+    padding: 10px;
+  }
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 
-    &:hover {
-        text-decoration: none;
-    }
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 a:not(.elr-button):not(.skill-link) {
-    color: $link-color;
-    transition: color .3s;
+  color: $link-color;
+  transition: color 0.3s;
 
-    &:hover {
-        color: $accent-color;
-    }
+  &:hover {
+    color: $accent-color;
+  }
 }
 
 .wrapper {
-    max-width: 1300px;
-    width: 100%;
-    margin: 0 auto;
-    background-color: $off-white;
-    box-shadow: 1px 1px 5px rgba($black, .1),
-        -1px -1px 5px rgba($black, .1);
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: $off-white;
+  box-shadow: 1px 1px 5px rgba($black, 0.1), -1px -1px 5px rgba($black, 0.1);
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .shadow-box {
-    background-color: $white;
-    box-shadow: 1px 1px 5px rgba($black, .1);
-    margin-bottom: 20px;
+  background-color: $white;
+  box-shadow: 1px 1px 5px rgba($black, 0.1);
+  margin-bottom: 20px;
 }
 
 .main-content {
-    padding: 30px;
+  padding: 30px;
 
-    @include elr-breakpoint($config: (point: 'jupiter')) {
-        padding: 20px;
-    }
+  @include elr-breakpoint($config: (point: 'jupiter')) {
+    padding: 20px;
+  }
 }
 
 .page-content {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
-    flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  flex: 1;
 
-    @include elr-breakpoint($config: (point: 768px)) {
-        display: block;
-    }
+  @include elr-breakpoint($config: (point: 768px)) {
+    display: block;
+  }
 }
 
 .content-holder {
-    flex-basis: 70%;
-    flex-grow: 2;
+  flex-basis: 70%;
+  flex-grow: 2;
 }
 
 .sidebar {
-    flex-basis: 20%;
-    flex-grow: 1;
-    max-width: 400px;
-    margin-right: 20px;
+  flex-basis: 20%;
+  flex-grow: 1;
+  max-width: 400px;
+  margin-right: 20px;
 
-    @include elr-breakpoint($config: (point: 768px)) {
-        // width: 100%;
-        max-width: 100%;
-        margin-right: 0;
-    }
+  @include elr-breakpoint($config: (point: 768px)) {
+    // width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
 }
 
 .box-heading {
-    font-size: to-rems(22px);
-    border-bottom: $border;
-    width: 100%;
-    padding: 20px 30px;
-    font-weight: 700;
+  font-size: to-rems(22px);
+  border-bottom: $border;
+  width: 100%;
+  padding: 20px 30px;
+  font-weight: 700;
 
-    @include elr-breakpoint($config: (point: 960px)) {
-        padding: 15px;
-    }
+  @include elr-breakpoint($config: (point: 960px)) {
+    padding: 15px;
+  }
 }
 
 .page-block-footer {
-    font-size: to-rems(22px);
-    border-bottom: $border;
-    width: 100%;
-    padding: 20px 30px;
-    font-weight: 700;
+  font-size: to-rems(22px);
+  border-bottom: $border;
+  width: 100%;
+  padding: 20px 30px;
+  font-weight: 700;
 
-    @include elr-breakpoint($config: (point: 960px)) {
-        padding: 15px;
-    }
+  @include elr-breakpoint($config: (point: 960px)) {
+    padding: 15px;
+  }
 }
 
 .post-holder {
-    display: flex;
-    padding: 10px 25px;
-    justify-content: stretch;
+  display: flex;
+  padding: 10px 25px;
+  justify-content: stretch;
+  flex-wrap: wrap;
+
+  @include elr-breakpoint($config: (point: 960px)) {
     flex-wrap: wrap;
+  }
+
+  .post-box {
+    flex-grow: 1;
+    flex-shrink: 1;
 
     @include elr-breakpoint($config: (point: 960px)) {
-        flex-wrap: wrap;
+      width: 100%;
     }
-
-    .post-box {
-        flex-grow: 1;
-        flex-shrink: 1;
-
-        @include elr-breakpoint($config: (point: 960px)) {
-            width: 100%;
-        }
-    }
+  }
 }
 
 .read-more {
-    font-family: 'roboto';
-    font-size: to-rems(14px);
-    font-weight: 300;
-    margin-top: 10px;
-    display: block;
+  font-family: 'roboto';
+  font-size: to-rems(14px);
+  font-weight: 300;
+  margin-top: 10px;
+  display: block;
 }
 
 .skills-holder {
-    @include elr-clearfix;
+  @include elr-clearfix;
 }
 
 .skill-link {
-    float: left;
-    margin: 5px;
+  float: left;
+  margin: 5px;
 
-    .skill-pill {
-        display: inline-block;
-        border-radius: 5px;
-        padding: 5px 10px;
-        transition: background-color .3s;
-        background-color: $link-color;
-        color: $white !important;
+  .skill-pill {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+    background-color: $link-color;
+    color: $white !important;
 
-        // &:hover {
-        //     color: $white;
-        //     background-color: $accent-color;
-        // }
-    }
+    // &:hover {
+    //     color: $white;
+    //     background-color: $accent-color;
+    // }
+  }
 }
 
 .recommendation-body {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .recommendation-source {
-    font-size: to-rems(14px);
-    color: $darker-grey;
-    line-height: 1.2;
+  font-size: to-rems(14px);
+  color: $darker-grey;
+  line-height: 1.2;
 }
 
 .page-title {
-    font-size: to-rems(36px);
-    color: $accent-color;
-    font-weight: 700;
-    padding-bottom: 5px;
-    border-bottom: 1px solid $light-grey;
-    margin-bottom: 30px;
+  font-size: to-rems(36px);
+  color: $accent-color;
+  font-weight: 700;
+  padding-bottom: 5px;
+  border-bottom: 1px solid $light-grey;
+  margin-bottom: 30px;
 }
 
 .content {
-    padding: 20px 30px;
+  padding: 20px 30px;
 }
 
 .post-type-post,
 .post-type-tutorial,
 .post-type-project {
-    max-width: 800px;
-    margin: auto;
+  max-width: 800px;
+  margin: auto;
 
-    .post-image-holder {
-        margin-bottom: 20px;
-    }
+  .post-image-holder {
+    margin-bottom: 20px;
+  }
 
-    .post-title {
-        font-size: to-rems(30px);
-        margin-bottom: 10px;
-    }
+  .post-title {
+    font-size: to-rems(30px);
+    margin-bottom: 10px;
+  }
 
-    .post-meta {
-        margin: 10px 5px 20px;
-        padding-left: 0;
-        list-style-type: none;
-        font-size: to-rems(14px);
-    }
+  .post-meta {
+    margin: 10px 5px 20px;
+    padding-left: 0;
+    list-style-type: none;
+    font-size: to-rems(14px);
+  }
 
-    .post-meta-icon {
-        width: 20px;
-        padding-right: 5px;
-        color: $link-color;
-    }
+  .post-meta-icon {
+    width: 20px;
+    padding-right: 5px;
+    color: $link-color;
+  }
 }
 
 .pagination {
-    @include elr-pagination;
-    @include elr-pagination-links;
-    text-align: center;
-    padding-top: 40px;
+  @include elr-pagination;
+  @include elr-pagination-links;
+  text-align: center;
+  padding-top: 40px;
 
-    .prev,
-    .next {
-        color: $white !important;
-    }
+  .prev,
+  .next {
+    color: $white !important;
+  }
 
-    .pagination-list a:hover {
-        color: $white !important;
-    }
+  .pagination-list a:hover {
+    color: $white !important;
+  }
 }
 
 .skills-content-holder {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
-    @include elr-breakpoint($config: (point: 768px)) {
-        display: block;
-    }
+  @include elr-breakpoint($config: (point: 768px)) {
+    display: block;
+  }
 }
 
 .skill {
-    width: 50%;
-    padding: 10px;
+  width: 50%;
+  padding: 10px;
 
-    @include elr-breakpoint($config: (point: 768px)) {
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-    }
+  @include elr-breakpoint($config: (point: 768px)) {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
-    &:nth-child(odd) {
-        padding-left: 0;
-    }
+  &:nth-child(odd) {
+    padding-left: 0;
+  }
 
-    &:nth-child(even) {
-        padding-right: 0;
-    }
+  &:nth-child(even) {
+    padding-right: 0;
+  }
 }
 
 .author-box {
-    @include elr-clearfix;
-    background-color: $lightest-grey;
-    border: 1px solid $light-grey;
-    padding: 10px 15px;
-    max-width: 600px;
+  @include elr-clearfix;
+  background-color: $lightest-grey;
+  border: 1px solid $light-grey;
+  padding: 10px 15px;
+  max-width: 600px;
 }
 
 .author-title {
-    color: $accent-color;
-    font-size: 24px;
-    border-bottom: 1px solid $light-grey;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+  color: $accent-color;
+  font-size: 24px;
+  border-bottom: 1px solid $light-grey;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .author-info {
-    display: flex;
+  display: flex;
 }
 
 .author-avatar {
-    padding-right: 15px;
-    padding-bottom: 10px;
-    min-width: 95px;
-    width: 95px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  min-width: 95px;
+  width: 95px;
 }
 
 .author-description {
-    margin-top: -5px;
+  margin-top: -5px;
+}
+
+.next-pager[disabled],
+.previous-pager[disabled],
+.next-pager:hover[disabled],
+.previous-pager:hover[disabled] {
+  background-color: #ccc;
+  cursor: default;
 }

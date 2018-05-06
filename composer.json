@@ -1,56 +1,46 @@
 {
-    "name": "elr/elr-portfolio",
-    "type": "wordpress-theme",
-    "license": "MIT",
-    "description": "WordPress theme for portfolio and resumè sites",
-    "homepage": "http://www.elizabeth-rogers.com",
-    "authors": [
-        {
-            "name": "Elizabeth Rogers",
-            "email": "beth3346@gmail.com",
-            "homepage": "https://github.com/Beth3346"
-        }
-    ],
-    "keywords": [
-        "wordpress",
-        "theme",
-        "twig",
-        "timber"
-    ],
-    "support": {
-    },
-    "require": {
-        "php": ">=5.6.0",
-        "composer/installers": "~1.0",
-        "timber/timber": "1.2.4",
-        "elr/wpadmin": "*",
-        "elr/wpsetup": "*",
-        "elr/wpsecurity": "*",
-        "elr/wpcustomposts": "*",
-        "elr/wpthemeoptions": "*",
-        "elr/wpshortcodes": "*"
-    },
-    "require-dev": {
-        "squizlabs/php_codesniffer": "^2.8"
-    },
-    "scripts": {
-        "test": [
-            "phpcs"
-        ],
-        "fix": [
-            "phpcbf"
-        ]
-    },
-    "archive" : {
-        "exclude": [
-            ".editorconfig",
-            ".gitattributes",
-            ".gitignore",
-            ".travis.yml",
-            "CONTRIBUTING.md",
-            "phpcs.xml",
-            "phpunit.xml",
-            "tests"
-        ]
+  "name": "elr/elr-portfolio",
+  "type": "wordpress-theme",
+  "license": "MIT",
+  "description": "WordPress theme for portfolio and resumè sites",
+  "homepage": "http://www.elizabeth-rogers.com",
+  "authors": [
+    {
+      "name": "Elizabeth Rogers",
+      "email": "beth3346@gmail.com",
+      "homepage": "https://github.com/Beth3346"
     }
+  ],
+  "keywords": ["wordpress", "theme", "twig", "timber"],
+  "support": {},
+  "require": {
+    "php": ">=5.6.0",
+    "composer/installers": "~1.0",
+    "timber/timber": "1.2.4",
+    "elr/wpadmin": "*",
+    "elr/wpsetup": "*",
+    "elr/wpsecurity": "*",
+    "elr/wpcustomposts": "*",
+    "elr/wpthemeoptions": "*",
+    "elr/wpshortcodes": "*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^2.8"
+  },
+  "scripts": {
+    "test": ["phpcs"],
+    "fix": ["phpcbf"]
+  },
+  "archive": {
+    "exclude": [
+      ".editorconfig",
+      ".gitattributes",
+      ".gitignore",
+      ".travis.yml",
+      "CONTRIBUTING.md",
+      "phpcs.xml",
+      "phpunit.xml",
+      "tests"
+    ]
+  }
 }
