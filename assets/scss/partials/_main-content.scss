@@ -253,6 +253,10 @@ a.pill:hover {
   padding: 10px;
   transition: all;
 
+  > .page-block {
+    height: 100%;
+  }
+
   @media (max-width: 1024px) {
     width: 50%;
   }
@@ -273,8 +277,8 @@ a.pill:hover {
   }
 
   .post-holder {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 5px;
+    display: block;
   }
 }
 
