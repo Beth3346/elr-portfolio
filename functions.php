@@ -1,7 +1,7 @@
 <?php
 
 $elrError = function ($message, $subtitle = '', $title = '') {
-    $title = $title ?: __('ELR &rsaquo; Error', 'elr');
+    $title = $title ? : __('ELR &rsaquo; Error', 'elr');
     $footer = '';
     $message = "<h1>{$title}<br><small>{$subtitle}</small></h1><p>{$message}</p><p>{$footer}</p>";
     wp_die($message, $title);
@@ -9,7 +9,7 @@ $elrError = function ($message, $subtitle = '', $title = '') {
 
 // Ensure dependencies are loaded
 
-if (!file_exists($composer = __DIR__.'/vendor/autoload.php')) {
+if (!file_exists($composer = __DIR__ . '/vendor/autoload.php')) {
     $elrError(
         __('You must run <code>composer install</code> from the ELR directory.', 'elr'),
         __('Autoloader not found.', 'elr')
@@ -21,10 +21,10 @@ require_once $composer;
 // define Timber
 $timber = new \Timber\Timber();
 
-if (! class_exists('Timber')) {
+if (!class_exists('Timber')) {
     add_action('admin_notices', function () {
         echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' .
-        esc_url(admin_url('plugins.php#timber')) . '">' . esc_url(admin_url('plugins.php')) . '</a></p></div>';
+            esc_url(admin_url('plugins.php#timber')) . '">' . esc_url(admin_url('plugins.php')) . '</a></p></div>';
     });
     return;
 }
@@ -62,14 +62,14 @@ class Site extends \TimberSite
     private $fonts;
     public function __construct()
     {
-        $fonts = 'https://fonts.googleapis.com/css?family='.
+        $fonts = 'https://fonts.googleapis.com/css?family=' .
             'Roboto:700,500,400,300, 200|Raleway:300italic,400,300|Roboto+Slab:300,400,500';
 
         $admin = new \WpAdmin\Admin;
         $setup = new \WpSetup\Setup;
         $security = new \WpSecurity\Security;
         $builder = new \WpCustomPosts\CptBuilder;
-        $shortcodes = New \WpShortcodes\Shortcodes;
+        $shortcodes = new \WpShortcodes\Shortcodes;
 
         $setup->registerMenus([
             'main-nav',
@@ -256,7 +256,7 @@ class Site extends \TimberSite
             'fields' => [
                 [
                     'id' => '_skill_length',
-                    'label' => 'Length of Experience (in years)'
+                    'label' => 'Year started learning skill'
                 ],
                 [
                     'id' => '_skill_example_project',
@@ -325,7 +325,7 @@ class Site extends \TimberSite
     {
         /* this is where you can add your own fuctions to twig */
         $twig->addExtension(new \Twig_Extension_StringLoader());
-        $twig->addFilter(new Twig_SimpleFilter('human_diff', function($string) {
+        $twig->addFilter(new Twig_SimpleFilter('human_diff', function ($string) {
             return human_time_diff(strtotime('01/01/' . $string), current_time('timestamp'));
         }));
 

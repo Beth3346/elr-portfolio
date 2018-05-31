@@ -1,21 +1,25 @@
 {% extends "teases/tease.twig" %}
 
 {% block content %}
-<article class="shadow-box page-block" id="{{post.slug}}">
+  <article class="shadow-box page-block" id="{{post.slug}}">
     <div class="page-block-header">
-        <h2 id="posts" class="box-heading">{{post.title}} {% if post.get_field('_skill_length') %} - {{post.get_field('_skill_length') | human_diff}} of experience{% endif %}</h2>
+      <h2 id="posts" class="box-heading">{{post.title}}
+        {% if post.get_field('_skill_length') %}
+          <span class="skill-experience">{{post.get_field('_skill_length') | human_diff}}
+            of experience</span>{% endif %}
+      </h2>
     </div>
     <div class="post-box post">
-        {% if post.thumbnail.src %}
+      {% if post.thumbnail.src %}
         <figure class="post-image-holder">
-            <a href="{{post.link}}">
-                <img src="{{post.thumbnail.src}}" />
-            </a>
+          <a href="{{post.link}}">
+            <img src="{{post.thumbnail.src}}"/>
+          </a>
         </figure>
-        {% endif %}
-        <div class="page-block-content post-holder">
-            <p class="post-excerpt">{{post.get_preview(25)}}</p>
-        </div>
+      {% endif %}
+      <div class="page-block-content post-holder">
+        <p class="post-excerpt">{{post.get_preview(25)}}</p>
+      </div>
     </div>
-</article>
+  </article>
 {% endblock %}

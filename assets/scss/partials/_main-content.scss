@@ -61,7 +61,7 @@ img {
   flex-wrap: wrap;
   flex: 1;
 
-  @include elr-breakpoint($config: (point: 768px)) {
+  @media (max-width: 768px) {
     display: block;
   }
 }
@@ -77,7 +77,7 @@ img {
   max-width: 400px;
   margin-right: 20px;
 
-  @include elr-breakpoint($config: (point: 768px)) {
+  @media (max-width: 768px) {
     // width: 100%;
     max-width: 100%;
     margin-right: 0;
@@ -243,27 +243,33 @@ a.pill:hover {
   display: flex;
   flex-wrap: wrap;
 
-  @include elr-breakpoint($config: (point: 768px)) {
+  @media (max-width: 768px) {
     display: block;
   }
 }
 
 .skill {
-  width: 50%;
+  width: 33.333%;
   padding: 10px;
+  transition: all;
 
-  @include elr-breakpoint($config: (point: 768px)) {
+  @media (max-width: 1024px) {
+    width: 50%;
+  }
+
+  @media (max-width: 768px) {
     width: 100%;
-    padding-left: 0;
-    padding-right: 0;
   }
 
-  &:nth-child(odd) {
-    padding-left: 0;
+  .box-heading {
+    font-size: 18px;
+    padding-left: 15px;
   }
 
-  &:nth-child(even) {
-    padding-right: 0;
+  .skill-experience {
+    font-size: 14px;
+    font-weight: 300;
+    display: block;
   }
 }
 
