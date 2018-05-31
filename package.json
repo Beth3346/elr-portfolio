@@ -30,6 +30,12 @@
     "node-sass": "^4.5.2"
   },
   "dependencies": {
-    "elr-sass-utilities": "^3.1.0"
+    "elr-sass-utilities": "^3.1.0",
+    "husky": "^1.0.0-rc.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "gulp build"
+    }
   }
 }
