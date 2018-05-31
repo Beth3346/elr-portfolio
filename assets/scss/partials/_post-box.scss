@@ -33,19 +33,6 @@
     width: 100%;
   }
 
-  .post-box-image {
-    height: 150px;
-    max-width: 100%;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 10px;
-
-    @include elr-breakpoint($config: (point: 768px)) {
-      height: auto;
-      position: static;
-    }
-  }
-
   img {
     display: block;
 
@@ -63,6 +50,26 @@
       height: auto;
       max-width: 100%;
       width: auto;
+    }
+  }
+
+  .post-box-image {
+    height: 150px;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+
+    @include elr-breakpoint($config: (point: 768px)) {
+      height: auto;
+      position: static;
+    }
+
+    img {
+      min-height: 150px;
+      min-width: 100%;
+      max-width: 100%;
+      height: auto;
     }
   }
 }
