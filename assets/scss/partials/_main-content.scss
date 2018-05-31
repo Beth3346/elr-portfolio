@@ -143,20 +143,20 @@ img {
 .skill-link {
   float: left;
   margin: 5px;
+}
 
-  .skill-pill {
-    display: inline-block;
-    border-radius: 5px;
-    padding: 5px 10px;
-    transition: background-color 0.3s;
-    background-color: $link-color;
-    color: $white !important;
+.pill {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+  background-color: $link-color;
+  color: $white !important;
+}
 
-    // &:hover {
-    //     color: $white;
-    //     background-color: $accent-color;
-    // }
-  }
+a.pill:hover {
+  color: $white;
+  background-color: $accent-color;
 }
 
 .recommendation-body {
