@@ -59,12 +59,8 @@ $timber::$dirname = ['views'];
 
 class Site extends \TimberSite
 {
-    private $fonts;
     public function __construct()
     {
-        $fonts = 'https://fonts.googleapis.com/css?family=' .
-            'Roboto:700,500,400,300, 200|Raleway:300italic,400,300|Roboto+Slab:300,400,500';
-
         $admin = new \WpAdmin\Admin;
         $setup = new \WpSetup\Setup;
         $security = new \WpSecurity\Security;
@@ -336,8 +332,8 @@ class Site extends \TimberSite
     {
         wp_register_script('main', SCRIPTS . '/main.min.js', ['jquery'], null, true);
         wp_register_script('font-awesome', 'https://use.fontawesome.com/185c4dbad0.js', [], null);
-        wp_register_style('style', STYLES . '/custom.css', [], null, 'screen');
-        wp_register_style('fonts', $this->fonts, [], null, 'screen');
+        wp_register_style('style', STYLES . '/custom.css', ['fonts'], null, 'screen');
+        wp_register_style('fonts', 'https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab', [], null, 'screen');
 
         wp_enqueue_script('main');
         wp_enqueue_script('font-awesome');
