@@ -4,8 +4,20 @@ body {
   background-color: $light-blue;
   padding: 20px;
 
-  @include elr-breakpoint($config: (point: 'jupiter')) {
+  @include elr-breakpoint(
+    $config: (
+      point: 'jupiter'
+    )
+  ) {
     padding: 10px;
+  }
+
+  @include elr-breakpoint(
+    $config: (
+      point: 'neptune'
+    )
+  ) {
+    padding: 0;
   }
 }
 
@@ -48,8 +60,20 @@ img {
 .main-content {
   padding: 30px;
 
-  @include elr-breakpoint($config: (point: 'jupiter')) {
+  @include elr-breakpoint(
+    $config: (
+      point: 'jupiter'
+    )
+  ) {
     padding: 20px;
+  }
+
+  @include elr-breakpoint(
+    $config: (
+      point: 'neptune'
+    )
+  ) {
+    padding: 20px 0;
   }
 }
 
@@ -91,7 +115,11 @@ img {
   padding: 20px 30px;
   font-weight: 700;
 
-  @include elr-breakpoint($config: (point: 960px)) {
+  @include elr-breakpoint(
+    $config: (
+      point: 960px
+    )
+  ) {
     padding: 15px;
   }
 }
@@ -103,7 +131,11 @@ img {
   padding: 20px 30px;
   font-weight: 700;
 
-  @include elr-breakpoint($config: (point: 960px)) {
+  @include elr-breakpoint(
+    $config: (
+      point: 960px
+    )
+  ) {
     padding: 15px;
   }
 }
@@ -114,7 +146,11 @@ img {
   justify-content: stretch;
   flex-wrap: wrap;
 
-  @include elr-breakpoint($config: (point: 960px)) {
+  @include elr-breakpoint(
+    $config: (
+      point: 960px
+    )
+  ) {
     flex-wrap: wrap;
   }
 
@@ -122,7 +158,11 @@ img {
     flex-grow: 1;
     flex-shrink: 1;
 
-    @include elr-breakpoint($config: (point: 960px)) {
+    @include elr-breakpoint(
+      $config: (
+        point: 960px
+      )
+    ) {
       width: 100%;
     }
   }
@@ -154,9 +194,11 @@ img {
   color: $white !important;
 }
 
-a.pill:hover {
-  color: $white;
-  background-color: $accent-color;
+a {
+  .pill:hover {
+    color: $white;
+    background-color: $accent-color;
+  }
 }
 
 .recommendation-body {

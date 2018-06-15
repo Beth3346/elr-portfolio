@@ -53,7 +53,7 @@ gulp.task('clean:images', function() {
 
 gulp.task('clean', ['clean:styles', 'clean:scripts', 'clean:images']);
 
-gulp.task('styles', ['scsslint', 'clean:styles'], function() {
+gulp.task('styles', ['clean:styles'], function() {
   return gulp
     .src(paths.scss)
     .pipe(sass().on('error', sass.logError))
