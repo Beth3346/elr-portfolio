@@ -289,6 +289,7 @@ class Site extends \TimberSite
         add_theme_support('post-thumbnails');
         add_theme_support('automatic-feed-links');
         add_theme_support('menus');
+        add_filter('gutenberg_can_edit_post_type', '__return_false');
         add_filter('timber_context', [$this, 'addToContext']);
         add_filter('get_twig', [$this, 'addToTwig']);
         add_filter('manage_posts_columns', [$admin, 'thumbnailColumn'], 5);
