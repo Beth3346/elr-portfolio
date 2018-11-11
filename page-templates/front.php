@@ -18,6 +18,7 @@ $context['summary'] = wpautop(get_option('general_options')['summary']);
 $context['blog_url'] = get_permalink(get_option('page_for_posts'));
 $context['portfolio_url'] = get_post_type_archive_link('project');
 $context['tutorials_url'] = get_post_type_archive_link('tutorial');
+$context['general'] = get_option('general_options');
 
 // open source projects
 // $context['projects'] = Timber::get_posts('post_type=project&numberposts=3');

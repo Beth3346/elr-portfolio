@@ -289,9 +289,10 @@ class Site extends \TimberSite
         add_theme_support('post-thumbnails');
         add_theme_support('automatic-feed-links');
         add_theme_support('menus');
-        add_filter('gutenberg_can_edit_post_type', '__return_false');
         add_filter('timber_context', [$this, 'addToContext']);
         add_filter('get_twig', [$this, 'addToTwig']);
+        add_filter('use_block_editor_for_post', '__return_false');
+        add_filter('gutenberg_can_edit_post_type', '__return_false');
         add_filter('manage_posts_columns', [$admin, 'thumbnailColumn'], 5);
         add_filter('user_can_richedit', [$this, 'disableVisualEditor'], 50);
         add_filter('the_generator', [$security, 'removeWpVersion']);
@@ -402,7 +403,7 @@ class Site extends \TimberSite
     {
         $settings = new \WpThemeOptions\ThemeOptions;
         $options = [
-            'title' => 'ELR Portfolio Settings',
+            'title' => 'Theme Settings',
             'subpages' => [
                 [
                     'id' => 'general_options',
@@ -447,6 +448,11 @@ class Site extends \TimberSite
                                 'email',
                                 'linkedin'
                             ]
+                        ],
+                        [
+                            'id' => 'show_frontpage_nav',
+                            'input_type' => 'checkbox',
+                            'instructions' => 'display navigation on front page'
                         ]
                     ]
                 ],
