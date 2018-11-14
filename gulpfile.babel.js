@@ -115,11 +115,11 @@ gulp.task('browser-sync', ['styles', 'scripts', 'images'], function() {
 
   connect.server(
     {
-      base: './../../../'
+      base: './../../'
     },
     function() {
       browserSync.init(files, {
-        proxy: 'localhost:8888/web',
+        proxy: 'localhost:8888',
         notify: false
       });
     }

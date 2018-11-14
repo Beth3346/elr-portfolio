@@ -355,6 +355,10 @@ a {
   margin-top: -5px;
 }
 
+.post-tags {
+  padding-top: 20px;
+}
+
 .next-pager[disabled],
 .previous-pager[disabled],
 .next-pager:hover[disabled],
@@ -369,4 +373,11 @@ a {
   padding-bottom: 10px;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+.post-content {
+  .author-box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }

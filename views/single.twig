@@ -1,38 +1,39 @@
-{% extends "layouts/base.twig" %} {% block content %}
-<section>
-  <div class="post-section">
-    <article
-      role="article"
-      class="post post-type-{{post.post_type}}"
-      id="post-{{post.ID}}"
-    >
-      <div class="post-content">
-        <h1 class="post-title">{{ post.title }}</h1>
-        {% if post.thumbnail.src %}
-        <figure class="post-image-holder">
-          <img src="{{post.thumbnail.src}}" />
-          <figcaption>{{ post.thumbnail.caption }}</figcaption>
-        </figure>
-        {% endif %}
-        <ul class="post-meta">
-          <li class="post-box-author">
-            <i class="fa fa-user"></i>
-            <a href="{{post.author.link}}">{{ post.author }}</a>
-          </li>
-          <li class="post-box-date">
-            <i class="fa fa-calendar"></i> {{ post.date }}
-          </li>
-          <li class="post-box-category">
-            <i class="fa fa-folder"></i>
-            <a href="{{post.category.link}}">{{ post.category }}</a>
-          </li>
-        </ul>
-        {{ post.content }}
-        {% for tag in post.tags %}
-          <a class="pill" href="{{tag.link}}">{{ tag }}</a>
-        {% endfor %}
-      </div>
-    </article>
-  </div>
-</section>
+{% extends "layouts/base.twig" %}
+{% block content %}
+  <section>
+    <div class="post-section">
+      <article role="article" class="post post-type-{{post.post_type}}" id="post-{{post.ID}}">
+        <div class="post-content">
+          <h1 class="post-title">{{post.title}}</h1>
+          {% if post.thumbnail.src %}
+            <figure class="post-image-holder">
+              <img src="{{post.thumbnail.src}}"/>
+              <figcaption>{{post.thumbnail.caption}}</figcaption>
+            </figure>
+          {% endif %}
+          <ul class="post-meta">
+            <li class="post-box-author">
+              <i class="fa fa-user"></i>
+              <a href="{{post.author.link}}">{{post.author}}</a>
+            </li>
+            <li class="post-box-date">
+              <i class="fa fa-calendar"></i>
+              {{post.date}}
+            </li>
+            <li class="post-box-category">
+              <i class="fa fa-folder"></i>
+              <a href="{{post.category.link}}">{{post.category}}</a>
+            </li>
+          </ul>
+          {{post.content}}
+          <div class="post-tags">
+            {% for tag in post.tags %}
+              <a class="pill" href="{{tag.link}}">{{tag}}</a>
+            {% endfor %}
+          </div>
+          {% include 'partials/author-box.twig' %}
+        </div>
+      </article>
+    </div>
+  </section>
 {% endblock %}
