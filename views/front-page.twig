@@ -2,96 +2,101 @@
 
 {% block page %}
     {% if articles %}
-    <div class="shadow-box page-block">
-        <div class="page-block-header">
-            <h2 id="posts" class="box-heading">Articles</h2>
+        <div class="shadow-box page-block">
+            <div class="page-block-header">
+                <h2 id="posts" class="box-heading">Articles</h2>
+            </div>
+            <div class="page-block-content post-holder">
+                {% for article in articles %}
+                    {% include 'teases/tease-post.twig' with {'post': article} %}
+                {% endfor %}
+            </div>
+            <div class="page-block-footer">
+                <a href="{{blog_url}}" class="elr-button elr-button-primary">Read More Articles</a>
+            </div>
         </div>
-        <div class="page-block-content post-holder">
-            {% for article in articles %}
-                {% include 'teases/tease-post.twig' with {'post': article} %}
-            {% endfor %}
-        </div>
-        <div class="page-block-footer">
-            <a href="{{blog_url}}" class="elr-button elr-button-primary">Read More Articles</a>
-        </div>
-    </div>
     {% endif %}
-    {% if websites %}
-    <div class="shadow-box page-block">
-        <div class="page-block-header">
-            <h2 id="projects" class="box-heading">Portfolio</h2>
+    {% if options['show_portfolio'] and websites %}
+        <div class="shadow-box page-block">
+            <div class="page-block-header">
+                <h2 id="projects" class="box-heading">Portfolio</h2>
+            </div>
+            <div class="page-block-content post-holder">
+                {% for site in websites %}
+                    {% include 'teases/tease-project.twig' with {'post': site} %}
+                {% endfor %}
+            </div>
+            <div class="page-block-footer">
+                <a href="{{portfolio_url}}" class="elr-button elr-button-primary">View More</a>
+            </div>
         </div>
-        <div class="page-block-content post-holder">
-            {% for site in websites %}
-                {% include 'teases/tease-project.twig' with {'post': site} %}
-            {% endfor %}
-        </div>
-        <div class="page-block-footer">
-            <a href="{{portfolio_url}}" class="elr-button elr-button-primary">View More</a>
-        </div>
-    </div>
     {% endif %}
-    <div class="background shadow-box">
-        <h2 id="background" class="box-heading">Background</h2>
-        {% if summary %}
-        <div class="background-section">
-            <h3 class="background-section-title">Summary</h3>
-            {{summary}}
-        </div>
-        {% endif %}
-        {% if experiences %}
-        <div class="background-section">
-            <h3 class="background-section-title" id="experience">Experience</h3>
-            {% for experience in experiences %}
-                {% include 'teases/tease-experience.twig' with {'post': experience} %}
-            {% endfor %}
-        </div>
-        {% endif %}
-        {% if educations %}
-        <div class="background-section">
-            <h3 class="background-section-title" id="education">Education</h3>
-            {% for education in educations %}
-                {% include 'teases/tease-education.twig' with {'post': education} %}
-            {% endfor %}
-        </div>
-        {% endif %}
-        {% if skills %}
-        <div class="background-section">
-            <h3 class="background-section-title" id="skills">Skills</h3>
-            <div class="skills-holder">
-                {% for skill in skills %}
-                    <div class="skill-link">
-                        {# <a href="skills/#{{skill.slug}}">{{skill.title}}</a> #}
-                        <span class="pill">{{skill.title}}</span>
+    {% if options['show_background'] %}
+        <div class="background shadow-box">
+            <h2 id="background" class="box-heading">Background</h2>
+            {% if options['show_summary'] and summary %}
+                <div class="background-section">
+                    <h3 class="background-section-title">Summary</h3>
+                    {{summary}}
+                </div>
+            {% endif %}
+            {% if options['show_experience'] and experiences %}
+                <div class="background-section">
+                    <h3 class="background-section-title" id="experience">Experience</h3>
+                    {% for experience in experiences %}
+                        {% include 'teases/tease-experience.twig' with {'post': experience} %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if options['show_education'] and educations %}
+                <div class="background-section">
+                    <h3 class="background-section-title" id="education">Education</h3>
+                    {{options['show_education']}}
+                    {% for education in educations %}
+                        {% include 'teases/tease-education.twig' with {'post': education} %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if options['show_skills'] and skills %}
+                <div class="background-section">
+                    <h3 class="background-section-title" id="skills">Skills</h3>
+                    <div class="skills-holder">
+                        {% for skill in skills %}
+                            <div class="skill-link">
+                                {# <a href="skills/#{{skill.slug}}">
+                            <span class="pill">{{skill.title}}</span>
+                        </a> #}
+                                <span class="pill">{{skill.title}}</span>
+                            </div>
+                        {% endfor %}
                     </div>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+    {% if options['show_recommendations'] and recommendations %}
+        <div class="recommendations shadow-box">
+            <h2 id="recommendations" class="box-heading">Recommendations</h2>
+            <div class="page-block-content post-holder">
+                {% for recommendation in recommendations %}
+                    {% include 'teases/tease-recommendation.twig' with {'post': recommendation} %}
                 {% endfor %}
             </div>
         </div>
-        {% endif %}
-    </div>
-    {% if recommendations %}
-    <div class="recommendations shadow-box">
-        <h2 id="recommendations" class="box-heading">Recommendations</h2>
-        <div class="page-block-content post-holder">
-            {% for recommendation in recommendations %}
-                {% include 'teases/tease-recommendation.twig' with {'post': recommendation} %}
-            {% endfor %}
-        </div>
-    </div>
     {% endif %}
-    {% if tutorials %}
-    <div class="page-block shadow-box">
-        <div class="page-block-header">
-            <h2 id="tutorials" class="box-heading">Tutorials</h2>
+    {% if options['show_tutorials'] and tutorials %}
+        <div class="page-block shadow-box">
+            <div class="page-block-header">
+                <h2 id="tutorials" class="box-heading">Tutorials</h2>
+            </div>
+            <div class="page-block-content post-holder">
+                {% for tutorial in tutorials %}
+                    {% include 'teases/tease-tutorial.twig' with {'post': tutorial} %}
+                {% endfor %}
+            </div>
+            <div class="page-block-footer">
+                <a href="{{tutorials_url}}" class="elr-button elr-button-primary">View More Tutorials</a>
+            </div>
         </div>
-        <div class="page-block-content post-holder">
-            {% for tutorial in tutorials %}
-                {% include 'teases/tease-tutorial.twig' with {'post': tutorial} %}
-            {% endfor %}
-        </div>
-        <div class="page-block-footer">
-            <a href="{{tutorials_url}}" class="elr-button elr-button-primary">View More Tutorials</a>
-        </div>
-    </div>
     {% endif %}
 {% endblock %}

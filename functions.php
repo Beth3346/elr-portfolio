@@ -487,6 +487,53 @@ class Site extends \TimberSite
                             'placeholder' => 'http://instagram.com'
                         ]
                     ]
+                ],
+                [
+                    'id' => 'front_page_options',
+                    'title' => 'Front Page Options',
+                    'description' => '',
+                    'fields' => [
+                        [
+                            'id' => 'show_background',
+                            'input_type' => 'checkbox',
+                            'instructions' => 'show background'
+                        ],
+                        [
+                            'id' => 'show_summary',
+                            'input_type' => 'checkbox',
+                            'instructions' => 'show summary'
+                        ],
+                        [
+                            'id' => 'show_education',
+                            'input_type' => 'checkbox',
+                            'instructions' => 'show education'
+                        ],
+                        [
+                            'id' => 'show_recommendations',
+                            'input_type' => 'checkbox',
+                            'instructions' => 'show recommendations'
+                        ],
+                        [
+                            'id' => 'show_experience',
+                            'input_type' => 'checkbox',
+                            'instructions' => 'show experience'
+                        ],
+                        [
+                            'id' => 'show_skills',
+                            'input_type' => 'checkbox',
+                            'instructions' => 'show skills'
+                        ],
+                        [
+                            'id' => 'show_tutorials',
+                            'input_type' => 'checkbox',
+                            'instructions' => 'show tutorials'
+                        ],
+                        [
+                            'id' => 'show_portfolio',
+                            'input_type' => 'checkbox',
+                            'instructions' => 'show portfolio'
+                        ]
+                    ]
                 ]
             ]
         ];
